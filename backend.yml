@@ -1,5 +1,6 @@
 ---
-- hosts: localhost
+- name: git and maven operation
+  hosts: localhost
   vars:
     http_port: 80
     max_clients: 200
@@ -8,4 +9,10 @@
     git: repo=git@github.com:randy0098/backend.git 
          dest=/root/temp/backendTest
   - name: maven install
-    command: chdir=/root/temp/backendTest mvn clean install -fn -Dmaven.test.skip      
+    command: chdir=/root/temp/backendTest mvn clean install -Dmaven.test.skip -fn
+- name: copy operation
+  hosts: 23.83.231.182:29245
+  tasks:
+  - name: copy war to remote server
+    copy: src= /root/temp/backendTest/backend-web/target/backend-web.war
+          dest= /root/temp/backend-web.war
