@@ -1,5 +1,9 @@
 ---
+- hosts: localhost
+  vars:
+    http_port: 80
+    max_clients: 200
   tasks:
   - name: git checkout
-    git: repo=git@github.com:randy0098/backend.git 
-         dest=/root/temp
+    yum: repo=git@github.com:randy0098/backend.git 
+         dest=/root/temp        
