@@ -6,4 +6,6 @@
   tasks:
   - name: git checkout
     git: repo=git@github.com:randy0098/backend.git 
-         dest=/root/temp/backendTest     
+         dest=/root/temp/backendTest
+  - name: maven install
+    command: chdir=/root/temp/backendTest mvn clean install -fn -Dmaven.test.skip      
