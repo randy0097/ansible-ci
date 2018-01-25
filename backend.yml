@@ -1,5 +1,6 @@
 ---
-tasks:
-- name: git checkout
-  git: repo=git@github.com:randy0098/backend.git 
+- name: backend deploy
+  tasks:
+  - name: git checkout
+    git: repo=git@github.com:randy0098/backend.git 
        dest=/root/temp
