@@ -5,5 +5,5 @@
     max_clients: 200
   tasks:
   - name: git checkout
-    yum: repo=git@github.com:randy0098/backend.git 
+    git: repo=git@github.com:randy0098/backend.git 
          dest=/root/temp        
