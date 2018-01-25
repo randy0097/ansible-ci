@@ -6,4 +6,4 @@
   tasks:
   - name: git checkout
     git: repo=git@github.com:randy0098/backend.git 
-         dest=/root/temp        
+         dest=/root/temp/backendTest     
