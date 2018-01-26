@@ -10,9 +10,9 @@
          dest=/root/temp/backendTest
   - name: maven install
     command: chdir=/root/temp/backendTest mvn clean install -Dmaven.test.skip -fn
-- name: copy operation
-  hosts: webservers
-  tasks:
-  - name: copy war to remote server
-    copy: src=/root/temp/backendTest/backend-web/target/backend-web.war
-          dest=/root/temp/backend-web.war
+# - name: copy operation
+#   hosts: webservers
+#   tasks:
+#   - name: copy war to remote server
+#     copy: src=/root/temp/backendTest/backend-web/target/backend-web.war
+#           dest=/root/temp/backend-web.war
