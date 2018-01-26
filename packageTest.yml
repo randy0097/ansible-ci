@@ -8,4 +8,6 @@
   - name: copy frontend to backend
     copy: src=/root/temp/frontendTest/dist/
           dest=/root/temp/backendTest/backend-web/target/backend-web/
+  - name: package
+    command: chdir=/root/temp/backendTest/backend-web/target/backend-web/ jar -cvfM ../backend-web-build.war *      
 
