@@ -6,8 +6,9 @@
     max_clients: 200
   tasks:
   - name: copy frontend to backend
-    copy: src=/root/temp/frontendTest/dist
-          dest=/root/temp/backendTest/backend-web/target/backend-web
+    copy: src=/root/temp/frontendTest/dist/
+          dest=/root/temp/backendTest/backend-web/target/backend-web/
+          directory_mode=yes
   - name: package
     shell: chdir=/root/temp/backendTest/backend-web/target/backend-web/ jar -cvfM ../backend-web-build.war * 
 # - name: copy operation
