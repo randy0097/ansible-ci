@@ -3,3 +3,6 @@
 
 [dbservers]
 db1
+
+[dev_web_server]
+localhost
