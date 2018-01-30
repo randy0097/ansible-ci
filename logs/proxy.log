@@ -1,0 +1,1 @@
+2018-01-29 19:14:29 ERROR com.ultrapower.zq.iscloud.sdk.proxy.util.MethodUtils.getObjectMessage(151) : 获取数据出错：java.lang.NullPointerException,Conf,getApiAddress
