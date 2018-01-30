@@ -1,29 +1,19 @@
 ---
 - name: build all
   hosts: localhost
-  vars:
-    frontend_name: frontendTest
-    frontend_dir: /root/temp
-    frontend_dist: "{{frontend_dir}}/{{frontend_name}}/dist/"
-    backend_name: backendTest
-    backend_dir: /root/temp
-    backend_module_name: backend-web
-    backend_build_name: backend-web
-    backend_target: "{{backend_dir}}/{{backend_name}}/{{backend_module_name}}/target"
-    backend_build_dir: "{{backend_target}}/{{backend_build_name}}"
-    backend_war_name: backend-web-build.war
+  vars_files: 
+  - vars/external_vars.yml
   tasks:
   - name: copy frontend to backend
     copy: src={{frontend_dist}} dest={{backend_build_dir}}
   - name: package
     shell: chdir={{backend_build_dir}} jar -cvfM ../{{backend_war_name}} *
-# - name: copy operation
-#   hosts: localhost
-#   vars:
-#     remote_temp: /root/temp/
-#     backend_war_name: backend-web-build.war
-#   tasks:
-#   - name: copy war to remote server
-#     copy: src={{backend_target}}/{{backend_war_name}}
-#           dest={{remote_temp}}/{{backend_war_name}}
+- name: copy operation
+  hosts: localhost
+  vars_files: 
+  - vars/external_vars.yml
+  tasks:
+  - name: copy war to remote server
+    copy: src={{backend_target}}/{{backend_war_name}}
+          dest={{remote_temp}}/{{backend_war_name}}
 
