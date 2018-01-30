@@ -1,11 +1,16 @@
+frontend_git: git@github.com:randy0098/frontend.git
+backend_git: git@github.com:randy0098/backend.git
+
 frontend_name: frontendTest
-frontend_dir: /root/temp
-frontend_dist: "{{frontend_dir}}/{{frontend_name}}/dist/"
+frontend_dir: /root/temp/{{frontend_name}}
+frontend_dist: "{{frontend_dir}}/dist/"
+
 backend_name: backendTest
-backend_dir: /root/temp
+backend_dir: /root/temp/{{backend_name}}
 backend_module_name: backend-web
 backend_build_name: backend-web
-backend_target: "{{backend_dir}}/{{backend_name}}/{{backend_module_name}}/target"
+backend_target: "{{backend_dir}}/{{backend_module_name}}/target"
 backend_build_dir: "{{backend_target}}/{{backend_build_name}}"
 backend_war_name: backend-web-build.war
+
 remote_temp: /root/temp/

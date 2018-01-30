@@ -6,14 +6,14 @@
   tasks:
   - name: copy frontend to backend
     copy: src={{frontend_dist}} dest={{backend_build_dir}}
-  - name: package
+  - name: build backend war
     shell: chdir={{backend_build_dir}} jar -cvfM ../{{backend_war_name}} *
-- name: copy operation
+- name: copy war to deploy server
   hosts: localhost
   vars_files: 
   - vars/external_vars.yml
   tasks:
-  - name: copy war to remote server
+  - name: copy war to remote
     copy: src={{backend_target}}/{{backend_war_name}}
           dest={{remote_temp}}/{{backend_war_name}}
 

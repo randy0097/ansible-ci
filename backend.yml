@@ -1,18 +1,11 @@
 ---
-- name: git and maven operation
+- name: build backend
   hosts: localhost
-  vars:
-    http_port: 80
-    max_clients: 200
+  vars_files: 
+  - vars/external_vars.yml
   tasks:
   - name: git checkout
-    git: repo=git@github.com:randy0098/backend.git 
-         dest=/root/temp/backendTest
+    git: repo={{backend_git}}  
+         dest={{backend_dir}}
   - name: maven install
-    command: chdir=/root/temp/backendTest mvn clean install -Dmaven.test.skip -fn
-# - name: copy operation
-#   hosts: webservers
-#   tasks:
-#   - name: copy war to remote server
-#     copy: src=/root/temp/backendTest/backend-web/target/backend-web.war
-#           dest=/root/temp/backend-web.war
+    command: chdir={{backend_dir}} mvn clean install -Dmaven.test.skip -fn

@@ -1,15 +1,14 @@
 ---
-- name: git and npm operation
+- name: build frontend
   hosts: localhost
-  vars:
-    http_port: 80
-    max_clients: 200
+  vars_files: 
+  - vars/external_vars.yml
   tasks:
   - name: git checkout
-    git: repo=git@github.com:randy0098/frontend.git 
-         dest=/root/temp/frontendTest
+    git: repo={{frontend_git}} 
+         dest={{frontend_dir}}
   - name: npm install
-    command: chdir=/root/temp/frontendTest npm install         
+    command: chdir={{frontend_dir}} npm install         
   - name: npm build
-    command: chdir=/root/temp/frontendTest npm run build
+    command: chdir={{frontend_dir}} npm run build
 
