@@ -7,8 +7,9 @@
   - name: git checkout
     git: repo={{frontend_git}} 
          dest={{frontend_dir}}
+         version={{branchName}}
   - name: npm install
     command: chdir={{frontend_dir}} npm install         
   - name: npm build
-    command: chdir={{frontend_dir}} npm run build
+    command: chdir={{frontend_dir}} npm run build --configFile={{configFile}} --app={{appName}}
 

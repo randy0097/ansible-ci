@@ -1,8 +1,7 @@
 frontend_git: git@192.168.194.114:iscloud-frontend/iscloud-web.git
 backend_git: git@192.168.194.114:iscloud-backend/iscloud.git
 
-frontend_name: iscloud-web
-frontend_dir: /root/build/{{frontend_name}}
+frontend_dir: /root/build/iscloud-web
 frontend_dist: "{{frontend_dir}}/dist/"
 
 backend_dir: /root/build/iscloud
@@ -12,7 +11,11 @@ backend_build_name: platform-2.2.0-RELEASE
 backend_build_dir: "{{backend_target_dir}}/{{backend_build_name}}"
 backend_war_name: backend-build.war
 
+configFile: prodConfig_wh.json
+
 remote_temp: /root/build/
 
 tomcat_dir: /home/apache-tomcat-7.0.42
 deploy_name: iscloud
+
+
