@@ -3,6 +3,7 @@ backend_git: git@192.168.194.114:iscloud-backend/iscloud.git
 
 frontend_dir: /root/build/iscloud-web
 frontend_dist: "{{frontend_dir}}/dist/"
+frontend_app_dir: "{{frontend_dir}}/{{appName}}"
 
 backend_dir: /root/build/iscloud
 backend_module_dir: "{{backend_dir}}/iscloud-platform/platform"

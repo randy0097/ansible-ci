@@ -6,10 +6,13 @@
   tasks:
   - name: git checkout
     git: repo={{frontend_git}} 
-         dest={{frontend_dir}}
+         dest={{frontend_app_dir}}
          version={{branchName}}
   - name: npm install
-    command: chdir={{frontend_dir}} npm install         
+    command: chdir={{frontend_app_dir}} npm install         
   - name: npm build
-    command: chdir={{frontend_dir}} npm run build --configFile={{configFile}} --app={{appName}}
+    command: chdir={{frontend_app_dir}} npm run build --configFile={{configFile}} --app={{appName}}
+  # - name: copy app build to iscloud web dist
+  #   copy: src={{frontend_app_dir}}/dist/
+  #         dest={{frontend_dist}}
 
