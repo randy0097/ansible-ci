@@ -12,11 +12,12 @@ backend_build_name: platform-2.2.0-RELEASE
 backend_build_dir: "{{backend_target_dir}}/{{backend_build_name}}"
 backend_war_name: iscloud-build.war
 
-configFile: prodConfig_wh.json
+configFile: prodConfig_142.json
 
 remote_temp: /root/build/
 
 tomcat_dir: /build/apache-tomcat-8.0.49
+tomcat_process_keyword: build
 deploy_name: iscloud
 
 
