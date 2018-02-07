@@ -14,10 +14,23 @@ backend_war_name: iscloud-build.war
 
 configFile: prodConfig_CI.json
 
-remote_temp: /root/build/
+remote_temp: /root/build
 
 tomcat_dir: /build/apache-tomcat-8.0.49
 tomcat_process_keyword: build
 deploy_name: platform
+
+appNameToFolderName:
+  appMarket: mall
+  personalConsole: pc
+  platformAuthority: bc
+  internalOperation: pm
+  enterpriseOperation: em
+
+# appName: appMarket  
+
+operation: compile
+
+appFolder: "{{appNameToFolderName[appName]}}"
 
 
