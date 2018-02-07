@@ -29,7 +29,7 @@ appNameToFolderName:
 
 appName: appMarket  
 branchName: release-v2.3.0
-operation: compile
+operation: deploy
 
 appFolder: "{{appNameToFolderName[appName]}}"
 

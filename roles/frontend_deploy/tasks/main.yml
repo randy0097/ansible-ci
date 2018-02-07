@@ -1,0 +1,16 @@
+- name: copy frontend app to remote
+  copy: src={{frontend_dir}}/{{appName}}/dist/{{appFolder}}
+        dest={{remote_temp}}/{{appName}}/dist/
+- name: get tomcat processId
+  raw: ps aux|grep {{tomcat_process_keyword}}|grep -v grep|awk '{print $2}'
+  register: tomcatProcess
+  ignore_errors: True
+- name: stop tomcat
+  command: kill -9 {{tomcatProcess.stdout}}
+  when: tomcatProcess.stdout != ''
+- name: clean old frontend app folder
+  command: rm -rf {{tomcat_dir}}/webapps/{{deploy_name}}/{{appFolder}}    
+- name: deploy frontend app to tomcat
+  command: cp -rf {{remote_temp}}/{{appName}}/dist/{{appFolder}} {{tomcat_dir}}/webapps/{{deploy_name}}/{{appFolder}}  
+- name: start tomcat
+  command: "nohup sh {{tomcat_dir}}/bin/startup.sh &"
