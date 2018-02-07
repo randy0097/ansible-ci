@@ -1,0 +1,36 @@
+frontend_git: git@192.168.194.114:iscloud-frontend/iscloud-web.git
+backend_git: git@192.168.194.114:iscloud-backend/iscloud.git
+
+frontend_dir: /root/build/iscloud-web
+frontend_dist: "{{frontend_dir}}/dist/"
+frontend_app_dir: "{{frontend_dir}}/{{appName}}"
+
+backend_dir: /root/build/iscloud
+backend_module_dir: "{{backend_dir}}/iscloud-platform/platform"
+backend_target_dir: "{{backend_module_dir}}/target"
+backend_build_name: platform-2.2.0-RELEASE
+backend_build_dir: "{{backend_target_dir}}/{{backend_build_name}}"
+backend_war_name: iscloud-build.war
+
+configFile: prodConfig_CI.json
+
+remote_temp: /root/build
+
+tomcat_dir: /build/apache-tomcat-8.0.49
+tomcat_process_keyword: build
+deploy_name: platform
+
+appNameToFolderName:
+  appMarket: mall
+  personalConsole: pc
+  platformAuthority: bc
+  internalOperation: pm
+  enterpriseOperation: em
+
+# appName: appMarket  
+
+operation: compile
+
+appFolder: "{{appNameToFolderName[appName]}}"
+
+

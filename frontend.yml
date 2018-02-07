@@ -1,16 +1,7 @@
 ---
-- name: build frontend
-  hosts: localhost
+- name: frontend
   vars_files: 
   - vars/external_vars.yml
-  tasks:
-  - name: git checkout
-    git: repo={{frontend_git}} 
-         dest={{frontend_app_dir}}
-         version={{branchName}}
-  - name: npm install
-    command: chdir={{frontend_app_dir}} npm install         
-  - name: npm build
-    command: chdir={{frontend_app_dir}} npm run build --configFile={{configFile}} --app={{appName}}
-- include: tasks/frontend_deploy_alone.yml
-  when: operation == deploy
+  roles:
+  # - common
+  - frontend_compile
