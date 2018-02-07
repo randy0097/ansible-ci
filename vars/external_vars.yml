@@ -27,8 +27,8 @@ appNameToFolderName:
   internalOperation: pm
   enterpriseOperation: em
 
-# appName: appMarket  
-
+appName: appMarket  
+branchName: release-v2.3.0
 operation: compile
 
 appFolder: "{{appNameToFolderName[appName]}}"
