@@ -27,9 +27,9 @@ appNameToFolderName:
   internalOperation: pm
   enterpriseOperation: em
 
-appName: appMarket  
-branchName: release-v2.3.0
-operation: deploy
+# appName: appMarket  
+# branchName: release-v2.3.0
+# operation: compile
 
 appFolder: "{{appNameToFolderName[appName]}}"
 
