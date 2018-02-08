@@ -7,4 +7,4 @@
 - name: frontend_deploy
   hosts: "{{env}}"
   roles:
-  - { role: frontend_deploy, when: operation == 'deploy' }
+  - { role: frontend_deploy, when: frontend_operation == 'deploy' }
