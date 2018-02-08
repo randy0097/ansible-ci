@@ -1,0 +1,10 @@
+---
+- name: all package 
+  hosts: localhost
+  roles:
+  - role: all_package
+
+- name: copy war to deploy server
+  hosts: "{{env}}"
+  roles:
+  - { role: all_deploy, when: operation == 'deploy' }

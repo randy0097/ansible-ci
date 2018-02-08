@@ -1,0 +1,13 @@
+# - name: copy appMarket to backend
+#   copy: src={{frontend_dir}}/appMarket/dist/ dest={{backend_build_dir}}
+# - name: copy personalConsole to backend
+#   copy: src={{frontend_dir}}/personalConsole/dist/ dest={{backend_build_dir}}    
+# - name: copy internalOperation to backend
+#   copy: src={{frontend_dir}}/internalOperation/dist/ dest={{backend_build_dir}}
+# - name: copy enterpriseOperation to backend
+#   copy: src={{frontend_dir}}/enterpriseOperation/dist/ dest={{backend_build_dir}}  
+- name: copy enterpriseOperation to backend
+  copy: src={{frontend_dir}}/{{item.key}}/dist/ dest={{backend_build_dir}}
+  with_dict: "{{appNameToFolderName}}"
+- name: build backend war
+  shell: chdir={{backend_build_dir}} jar -cvfM ../{{backend_war_name}} *
