@@ -1,14 +1,10 @@
 ---
 - name: frontend_compile
   hosts: localhost
-  vars_files: 
-  - vars/external_vars.yml
   roles:
   - frontend_compile
 
 - name: frontend_deploy
-  hosts: web_dev_142
-  # vars_files: 
-  # - vars/external_vars.yml
+  hosts: {{env}}
   roles:
   - { role: frontend_deploy, when: operation == 'deploy' }
