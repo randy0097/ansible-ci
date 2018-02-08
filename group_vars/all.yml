@@ -25,7 +25,6 @@ remote_temp: /root/build
 appNameToFolderName:
   appMarket: mall
   personalConsole: pc
-  platformAuthority: bc
   internalOperation: pm
   enterpriseOperation: em
 
