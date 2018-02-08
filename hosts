@@ -1,8 +1,9 @@
-[webservers]
-23.83.231.182:29245
-
-[dbservers]
-db1
-
 [web_dev_server]
 192.168.182.142 ansible_ssh_user=root ansible_ssh_pass=UP-6redhat
+
+[web_dev_142]
+192.168.182.142 ansible_ssh_user=root ansible_ssh_pass=UP-6redhat
+
+[web_dev_147]
+192.168.182.147 ansible_ssh_user=root ansible_ssh_pass=UP-6redhat
+192.168.182.148 ansible_ssh_user=root ansible_ssh_pass=UP-6redhat
