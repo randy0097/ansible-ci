@@ -5,6 +5,6 @@
   - frontend_compile
 
 - name: frontend_deploy
-  hosts: {{env}}
+  hosts: "{{env}}"
   roles:
   - { role: frontend_deploy, when: operation == 'deploy' }
