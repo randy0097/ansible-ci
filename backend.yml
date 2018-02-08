@@ -1,12 +1,5 @@
 ---
 - name: build backend
   hosts: localhost
-  vars_files: 
-  - vars/external_vars.yml
-  tasks:
-  - name: git checkout
-    git: repo={{backend_git}}  
-         dest={{backend_dir}}
-         version={{branchName}}
-  - name: maven install
-    command: chdir={{backend_dir}} mvn clean install -Dmaven.test.skip -fn
+  roles:
+  - backend_compile

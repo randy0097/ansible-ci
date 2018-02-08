@@ -1,25 +1,17 @@
 ---
-- name: build all
+- name: build sdk server
   hosts: localhost
-  tasks:
-  - name: copy appMarket to backend
-    copy: src={{frontend_dir}}/appMarket/dist/ dest={{backend_build_dir}}
-  - name: copy personalConsole to backend
-    copy: src={{frontend_dir}}/personalConsole/dist/ dest={{backend_build_dir}}    
-  - name: copy internalOperation to backend
-    copy: src={{frontend_dir}}/internalOperation/dist/ dest={{backend_build_dir}}
-  - name: copy enterpriseOperation to backend
-    copy: src={{frontend_dir}}/enterpriseOperation/dist/ dest={{backend_build_dir}}        
-  - name: build backend war
-    shell: chdir={{backend_build_dir}} jar -cvfM ../{{backend_war_name}} *
+  roles:
+  - backend_compile
+
 - name: copy war to deploy server
   hosts: "{{env}}"
   tasks:
   - name: clean old remote war
-    command: rm {{remote_temp}}/{{backend_war_name}}  
+    command: rm {{remote_temp}}/{{sdk_war_name}}  
   - name: copy war to remote
     copy: src={{backend_target_dir}}/{{backend_war_name}}
-          dest={{remote_temp}}/{{backend_war_name}}
+          dest={{remote_temp}}/{{sdk_war_name}}
   - name: get tomcat processId
     raw: ps aux|grep {{tomcat_process_keyword}}|grep -v grep|awk '{print $2}'
     register: tomcatProcess

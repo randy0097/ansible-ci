@@ -12,6 +12,12 @@ backend_build_name: platform-2.2.0-RELEASE
 backend_build_dir: "{{backend_target_dir}}/{{backend_build_name}}"
 backend_war_name: iscloud-build.war
 
+# sdk_module_dir: "{{backend_dir}}/iscloud-sdk-server"
+# sdk_target_dir: "{{sdk_module_dir}}/target"
+# sdk_build_name: platform-2.2.0-RELEASE
+# sdk_build_dir: "{{backend_target_dir}}/{{backend_build_name}}"
+# sdk_war_name: sdk-build.war
+
 configFile: prodConfig_CI.json
 
 remote_temp: /root/build
