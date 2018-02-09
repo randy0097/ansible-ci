@@ -1,22 +1,27 @@
-# - name: copy appMarket to backend
-#   copy: src={{frontend_dir}}/appMarket/dist/ dest={{backend_build_dir}}
-# - name: copy personalConsole to backend
-#   copy: src={{frontend_dir}}/personalConsole/dist/ dest={{backend_build_dir}}    
-# - name: copy internalOperation to backend
-#   copy: src={{frontend_dir}}/internalOperation/dist/ dest={{backend_build_dir}}
-# - name: copy enterpriseOperation to backend
-#   copy: src={{frontend_dir}}/enterpriseOperation/dist/ dest={{backend_build_dir}}  
+# - name: get module name
+#   xml:
+#     # path: "{{backend_module_dir}}/pom.xml"
+#     path: /root/build/iscloud/iscloud-platform/platform/pom.xml
+#     count: yes
+#     xpath: /project/name
+#   register: module_name
+# - name: get module version
+#   xml:
+#     path: "{{backend_module_dir}}/pom.xml"
+#     xpath: /project/version
+#   register: module_version 
 
-- name: Get module name
-  xml:
-    path: "{{backend_module_dir}}/pom.xml"
-    xpath: /project/name
-  register: module_name
-- name: Get module version
-  xml:
-    path: "{{backend_module_dir}}/pom.xml"
-    xpath: /project/version
-  register: module_version 
+- name: get module name
+  command: chdir={{backend_module_dir}} grep <name>  pom.xml -m 1
+  register: module_name_origin
+
+- name: get module version
+  command: chdir={{backend_module_dir}} grep <version>  pom.xml -m 1
+  register: module_version_origin
+
+- debug:
+    var: module_name
+
 - name: copy frontend all apps to backend
   copy: src={{frontend_dir}}/{{item.key}}/dist/ dest={{backend_build_dir}}
   with_dict: "{{appNameToFolderName}}"

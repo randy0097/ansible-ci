@@ -9,7 +9,8 @@ frontend_app_dir: "{{frontend_dir}}/{{appName}}"
 backend_dir: /root/build/iscloud
 backend_module_dir: "{{backend_dir}}/iscloud-platform/platform"
 backend_target_dir: "{{backend_module_dir}}/target"
-# backend_build_name_bak: platform-2.2.0-RELEASE
+module_name: "{{module_name_origin.stdout|replace(' ', '')|replace('<name>', '')|replace('</name>', '')}}"
+module_version: "{{module_version_origin.stdout|replace(' ', '')|replace('<name>', '')|replace('</name>', '')}}"
 backend_build_name: "{{module_name}}-{{module_version}}"
 backend_build_dir: "{{backend_target_dir}}/{{backend_build_name}}"
 backend_war_name: iscloud-build.war
