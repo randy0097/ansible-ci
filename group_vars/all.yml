@@ -1,6 +1,6 @@
 frontend_git: git@192.168.194.114:iscloud-frontend/iscloud-web.git
 backend_git: git@192.168.194.114:iscloud-backend/iscloud.git
-version: {{ commitId if commitId is defined else branchName }}
+version: "{{ commitId if commitId != '' else branchName }}"
 
 frontend_dir: /root/build/iscloud-web
 frontend_dist: "{{frontend_dir}}/dist/"
