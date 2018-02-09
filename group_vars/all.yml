@@ -22,7 +22,7 @@ backend_war_name: iscloud-build.war
 # sdk_build_dir: "{{sdk_target_dir}}/{{sdk_build_name}}"
 # sdk_war_name: sdk-build.war
 
-configFile: prodConfig_CI.json
+
 
 remote_temp: /root/build
 
@@ -35,6 +35,7 @@ appNameToFolderName:
 # appName: appMarket  
 # branchName: release-v2.3.0
 # operation: deploy
+# configFile: prodConfig_CI.json
 
 appFolder: "{{appNameToFolderName[appName]}}"
 
