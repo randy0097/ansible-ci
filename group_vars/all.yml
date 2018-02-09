@@ -1,5 +1,6 @@
 frontend_git: git@192.168.194.114:iscloud-frontend/iscloud-web.git
 backend_git: git@192.168.194.114:iscloud-backend/iscloud.git
+version: {{ commitId if commitId is defined else branchName }}
 
 frontend_dir: /root/build/iscloud-web
 frontend_dist: "{{frontend_dir}}/dist/"
@@ -14,8 +15,8 @@ backend_war_name: iscloud-build.war
 
 # sdk_module_dir: "{{backend_dir}}/iscloud-sdk-server"
 # sdk_target_dir: "{{sdk_module_dir}}/target"
-# sdk_build_name: platform-2.2.0-RELEASE
-# sdk_build_dir: "{{backend_target_dir}}/{{backend_build_name}}"
+# sdk_build_name: iscloud-sdk-server-2.2.0-RELEASE
+# sdk_build_dir: "{{sdk_target_dir}}/{{sdk_build_name}}"
 # sdk_war_name: sdk-build.war
 
 configFile: prodConfig_CI.json
