@@ -1,5 +1,7 @@
 - name: clean old remote war
-  command: rm {{remote_temp}}/{{backend_war_name}}  
+  file: 
+    path: "{{remote_temp}}/{{backend_war_name}}"
+    state: absent 
 - name: copy war to remote
   copy: src={{backend_target_dir}}/{{backend_war_name}}
         dest={{remote_temp}}/{{backend_war_name}}
