@@ -6,6 +6,17 @@
 #   copy: src={{frontend_dir}}/internalOperation/dist/ dest={{backend_build_dir}}
 # - name: copy enterpriseOperation to backend
 #   copy: src={{frontend_dir}}/enterpriseOperation/dist/ dest={{backend_build_dir}}  
+
+- name: Get module name
+  xml:
+    path: "{{backend_module_dir}}/pom.xml"
+    xpath: /project/name
+  register: module_name
+- name: Get module version
+  xml:
+    path: "{{backend_module_dir}}/pom.xml"
+    xpath: /project/version
+  register: module_version 
 - name: copy frontend all apps to backend
   copy: src={{frontend_dir}}/{{item.key}}/dist/ dest={{backend_build_dir}}
   with_dict: "{{appNameToFolderName}}"
