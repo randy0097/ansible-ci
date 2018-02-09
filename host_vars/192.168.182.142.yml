@@ -1,5 +1,4 @@
 tomcat_dir: /build/apache-tomcat-8.0.49
 tomcat_process_keyword: build
 deploy_name: platform
-configFile: prodConfig_CI.json
 

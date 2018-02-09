@@ -31,13 +31,21 @@ appNameToFolderName:
   personalConsole: pc
   internalOperation: pm
   enterpriseOperation: em
+  
+appFolder: "{{appNameToFolderName[appName]}}"
+
+
+envToConfig:
+  web_dev_142: prodConfig_CI.json
+
+configFile: "{{envToConfig[env]}}"
 
 # appName: appMarket  
 # branchName: release-v2.3.0
 # operation: deploy
 # configFile: prodConfig_CI.json
 
-appFolder: "{{appNameToFolderName[appName]}}"
+
 
 # env: web_dev_142
 
