@@ -2,11 +2,14 @@ frontend_git: git@192.168.194.114:iscloud-frontend/iscloud-web.git
 backend_git: git@192.168.194.114:iscloud-backend/iscloud.git
 version: "{{ commitId if commitId != '' else branchName }}"
 
-frontend_dir: /root/build/iscloud-web
+build_dir: /root/build
+
+frontend_dir: "{{build_dir}}/iscloud-web"
 frontend_dist: "{{frontend_dir}}/dist/"
 frontend_app_dir: "{{frontend_dir}}/{{appName}}"
 
-backend_dir: /root/build/iscloud
+
+backend_dir: "{{build_dir}}/iscloud"
 backend_module_dir: "{{backend_dir}}/iscloud-platform/platform"
 backend_target_dir: "{{backend_module_dir}}/target"
 module_name: "{{module_name_origin.stdout|replace(' ', '')|replace('<name>', '')|replace('</name>', '')}}"
