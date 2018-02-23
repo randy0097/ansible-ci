@@ -13,7 +13,7 @@ module_name: "{{module_name_origin.stdout|replace(' ', '')|replace('<name>', '')
 module_version: "{{module_version_origin.stdout|replace(' ', '')|replace('<version>', '')|replace('</version>', '')}}"
 backend_build_name: "{{module_name}}-{{module_version}}"
 backend_build_dir: "{{backend_target_dir}}/{{backend_build_name}}"
-backend_war_name: {{backend_build_name}}
+backend_war_name: "{{backend_build_name}}"
 
 
 # sdk_module_dir: "{{backend_dir}}/iscloud-sdk-server"
