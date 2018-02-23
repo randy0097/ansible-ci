@@ -13,7 +13,7 @@
 // 	throw new IllegalArgumentException('argument value is wrong')
 // }
 
-def gitUrl = 'git@192.168.194.114:iscloud-frontend/iscloud-web.git'
+def gitUrl = 'git@192.168.194.114:iscloud-backend/iscloud.git'
 
 def newList = []
 def branches = ("git ls-remote -h $gitUrl").execute()
