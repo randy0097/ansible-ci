@@ -25,5 +25,11 @@
 - name: copy frontend all apps to backend
   copy: src={{frontend_dir}}/{{item.key}}/dist/ dest={{backend_build_dir}}
   with_dict: "{{appNameToFolderName}}"
+
+- name: clean backend war
+  file: 
+    path: "{{build_dir}}/{{backend_war_name}}"
+    state: absent   
+    
 - name: build backend war
-  shell: chdir={{backend_build_dir}} jar -cvfM ../{{backend_war_name}} *
+  shell: chdir={{backend_build_dir}} jar -cvfM {{build_dir}}/{{backend_war_name}} *
