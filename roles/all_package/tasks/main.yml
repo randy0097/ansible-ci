@@ -12,7 +12,7 @@
 #   register: module_version 
 
 - name: get module name
-  command: chdir={{backend_module_dir}} grep <name>  pom.xml -m 1
+  command: chdir={{backend_module_dir}} grep <artifactId>  pom.xml -m 2
   register: module_name_origin
 
 - name: get module version
@@ -20,7 +20,7 @@
   register: module_version_origin
 
 - debug:
-    var: module_name
+    var: module_name_origin
 
 - name: copy frontend all apps to backend
   copy: src={{frontend_dir}}/{{item.key}}/dist/ dest={{backend_build_dir}}
