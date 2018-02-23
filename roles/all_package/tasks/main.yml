@@ -22,6 +22,9 @@
 - debug:
     var: module_name_origin
 
+- debug:
+    var: module_name
+
 - name: copy frontend all apps to backend
   copy: src={{frontend_dir}}/{{item.key}}/dist/ dest={{backend_build_dir}}
   with_dict: "{{appNameToFolderName}}"
