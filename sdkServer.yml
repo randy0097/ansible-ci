@@ -10,7 +10,7 @@
   - name: clean old remote war
     command: rm {{remote_temp}}/{{sdk_war_name}}  
   - name: copy war to remote
-    copy: src={{backend_target_dir}}/{{backend_war_name}}
+    copy: src={{build_dir}}/{{backend_war_name}}
           dest={{remote_temp}}/{{sdk_war_name}}
   - name: get tomcat processId
     raw: ps aux|grep {{tomcat_process_keyword}}|grep -v grep|awk '{print $2}'
