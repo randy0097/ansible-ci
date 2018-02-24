@@ -1,4 +1,5 @@
 [web_dev_142]
 192.168.182.142 ansible_ssh_user=root ansible_ssh_pass=UP-6redhat
 
-[web_dev_test]
+[web_test_132]
+192.168.172.132 ansible_ssh_user=root ansible_ssh_pass=UP-6redhat

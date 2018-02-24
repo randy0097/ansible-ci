@@ -1,4 +1,4 @@
-tomcat_dir: /ultrapower/software/tomcat-platform-new
+tomcat_dir: /ultrapower/tomcat-platform-new
 tomcat_process_keyword: tomcat-platform-new
 deploy_name: platform
 
