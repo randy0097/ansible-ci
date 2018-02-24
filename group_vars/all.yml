@@ -39,7 +39,8 @@ appFolder: "{{appNameToFolderName[appName]}}"
 
 
 envToConfig:
-  web_dev_142: prodConfig_CI.json
+  web_dev_142: prodConfig_142.json
+  web_test_132: prodConfig_133.json
 
 configFile: "{{envToConfig[env]}}"
 
