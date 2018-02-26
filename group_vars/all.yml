@@ -27,7 +27,7 @@ backend_war_name: iscloud-build.war
 
 
 
-remote_temp: /root/build
+remote_temp: ~/build
 
 appNameToFolderName:
   appMarket: mall

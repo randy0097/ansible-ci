@@ -1,3 +1,7 @@
+- name: create remote temp dir
+  file: 
+    path: "{{remote_temp}}"
+    state: touch 
 - name: clean old remote war
   file: 
     path: "{{remote_temp}}/{{backend_war_name}}"
