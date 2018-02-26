@@ -7,12 +7,3 @@
 [web_prod_108_109]
 192.168.194.108 ansible_ssh_user=root ansible_ssh_pass=EOIKsOktOelGFSoQ
 192.168.194.109 ansible_ssh_user=root ansible_ssh_pass=I06JsTYwxEQkYvvF
-
-[web_dev_142:vars]
-configFile=prodConfig_142.json
-
-[web_test_133:vars]
-configFile=prodConfig_133.json
-
-[web_prod_108_109:vars]
-configFile=prodConfig_147.json

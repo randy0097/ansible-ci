@@ -38,12 +38,12 @@ appNameToFolderName:
 appFolder: "{{appNameToFolderName[appName]}}"
 
 
-# envToConfig:
-#   web_dev_142: prodConfig_142.json
-#   web_test_132: prodConfig_133.json
-#   web_prod_108_109: prodConfig_147.json
+envToConfig:
+  web_dev_142: prodConfig_142.json
+  web_test_133: prodConfig_133.json
+  web_prod_108_109: prodConfig_147.json
 
-# configFile: "{{envToConfig[env]}}"
+configFile: "{{envToConfig[env]}}"
 
 # appName: appMarket  
 # branchName: release-v2.3.0
