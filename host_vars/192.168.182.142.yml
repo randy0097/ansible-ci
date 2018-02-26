@@ -1,4 +1,5 @@
 tomcat_dir: /ultrapower/software/tomcat-platform-new
 tomcat_process_keyword: tomcat-platform-new
 deploy_name: platform
-
+config_properties: config.web_dev_142
+appContext_job: appContext-job.web_dev_142
