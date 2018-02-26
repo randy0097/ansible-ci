@@ -11,10 +11,10 @@
         dest={{remote_temp}}/{{backend_war_name}}
 
 - name: replace config.properties
-  copy: src={{config_properties}} dest={{remote_temp}}/{{backend_war_name}}/WEB-INF/classes/config.properties
+  copy: src={{config_properties}} dest={{tomcat_dir}}/webapps/{{deploy_name}}/WEB-INF/classes/config.properties
 
 - name: replace appContext-job.xml
-  copy: src={{appContext_job}} dest={{remote_temp}}/{{backend_war_name}}/WEB-INF/classes/appContext-job.xml
+  copy: src={{appContext_job}} dest={{tomcat_dir}}/webapps/{{deploy_name}}/WEB-INF/classes/appContext-job.xml
   
 - name: get tomcat processId
   raw: ps aux|grep {{tomcat_process_keyword}}|grep -v grep|awk '{print $2}'
