@@ -1,0 +1,7 @@
+---
+- name: prod test 
+  hosts: VM-Web01
+  tasks:
+  - name: file create test
+    path: /root/xftest
+    state: touch
