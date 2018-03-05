@@ -3,5 +3,8 @@
   hosts: VM-Web01
   tasks:
   - name: file create test
-    path: /root/xftest
-    state: touch
+    file:
+      path: /root/xftest
+      state: touch
+    
+    
