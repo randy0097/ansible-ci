@@ -9,5 +9,5 @@
 192.168.194.109 ansible_ssh_user=root ansible_ssh_pass=I06JsTYwxEQkYvvF
 
 [web_prod_real]
-VM-Web01
-VM-Web02
+VM-Kafka02
+VM-Kafka03
