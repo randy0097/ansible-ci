@@ -1,6 +1,6 @@
 ---
 - name: prod test 
-  hosts: VM-Web01
+  hosts: web_prod_real
   tasks:
   - name: file create test
     file:

@@ -8,5 +8,6 @@
 192.168.194.108 ansible_ssh_user=root ansible_ssh_pass=EOIKsOktOelGFSoQ
 192.168.194.109 ansible_ssh_user=root ansible_ssh_pass=I06JsTYwxEQkYvvF
 
-[VM-Web01]
-10.20.2.81
+[web_prod_real]
+VM-Web01
+VM-Web02
