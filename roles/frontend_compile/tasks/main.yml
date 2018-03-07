@@ -1,8 +1,9 @@
 ---
 - name: git checkout
   git: repo={{frontend_git}} 
-        dest={{frontend_app_dir}}
-        version={{version}}
+       dest={{frontend_app_dir}}
+       version={{version}}
+       force=yes
 - name: npm install
   command: chdir={{frontend_app_dir}} npm install      
 - name: npm install babel-plugin-external-helpers
