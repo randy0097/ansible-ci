@@ -1,4 +1,9 @@
 ---
+- name: create frontend build workspace by env
+  file: 
+    path: "{{frontend_dir}}"
+    state: directory 
+
 - name: frontend_compile
   hosts: localhost
   roles:

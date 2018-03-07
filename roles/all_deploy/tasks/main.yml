@@ -7,7 +7,7 @@
     path: "{{remote_temp}}/{{backend_war_name}}"
     state: absent 
 - name: copy war to remote
-  copy: src={{build_dir}}/{{backend_war_name}}
+  copy: src={{build_dir_env}}/{{backend_war_name}}
         dest={{remote_temp}}/{{backend_war_name}}  
 - name: get tomcat processId
   raw: ps aux|grep {{tomcat_process_keyword}}|grep -v grep|awk '{print $2}'

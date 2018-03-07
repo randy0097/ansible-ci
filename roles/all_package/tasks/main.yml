@@ -31,8 +31,8 @@
 
 - name: clean backend war
   file: 
-    path: "{{build_dir}}/{{backend_war_name}}"
+    path: "{{build_dir_env}}/{{backend_war_name}}"
     state: absent   
     
 - name: build backend war
-  shell: chdir={{backend_build_dir}} jar -cvfM {{build_dir}}/{{backend_war_name}} *
+  shell: chdir={{backend_build_dir}} jar -cvfM {{build_dir_env}}/{{backend_war_name}} *

@@ -2,14 +2,15 @@ frontend_git: git@192.168.194.114:iscloud-frontend/iscloud-web.git
 backend_git: git@192.168.194.114:iscloud-backend/iscloud.git
 version: "{{ commitId if commitId != '' else branchName }}"
 
-build_dir: /root/build
+build_dir: /root/build/
+build_dir_env: "{{build_dir}}/{{env}}"
 
-frontend_dir: "{{build_dir}}/iscloud-web"
+frontend_dir: "{{build_dir_env}}/iscloud-web"
 frontend_dist: "{{frontend_dir}}/dist/"
 frontend_app_dir: "{{frontend_dir}}/{{appName}}"
 
 
-backend_dir: "{{build_dir}}/iscloud"
+backend_dir: "{{build_dir_env}}/iscloud"
 backend_module_dir: "{{backend_dir}}/iscloud-platform/platform"
 backend_target_dir: "{{backend_module_dir}}/target"
 module_name: "{{module_name_origin.stdout_lines[1]|replace(' ', '')|replace('<artifactId>', '')|replace('</artifactId>', '')}}"
@@ -27,7 +28,7 @@ backend_war_name: iscloud-build.war
 
 
 
-remote_temp: ~/build
+remote_temp: ~/build/{{env}}
 
 appNameToFolderName:
   appMarket: mall
@@ -42,6 +43,7 @@ envToConfig:
   web_dev_142: prodConfig_142.json
   web_test_133: prodConfig_133.json
   web_prod_108_109: prodConfig_147.json
+  web_prod_real: prodConfig_real_91.json
 
 configFile: "{{envToConfig[env]}}"
 

@@ -1,4 +1,9 @@
 ---
+- name: create backend build workspace by env
+  file: 
+    path: "{{backend_dir}}"
+    state: directory 
+
 - name: build backend
   hosts: localhost
   roles:
