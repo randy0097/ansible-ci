@@ -2,7 +2,7 @@
 - name: git checkout
   git: repo={{backend_git}}  
        dest={{backend_dir}}
-       version={{branchName}}
+       version={{backend_version}}
        force=yes
 - name: maven install
   command: chdir={{backend_dir}} mvn clean install -Dmaven.test.skip -fn
