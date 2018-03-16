@@ -7,4 +7,4 @@ LICENCE=e67c983024744027b365409543c6e409
 
 INTERNAL.URL=http://is-cloud.cn/platform/api/user/login
 WEB.URL=http://is-cloud.cn/branches/api/login/login
-SDK.IP=192.168.182.166
+SDK.IP=192.168.95.153
