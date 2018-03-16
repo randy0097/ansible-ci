@@ -5,8 +5,6 @@
        version={{frontend_version}}
        force=yes
 - name: npm install
-  command: chdir={{frontend_app_dir}} npm install      
-- name: npm install babel-plugin-external-helpers
-  command: chdir={{frontend_app_dir}} npm install babel-plugin-external-helpers       
+  command: chdir={{frontend_app_dir}} npm install        
 - name: npm build
   command: chdir={{frontend_app_dir}} npm run build --configFile={{configFile}} --app={{appName}}
