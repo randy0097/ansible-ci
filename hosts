@@ -4,6 +4,9 @@
 [web_test_133]
 192.168.172.132 ansible_ssh_user=root ansible_ssh_pass=UP-6redhat
 
+[web_test_154]
+192.168.95.154 ansible_ssh_user=zxcloud ansible_ssh_pass=zxcloud
+
 [web_prod_108_109]
 192.168.194.108 ansible_ssh_user=root ansible_ssh_pass=EOIKsOktOelGFSoQ
 192.168.194.109 ansible_ssh_user=root ansible_ssh_pass=I06JsTYwxEQkYvvF
