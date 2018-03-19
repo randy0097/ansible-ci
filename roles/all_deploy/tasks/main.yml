@@ -20,6 +20,10 @@
   file: 
     path: "{{tomcat_dir}}/webapps/{{deploy_name}}"
     state: absent    
+- name: create deploy folder
+  file: 
+    path: "{{tomcat_dir}}/webapps/{{deploy_name}}"
+    state: directory     
 - name: deploy to tomcat
   unarchive:
     src: "{{remote_temp}}/{{backend_war_name}}"
