@@ -17,9 +17,14 @@
   command: kill -9 {{tomcatProcess.stdout}}
   when: tomcatProcess.stdout != ''
 - name: clean old project folder
-  command: rm -rf {{tomcat_dir}}/webapps/{{deploy_name}}     
+  file: 
+    path: "{{tomcat_dir}}/webapps/{{deploy_name}}"
+    state: absent    
 - name: deploy to tomcat
-  command: chdir={{remote_temp}} unzip {{backend_war_name}} -d {{tomcat_dir}}/webapps/{{deploy_name}}
+  unarchive:
+    src: "{{remote_temp}}/{{backend_war_name}}"
+    dest: "{{tomcat_dir}}/webapps/{{deploy_name}}"
+    remote_src: yes
 
 - name: replace config.properties
   copy: src={{config_properties}} dest={{tomcat_dir}}/webapps/{{deploy_name}}/WEB-INF/classes/config.properties
