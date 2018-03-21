@@ -34,5 +34,10 @@
     path: "{{build_dir_env}}/{{backend_war_name}}"
     state: absent   
     
+# - name: build backend war
+#   shell: chdir={{backend_build_dir}} jar -cvfM {{build_dir_env}}/{{backend_war_name}} *
 - name: build backend war
-  shell: chdir={{backend_build_dir}} jar -cvfM {{build_dir_env}}/{{backend_war_name}} *
+  archive:
+    path: "{{backend_build_dir}}"
+    dest: "{{build_dir_env}}/{{backend_war_name}}"
+    format: zip  
