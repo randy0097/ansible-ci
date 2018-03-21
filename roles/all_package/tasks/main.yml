@@ -38,6 +38,6 @@
 #   shell: chdir={{backend_build_dir}} jar -cvfM {{build_dir_env}}/{{backend_war_name}} *
 - name: build backend war
   archive:
-    path: "{{backend_build_dir}}"
+    path: "{{backend_build_dir}}/*"
     dest: "{{build_dir_env}}/{{backend_war_name}}"
     format: zip  
