@@ -1,10 +1,10 @@
-def hostDir = "/root/build/ansible-ci/hosts"
+def hostDir = "/root/build/ultra-permission/iscloud-ci/hosts"
 def newList = []
 lineList = new File(hostDir).readLines();
 lineList.each {
 	(it =~ /\[.+\]/).each{ match ->
-		//获取生产环境配置
-		if(match.contains("web_prod_real")){
+		//去掉组变量定义和生产环境配置
+		if(match.contains("real_prod_cas_90")){
 			newList += match.replaceAll(/\[/,'').replaceAll(/\]/,'')
 		}
 	}

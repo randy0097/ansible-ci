@@ -1,6 +1,0 @@
-tomcat_dir: /ultrapower/zxcloud-privplatform
-tomcat_process_keyword: zxcloud-privplatform
-deploy_name: iscloud-web-manager
-config_properties: config.web_prod_91
-appContext_job: appContext-job.web_prod_91
-

@@ -4,7 +4,7 @@ lineList = new File(hostDir).readLines();
 lineList.each {
 	(it =~ /\[.+\]/).each{ match ->
 		//去掉组变量定义和生产环境配置
-		if(!match.contains(":vars")&&!match.contains("pre_prod")&&!match.contains("real_prod")){
+		if(match.contains("pre_prod_security_108_109")){
 			newList += match.replaceAll(/\[/,'').replaceAll(/\]/,'')
 		}
 	}

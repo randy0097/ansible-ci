@@ -1,61 +1,63 @@
-frontend_git: git@192.168.194.114:iscloud-frontend/iscloud-web.git
-backend_git: git@192.168.194.114:iscloud-backend/iscloud.git
+frontend_git: git@192.168.194.114:whdev-frontend/ultra-permission-frontend.git
+backend_git: git@192.168.194.114:whdev-backend/ultra-permission.git
 frontend_version: "{{ frontend_commitId if frontend_commitId != '' else branchName }}"
 backend_version: "{{ backend_commitId if backend_commitId != '' else branchName }}"
+cas_version: "{{ cas_commitId if cas_commitId != '' else branchName }}"
 
-build_dir: /root/build
+build_dir: /root/build/ultra-permission
 build_dir_env: "{{build_dir}}/{{env}}"
 
-frontend_dir: "{{build_dir_env}}/iscloud-web"
+frontend_dir: "{{build_dir_env}}/permission-web"
 frontend_dist: "{{frontend_dir}}/dist/"
 frontend_app_dir: "{{frontend_dir}}/{{appName}}"
 
 
-backend_dir: "{{build_dir_env}}/iscloud"
-backend_module_dir: "{{backend_dir}}/iscloud-platform/platform"
+backend_dir: "{{build_dir_env}}/permission"
+backend_module_dir: "{{backend_dir}}/ultra-permission-server"
 backend_target_dir: "{{backend_module_dir}}/target"
 module_name: "{{module_name_origin.stdout_lines[1]|replace(' ', '')|replace('<artifactId>', '')|replace('</artifactId>', '')}}"
 module_version: "{{module_version_origin.stdout|replace(' ', '')|replace('<version>', '')|replace('</version>', '')}}"
 backend_build_name: "{{module_name}}-{{module_version}}"
 backend_build_dir: "{{backend_target_dir}}/{{backend_build_name}}"
-backend_war_name: iscloud-build.war
-
-
-# sdk_module_dir: "{{backend_dir}}/iscloud-sdk-server"
-# sdk_target_dir: "{{sdk_module_dir}}/target"
-# sdk_build_name: iscloud-sdk-server-2.2.0-RELEASE
-# sdk_build_dir: "{{sdk_target_dir}}/{{sdk_build_name}}"
-# sdk_war_name: sdk-build.war
-
+backend_war_name: ultra-permission.war
 
 
 remote_temp: ~/build/{{env}}
 
 appNameToFolderName:
-  appMarket: mall
-  personalConsole: pc
-  internalOperation: pm
-  enterpriseOperation: em
+  web: web
   
 appFolder: "{{appNameToFolderName[appName]}}"
 
+cas_dir: "{{build_dir_env}}/cas"
+cas_module_dir: "{{cas_dir}}/ultra-permission-cas-server"
+cas_target_dir: "{{cas_module_dir}}/target"
+# cas_build_name: "{{module_name}}-{{module_version}}"
+# cas_build_dir: "{{cas_target_dir}}/{{cas_build_name}}"
+cas_war_name: ultra-permission-cas-server.war
 
 envToConfig:
-  web_dev_142: prodConfig_142.json
-  web_test_133: prodConfig_133.json
-  web_test_154: prodConfig_154.json
-  web_prod_108_109: prodConfig_147.json
-  web_prod_real: prodConfig_real_91.json
+  test_security_153_wh: test_153.json
+  pre_prod_cas_107: pre_prod_108.json
+  pre_prod_security_108_109: pre_prod.json
+  real_prod_security_91_92: prod_91_92.json
 
 configFile: "{{envToConfig[env]}}"
 
-# appName: appMarket  
-# branchName: release-v2.3.0
-# operation: deploy
-# configFile: prodConfig_CI.json
+envToActive:
+  test_security_153_wh: test
+  pre_prod_cas_107: preprod
+  pre_prod_security_108_109: preprod
+  real_prod_security_91_92: prod
+  real_prod_cas_90: prod
+  
+spring_profiles_active: "{{envToActive[env]}}"
 
+envToSwagger:
+  test_security_153_wh: true
+  pre_prod_cas_107: false
+  pre_prod_security_108_109: false
+  real_prod_security_91_92: false
 
-
-# env: web_dev_142
-
+swagger_active: "{{envToSwagger[env]}}"
 

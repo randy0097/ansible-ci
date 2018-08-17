@@ -1,16 +1,3 @@
-# - name: get module name
-#   xml:
-#     # path: "{{backend_module_dir}}/pom.xml"
-#     path: /root/build/iscloud/iscloud-platform/platform/pom.xml
-#     count: yes
-#     xpath: /project/name
-#   register: module_name
-# - name: get module version
-#   xml:
-#     path: "{{backend_module_dir}}/pom.xml"
-#     xpath: /project/version
-#   register: module_version 
-
 - name: get module name
   command: chdir={{backend_module_dir}} grep <artifactId>  pom.xml -m 2
   register: module_name_origin
@@ -28,14 +15,12 @@
 - name: copy frontend all apps to backend
   copy: src={{frontend_dir}}/{{item.key}}/dist/ dest={{backend_build_dir}}
   with_dict: "{{appNameToFolderName}}"
-
+  
 - name: clean backend war
   file: 
     path: "{{build_dir_env}}/{{backend_war_name}}"
     state: absent   
     
-# - name: build backend war
-#   shell: chdir={{backend_build_dir}} jar -cvfM {{build_dir_env}}/{{backend_war_name}} *
 - name: build backend war
   archive:
     path: "{{backend_build_dir}}/*"

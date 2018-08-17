@@ -1,8 +1,0 @@
-ZK.HOSTS=10.20.3.130:2181,10.20.3.131:2181,10.20.3.132:2181
-ZK.Session.Timeout=60000
-SDK.IP=10.20.2.82
-#SDK.IP=127.0.0.1
-SDK.PORT=8888
-LICENCE=e67c983024744027b365409543c6e409
-INTERNAL.URL=http://is-cloud.cn/platform/api/user/login
-WEB.URL=http://is-cloud.cn/branches/api/login/login

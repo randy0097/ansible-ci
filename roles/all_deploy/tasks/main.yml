@@ -30,10 +30,13 @@
     dest: "{{tomcat_dir}}/webapps/{{deploy_name}}"
     remote_src: yes
 
-- name: replace config.properties
-  copy: src={{config_properties}} dest={{tomcat_dir}}/webapps/{{deploy_name}}/WEB-INF/classes/config.properties
-- name: replace appContext-job.xml
-  copy: src={{appContext_job}} dest={{tomcat_dir}}/webapps/{{deploy_name}}/WEB-INF/classes/appContext-job.xml 
-   
+# - name: replace application.properties
+#   copy: src={{application_properties}} dest={{tomcat_dir}}/webapps/{{deploy_name}}/WEB-INF/classes/application.properties 
+- name: set spring.profiles.active
+  command: sed -i "s/spring.profiles.active=dev/spring.profiles.active={{spring_profiles_active}}/g" {{tomcat_dir}}/webapps/{{deploy_name}}/WEB-INF/classes/application.properties
+
+- name: set swagger.enable
+  command: sed -i "s/swagger.enable=false/swagger.enable={{swagger_active}}/g" {{tomcat_dir}}/webapps/{{deploy_name}}/WEB-INF/classes/application.properties
+
 - name: start tomcat
   command: "nohup sh {{tomcat_dir}}/bin/startup.sh &"

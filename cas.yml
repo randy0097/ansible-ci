@@ -1,0 +1,20 @@
+---
+- name: cas build 
+  hosts: localhost
+  tasks:
+  - name: create cas build workspace by env
+    file: 
+      path: "{{cas_dir}}"
+      state: directory   
+  roles:
+  - cas_compile
+
+- name: cas package 
+  hosts: localhost
+  roles:
+  - cas_package
+
+- name: cas deploy
+  hosts: "{{env}}"
+  roles:
+  - { role: cas_deploy, when: cas_operation == 'deploy' }

@@ -1,6 +1,0 @@
-tomcat_dir: /ultrapower/zxcloud-tomcat
-tomcat_process_keyword: zxcloud-tomcat
-deploy_name: platform
-config_properties: config.web_test_154
-appContext_job: appContext-job.web_test_154
-
