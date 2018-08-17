@@ -1,0 +1,63 @@
+frontend_git: git@192.168.194.114:whdev-frontend/ultra-permission-frontend.git
+backend_git: git@192.168.194.114:whdev-backend/ultra-permission.git
+frontend_version: "{{ frontend_commitId if frontend_commitId != '' else branchName }}"
+backend_version: "{{ backend_commitId if backend_commitId != '' else branchName }}"
+cas_version: "{{ cas_commitId if cas_commitId != '' else branchName }}"
+
+build_dir: /root/build/ultra-permission
+build_dir_env: "{{build_dir}}/{{env}}"
+
+frontend_dir: "{{build_dir_env}}/permission-web"
+frontend_dist: "{{frontend_dir}}/dist/"
+frontend_app_dir: "{{frontend_dir}}/{{appName}}"
+
+
+backend_dir: "{{build_dir_env}}/permission"
+backend_module_dir: "{{backend_dir}}/ultra-permission-server"
+backend_target_dir: "{{backend_module_dir}}/target"
+module_name: "{{module_name_origin.stdout_lines[1]|replace(' ', '')|replace('<artifactId>', '')|replace('</artifactId>', '')}}"
+module_version: "{{module_version_origin.stdout|replace(' ', '')|replace('<version>', '')|replace('</version>', '')}}"
+backend_build_name: "{{module_name}}-{{module_version}}"
+backend_build_dir: "{{backend_target_dir}}/{{backend_build_name}}"
+backend_war_name: ultra-permission.war
+
+
+remote_temp: ~/build/{{env}}
+
+appNameToFolderName:
+  web: web
+  
+appFolder: "{{appNameToFolderName[appName]}}"
+
+cas_dir: "{{build_dir_env}}/cas"
+cas_module_dir: "{{cas_dir}}/ultra-permission-cas-server"
+cas_target_dir: "{{cas_module_dir}}/target"
+# cas_build_name: "{{module_name}}-{{module_version}}"
+# cas_build_dir: "{{cas_target_dir}}/{{cas_build_name}}"
+cas_war_name: ultra-permission-cas-server.war
+
+envToConfig:
+  test_security_153_wh: test_153.json
+  pre_prod_cas_107: pre_prod_108.json
+  pre_prod_security_108_109: pre_prod.json
+  real_prod_security_91_92: prod_91_92.json
+
+configFile: "{{envToConfig[env]}}"
+
+envToActive:
+  test_security_153_wh: test
+  pre_prod_cas_107: preprod
+  pre_prod_security_108_109: preprod
+  real_prod_security_91_92: prod
+  real_prod_cas_90: prod
+  
+spring_profiles_active: "{{envToActive[env]}}"
+
+envToSwagger:
+  test_security_153_wh: true
+  pre_prod_cas_107: false
+  pre_prod_security_108_109: false
+  real_prod_security_91_92: false
+
+swagger_active: "{{envToSwagger[env]}}"
+

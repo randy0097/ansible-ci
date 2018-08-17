@@ -1,0 +1,27 @@
+- name: remove old docker
+  yum: 
+    name: docker,docker-client,docker-client-latest,docker-common,docker-latest,docker-latest-logrotate,docker-logrotate,docker-selinux,docker-engine-selinux,docker-engine
+    state: absent
+
+- name: install docker dependence
+  yum: 
+    name: yum-utils,device-mapper-persistent-data,lvm2 
+    state: present
+
+- name: add docker repository
+  yum_repository:
+    name: docker 
+    description: docker repo
+    baseurl: http://mirrors.aliyun.com/docker-ce/linux/centos/docker-ce.repo
+
+- name: install docker-ce
+  yum: 
+    name: "{{docker_version}}"
+    state: present
+
+- name: start docker
+  service: 
+    name: docker.service 
+    state: started
+    enabled: yes 
+    
