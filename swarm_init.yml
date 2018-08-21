@@ -1,5 +1,7 @@
 ---
-- name:  create swarm
+- name: git swarm manager info
   hosts: "{{groups['swarm_manager'][0]}}"
-  roles:
-  - role: swarm_init
+  tasks:
+  - name: docker swarm init
+    command: docker swarm init --advertise-addr "{{inventory_hostname}}"
+

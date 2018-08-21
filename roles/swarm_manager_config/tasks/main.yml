@@ -1,7 +1,0 @@
-
-- name: add swarm manager
-  command: "{{add_manager_cmd}}"
-
-
-
-    
