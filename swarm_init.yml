@@ -1,0 +1,5 @@
+---
+- name:  create swarm
+  hosts: "{{groups['swarm_manager'][0]}}"
+  roles:
+  - role: swarm_init
