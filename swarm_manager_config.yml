@@ -5,6 +5,8 @@
   - name: docker swarm join-token manager      
     shell: docker swarm join-token manager|grep docker
     register: add_manager_cmd
+  - debug:
+      var: add_manager_cmd
 
 - name:  config swarm
   hosts: "{{groups['swarm_manager'][1:]}}"
