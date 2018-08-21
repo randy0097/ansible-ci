@@ -2,8 +2,7 @@
 - name: docker swarm init
   command: docker swarm init --advertise-addr "{{inventory_hostname}}"
 
-- name: debug
-  debug:
+- debug:
     var: inventory_hostname
 
     
