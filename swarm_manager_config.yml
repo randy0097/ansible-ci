@@ -2,7 +2,7 @@
 - name: git swarm manager info
   hosts: "{{groups['swarm_manager'][0]}}"
   tasks:
-  - name: docker swarm join-token manager      
+  - name: get swarm manager token      
     shell: docker swarm join-token manager|grep docker
     register: add_manager_cmd
   - debug:
@@ -10,5 +10,6 @@
 
 - name:  config swarm
   hosts: "{{groups['swarm_manager'][1:]}}"
-  roles:
-  - role: swarm_manager_config
+  tasks:
+  - name: add swarm manager
+    command: "{{add_manager_cmd.stdout}}"
