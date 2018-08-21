@@ -12,4 +12,4 @@
   hosts: "{{groups['swarm_manager'][1:]}}"
   tasks:
   - name: add swarm manager
-    shell: "{{hostvars.groups['swarm_manager'][0].add_manager_cmd.stdout}}"
+    shell: "{{hostvars.[groups['swarm_manager'][0]].[add_manager_cmd].[stdout]}}"
