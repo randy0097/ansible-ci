@@ -1,0 +1,5 @@
+---
+- name:  create swarm
+  hosts: "{{groups['docker_servers'][0]}}"
+  roles:
+  - role: swarm_create

@@ -1,6 +1,15 @@
-[my_servers]
+[docker_servers]
 10.0.0.102 ansible_ssh_user=root ansible_ssh_pass=randy1234
 10.0.0.103 ansible_ssh_user=root ansible_ssh_pass=randy1234
 10.0.0.104 ansible_ssh_user=root ansible_ssh_pass=randy1234
+
+[swarm_manager_leader]
+10.0.0.102 ansible_ssh_user=root ansible_ssh_pass=randy1234
+
+[swarm_managers]
+10.0.0.103 ansible_ssh_user=root ansible_ssh_pass=randy1234
+10.0.0.104 ansible_ssh_user=root ansible_ssh_pass=randy1234
+
+
 
 
