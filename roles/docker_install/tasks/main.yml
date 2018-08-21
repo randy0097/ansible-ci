@@ -9,10 +9,7 @@
     state: present
 
 - name: add docker repository
-  yum_repository:
-    name: docker 
-    description: docker repo
-    baseurl: http://mirrors.aliyun.com/docker-ce/linux/centos/docker-ce.repo
+  command: yum-config-manager --add-repo http://mirrors.aliyun.com/docker-ce/linux/centos/docker-ce.repo
 
 - name: install docker-ce
   yum: 
