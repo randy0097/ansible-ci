@@ -4,5 +4,6 @@
   roles:
   - role: swarm_create
 
-- debug:
+- name:  my debugger
+  debug:
     var: hosts
