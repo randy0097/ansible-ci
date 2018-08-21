@@ -9,4 +9,4 @@
 - name:  config swarm
   hosts: "{{groups['swarm_manager'][1:]}}"
   roles:
-  - role: swarm_config
+  - role: swarm_manager_config
