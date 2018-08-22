@@ -20,7 +20,7 @@
   hosts: "{{groups['docker_servers'][0]}}"
   vars: 
     var1: "{{groups['docker_servers'] | join(':/data/brick1/gv0 ') + ':/data/brick1/gv0'}}"
-    var2: "{{len(groups['docker_servers'])}}"
+    var2: "{{groups['docker_servers'] | length}}"
   tasks:
   - debug:
       var: var1     
