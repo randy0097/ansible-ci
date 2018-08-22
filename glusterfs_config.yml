@@ -8,3 +8,25 @@
     command: gluster peer probe {{item}}
     loop: "{{groups['docker_servers'][1:]}}"
 
+- name: create volume directory
+  hosts: docker_servers
+  tasks:   
+  - name: create gv0 directory
+    file:
+      path: /data/brick1/gv0
+      state: directory
+
+- name: Set up a GlusterFS volume
+  hosts: "{{groups['docker_servers'][0]}}"
+  vars: 
+    var1: var1+{{item}}
+    loop: groups['docker_servers']  
+  tasks:
+  # - name: var2
+  #   command: echo {{item}}
+  #   register: var2
+  #   loop: "{{groups['docker_servers']}}"    
+  - debug:
+      var: var1
+  - debug:
+      var: groups['docker_servers'] | join(":/data/brick1/gv0")
