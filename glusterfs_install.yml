@@ -8,10 +8,14 @@
       state: directory
   - name: format and mount the bricks
     shell: echo '/dev/mapper/centos-root /data/brick1 xfs defaults 0 0' >> /etc/fstab && mount -a && mount
-  - name: installing GlusterFS
+  - name: install centos-release-gluster
     yum: 
-      name: centos-release-gluster,glusterfs-server 
+      name: centos-release-gluster
       state: present
+  - name: install glusterfs-server
+    yum: 
+      name: glusterfs-server 
+      state: present    
   - name: start glusterfs-server
     service: 
       name: glusterd.service 
