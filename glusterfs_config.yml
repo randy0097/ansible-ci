@@ -27,4 +27,7 @@
       var: vo_create_cmd
   - name: create volume
     command: "{{vo_create_cmd}}"
+  - name: start volume
+    command: gluster volume start gv0
+    
    
