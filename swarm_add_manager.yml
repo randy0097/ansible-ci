@@ -1,5 +1,5 @@
 ---
-- name: git swarm manager info
+- name: get swarm manager info
   hosts: "{{groups['swarm_manager'][0]}}"
   tasks:
   - name: get swarm manager token      
