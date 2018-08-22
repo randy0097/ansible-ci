@@ -21,10 +21,10 @@
   vars: 
     var1: "{{groups['docker_servers'] | length}}"
     var2: "{{groups['docker_servers'] | join(':/data/brick1/gv0 ') + ':/data/brick1/gv0'}}"
-    vo_create_cmd: "{{'gluster volume create gv0 replica ' + var1 + ' ' + var2}}"
+    vo_create_cmd: "{{'gluster volume create gv0 replica ' + var1 + ' ' + var2 + ' ' + 'force'}}"
   tasks:
   - debug:
-    var: vo_create_cmd
+      var: vo_create_cmd
   - name: create volume
     command: "{{vo_create_cmd}}"
    
