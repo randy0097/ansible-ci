@@ -2,8 +2,12 @@
 - name: install GlusterFS
   hosts: docker_servers
   tasks:
+  - name: create brick directory
+    file:
+      path: /data/brick1
+      state: directory
   - name: format and mount the bricks
-    command: mkdir -p /data/brick1 && echo '/dev/mapper/centos-root /data/brick1 xfs defaults 0 0' >> /etc/fstab && mount -a && mount
+    shell: echo '/dev/mapper/centos-root /data/brick1 xfs defaults 0 0' >> /etc/fstab && mount -a && mount
   - name: installing GlusterFS
     yum: 
       name: glusterfs-server 
