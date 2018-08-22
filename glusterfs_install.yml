@@ -7,7 +7,11 @@
       path: /data/brick1
       state: directory
   - name: format and mount the bricks
-    shell: echo '/dev/mapper/centos-root /data/brick1 xfs defaults 0 0' >> /etc/fstab && mount -a && mount
+    mount:
+      path: /data/brick1
+      src: /dev/mapper/centos-root
+      fstype: xfs
+      state: mounted
   - name: install centos-release-gluster
     yum: 
       name: centos-release-gluster
