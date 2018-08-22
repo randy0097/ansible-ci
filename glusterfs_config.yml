@@ -25,9 +25,15 @@
   tasks:
   - debug:
       var: vo_create_cmd
-  - name: create volume
-    command: "{{vo_create_cmd}}"
-  - name: start volume
-    command: gluster volume start gv0
+  # - name: create volume
+  #   command: "{{vo_create_cmd}}"
+  # - name: start volume
+  #   command: gluster volume start gv0
+  - name: mount volume
+    mount:
+      path: /glusterfs_mnt
+      src: "{{inventory_hostname + ':/gv0'}}"
+      fstype: glusterfs
+      state: mounted    
     
    
