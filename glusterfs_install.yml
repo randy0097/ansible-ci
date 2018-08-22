@@ -12,5 +12,11 @@
     yum: 
       name: glusterfs-server 
       state: present
+  - name: start glusterfs-server
+    service: 
+      name: glusterd.service 
+      state: started
+      enabled: yes    
+  
        
 
