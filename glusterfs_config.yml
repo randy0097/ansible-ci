@@ -18,14 +18,20 @@
 
 - name: Set up a GlusterFS volume
   hosts: "{{groups['docker_servers'][0]}}"
-  # vars: 
-  #   var1: var1+{{item}}
+  vars: 
+    var1: groups['docker_servers']
+    var2: [i+":/data/brick1/gv0" for i in var1]
   tasks:
   # - name: var2
   #   command: echo {{item}}
   #   register: var2
   #   loop: "{{groups['docker_servers']}}"    
-  # - debug:
-  #     var: var1
   - debug:
-      var: groups['docker_servers'] | join(":/data/brick1/gv0 ", attribute='username')
+      var: var1
+  - debug:
+      var: var2      
+  - debug:
+      var: var2 | join(" ")       
+  - debug:
+      var: groups['docker_servers'] | join(":/data/brick1/gv0 ")
+   
