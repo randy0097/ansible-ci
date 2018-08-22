@@ -18,9 +18,7 @@
 
 - name: Set up a GlusterFS volume
   hosts: "{{groups['docker_servers'][0]}}"
-  vars: 
-    var1: groups['docker_servers'] | join(":/data/brick1/gv0 ") + "/data/brick1/gv0"
   tasks:
   - debug:
-      var: var1    
+      var: groups['docker_servers'] | join(":/data/brick1/gv0 ") + "/data/brick1/gv0"
    
