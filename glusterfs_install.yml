@@ -10,7 +10,7 @@
     shell: echo '/dev/mapper/centos-root /data/brick1 xfs defaults 0 0' >> /etc/fstab && mount -a && mount
   - name: installing GlusterFS
     yum: 
-      name: glusterfs-server 
+      name: centos-release-gluster,glusterfs-server 
       state: present
   - name: start glusterfs-server
     service: 
