@@ -3,7 +3,7 @@
   hosts: docker_servers
   tasks:
   - debug:
-      msg: "System {{ inventory_hostname }}"
+      var: groups['docker_servers'][0]
   - name: configure the trusted pool
     command: gluster peer probe "{{groups['docker_servers'][1]}}"
     when: inventory_hostname == groups['docker_servers'][0]
