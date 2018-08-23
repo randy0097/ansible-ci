@@ -13,14 +13,14 @@
   tasks:   
   - name: create volume directory
     file:
-      path: /data/brick1/var/lib/docker/volumes
+      path: /data/brick1/gv0
       state: directory
 
 - name: create volume
   hosts: "{{groups['docker_servers'][0]}}"
   vars: 
     var1: "{{groups['docker_servers'] | length}}"
-    var2: "{{groups['docker_servers'] | join(':/data/brick1/var/lib/docker/volumes ') + ':/data/brick1/var/lib/docker/volumes'}}"
+    var2: "{{groups['docker_servers'] | join(':/data/brick1/gv0 ') + ':/data/brick1/gv0'}}"
     vo_create_cmd: "{{'gluster volume create gv0 replica ' + var1 + ' ' + var2 + ' ' + 'force'}}"
   tasks:
   - debug:
@@ -35,7 +35,7 @@
   tasks:   
   - name: mount volume
     mount:
-      path: /glusterfs_mnt
+      path: /var/lib/docker/volumes
       src: "{{inventory_hostname + ':/gv0'}}"
       fstype: glusterfs
       state: mounted 
