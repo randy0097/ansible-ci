@@ -40,6 +40,8 @@
       fstype: glusterfs
       state: mounted 
   - name: mount enable
-    command: echo "mount -a" >> /etc/profile
+    lineinfile:
+      path: /etc/profile
+      line: 'mount -a'
     
    
