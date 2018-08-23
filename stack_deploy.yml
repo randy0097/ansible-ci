@@ -1,0 +1,5 @@
+---
+- name:  deploy stack
+  hosts: "{{groups['swarm_manager'][0]}}"
+  roles:
+  - role: portainer_deploy

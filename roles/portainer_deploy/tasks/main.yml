@@ -1,0 +1,22 @@
+- name: create portainer mount directory
+  file: 
+    path: /glusterfs_mnt/portainer_data
+    state: directory 
+
+- name: create remote temp dir
+  file: 
+    path: "{{remote_temp}}"
+    state: directory 
+
+- name: copy stack.yml to remote
+  copy: 
+    src: portainer-agent-stack.yml 
+    dest: "{{remote_temp}}/portainer-agent-stack.yml"
+
+- name: deploy stack
+  command: docker stack deploy --compose-file=portainer-agent-stack.yml portainer 
+  args: 
+    chdir: "{{remote_temp}}"
+
+
+    
