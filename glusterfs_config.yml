@@ -39,6 +39,7 @@
       src: "{{inventory_hostname + ':/gv0'}}"
       fstype: glusterfs
       state: mounted 
-
+  - name: mount enable
+    command: echo "mount -a" >> /etc/profile
     
    
