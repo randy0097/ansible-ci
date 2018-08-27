@@ -1,0 +1,11 @@
+version: '3.2'
+
+services:
+
+  jenkins:
+    image: jenkins:2.60.3-alpine
+    volumes:    
+      - /glusterfs_mnt/jenkins_data:/var/jenkins_home
+    deploy:
+      mode: replicated
+      replicas: 1        
