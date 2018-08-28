@@ -3,12 +3,23 @@
     path: "{{remote_temp}}"
     state: directory 
 
+- name: clean jenkins-workspace
+  file: 
+    path: /glusterfs_mnt/jenkins-workspace
+    state: absent
+
 - name: extract jenkins-workspace.tgz
   unarchive:
     src: "{{local_temp}}/jenkins-workspace.tgz"
     dest: /glusterfs_mnt/
+    # owner: 1000
+    # group: 1000 
+
+- name: modify directory owner
+  file: 
+    path: /glusterfs_mnt/jenkins-workspace
     owner: 1000
-    group: 1000 
+    group: 1000
 
 - name: copy stack.yml to remote
   copy: 
