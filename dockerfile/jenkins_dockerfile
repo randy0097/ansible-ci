@@ -1,0 +1,2 @@
+FROM jenkins:2.46.2
+RUN curl https://bootstrap.pypa.io/get-pip.py -o get-pip.py&&python get-pip.py&&pip install ansible==2.6.2
