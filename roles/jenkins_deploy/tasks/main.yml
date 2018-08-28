@@ -1,3 +1,8 @@
+- name: create remote temp dir
+  file: 
+    path: "{{remote_temp}}"
+    state: directory 
+
 - name: create jenkins mount directory
   file: 
     path: /glusterfs_mnt/jenkins_data
@@ -5,15 +10,16 @@
     group: 1000  
     state: directory
 
+- name: copy jenkins-workspace.tgz to remote
+  copy: 
+    src: "{{local_temp}}/jenkins-workspace.tgz"
+    dest: "{{remote_temp}}/jenkins-workspace.tgz"
+
 - name: extract jenkins-workspace.tgz
   unarchive:
-    src: "{{local_temp}}/jenkins-workspace.tgz"
+    src: "{{remote_temp}}/jenkins-workspace.tgz"
     dest: /glusterfs_mnt/jenkins_data
- 
-- name: create remote temp dir
-  file: 
-    path: "{{remote_temp}}"
-    state: directory 
+    remote_src: yes
 
 - name: copy stack.yml to remote
   copy: 
