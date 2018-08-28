@@ -12,8 +12,6 @@
   unarchive:
     src: "{{local_temp}}/jenkins-workspace.tgz"
     dest: /glusterfs_mnt/
-    # owner: 1000
-    # group: 1000 
 
 - name: modify directory owner
   file: 
@@ -26,10 +24,10 @@
     src: jenkins-stack.yml 
     dest: "{{remote_temp}}/jenkins-stack.yml"
 
-# - name: deploy stack
-#   command: docker stack deploy --compose-file=jenkins-stack.yml jenkins 
-#   args: 
-#     chdir: "{{remote_temp}}"
+- name: deploy stack
+  command: docker stack deploy --compose-file=jenkins-stack.yml jenkins 
+  args: 
+    chdir: "{{remote_temp}}"
 
 
     
