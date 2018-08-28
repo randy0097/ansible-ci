@@ -1,0 +1,20 @@
+---
+- name: compress jenkins workspace
+  hosts: localhost
+  tasks:
+  - name: create temp directory
+    file: 
+      path: "{{local_temp}}"
+      state: directory
+  - name: git checkout
+    git: repo={{jenkins_git}}  
+        dest={{local_temp}}
+        force=yes
+  - name: compress
+    archive:
+      path: "{{local_temp}}/jenkins-workspace"
+
+# - name:  deploy jenkins
+#   hosts: "{{groups['swarm_manager'][0]}}"
+#   roles:
+#   - role: jenkins_deploy      
