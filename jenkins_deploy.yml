@@ -8,7 +8,7 @@
       state: directory
   - name: git checkout
     git: repo={{jenkins_git}}  
-        dest={{local_temp}}
+        dest="{{local_temp}}/jenkins-workspace"
         force=yes
   - name: compress
     archive:
