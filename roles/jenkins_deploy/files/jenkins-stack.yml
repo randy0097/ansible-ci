@@ -12,4 +12,4 @@ services:
     deploy:
       mode: replicated
       replicas: 1
-    command: curl https://bootstrap.pypa.io/get-pip.py -o get-pip.py&&python get-pip.py&&pip install ansible==2.6.2
+    # command: curl https://bootstrap.pypa.io/get-pip.py -o get-pip.py&&python get-pip.py&&pip install ansible==2.6.2
