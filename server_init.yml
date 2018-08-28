@@ -6,9 +6,9 @@
     copy: 
       src: /root/.ssh/id_rsa
       dest: /root/.ssh/id_rsa
-      force: yes
+      force: no
   - name: copy id_rsa.pub
     copy: 
       src: /root/.ssh/id_rsa.pub
       dest: /root/.ssh/id_rsa.pub
-      force: yes
+      force: no
