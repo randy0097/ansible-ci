@@ -8,10 +8,15 @@
     path: /glusterfs_mnt/jenkins-workspace
     state: absent
 
-- name: extract jenkins-workspace.tgz
-  unarchive:
-    src: "{{local_temp}}/jenkins-workspace.tgz"
-    dest: /glusterfs_mnt/
+- name: create jenkins-workspace
+  file: 
+    path: /glusterfs_mnt/jenkins-workspace
+    state: directory
+
+# - name: extract jenkins-workspace.tgz
+#   unarchive:
+#     src: "{{local_temp}}/jenkins-workspace.tgz"
+#     dest: /glusterfs_mnt/
 
 - name: modify directory owner
   file: 
