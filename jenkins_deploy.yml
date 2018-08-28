@@ -14,7 +14,8 @@
     archive:
       path: "{{local_temp}}/jenkins-workspace"
       dest: "{{local_temp}}/jenkins-workspace.tgz"
-# - name:  deploy jenkins
-#   hosts: "{{groups['swarm_manager'][0]}}"
-#   roles:
-#   - role: jenkins_deploy      
+      
+- name:  deploy jenkins
+  hosts: "{{groups['swarm_manager'][0]}}"
+  roles:
+  - role: jenkins_deploy      
