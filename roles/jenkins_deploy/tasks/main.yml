@@ -3,8 +3,13 @@
     path: /glusterfs_mnt/jenkins_data
     owner: 1000
     group: 1000  
-    state: directory 
+    state: directory
 
+- name: extract jenkins-workspace.tgz
+  unarchive:
+    src: "{{local_temp}}/jenkins-workspace.tgz"
+    dest: /glusterfs_mnt/jenkins_data
+ 
 - name: create remote temp dir
   file: 
     path: "{{remote_temp}}"
@@ -15,10 +20,10 @@
     src: jenkins-stack.yml 
     dest: "{{remote_temp}}/jenkins-stack.yml"
 
-- name: deploy stack
-  command: docker stack deploy --compose-file=jenkins-stack.yml jenkins 
-  args: 
-    chdir: "{{remote_temp}}"
+# - name: deploy stack
+#   command: docker stack deploy --compose-file=jenkins-stack.yml jenkins 
+#   args: 
+#     chdir: "{{remote_temp}}"
 
 
     
