@@ -18,6 +18,8 @@
     path: /glusterfs_mnt/jenkins-workspace
     owner: 1000
     group: 1000
+    recurse: yes
+    state: directory
 
 - name: copy stack.yml to remote
   copy: 
