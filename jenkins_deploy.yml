@@ -13,7 +13,7 @@
   - name: compress
     archive:
       path: "{{local_temp}}/jenkins-workspace"
-
+      dest: "{{local_temp}}/jenkins-workspace.tgz"
 # - name:  deploy jenkins
 #   hosts: "{{groups['swarm_manager'][0]}}"
 #   roles:
