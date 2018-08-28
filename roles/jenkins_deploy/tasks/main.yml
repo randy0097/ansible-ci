@@ -13,13 +13,16 @@
     src: "{{local_temp}}/jenkins-workspace.tgz"
     dest: /glusterfs_mnt/
 
+# - name: modify directory owner
+#   file: 
+#     path: /glusterfs_mnt/jenkins-workspace
+#     owner: 1000
+#     group: 1000
+#     recurse: yes
+#     state: directory
+
 - name: modify directory owner
-  file: 
-    path: /glusterfs_mnt/jenkins-workspace
-    owner: 1000
-    group: 1000
-    recurse: yes
-    state: directory
+  command: chown -R 1000:1000 /glusterfs_mnt/jenkins-workspace
 
 - name: copy stack.yml to remote
   copy: 
