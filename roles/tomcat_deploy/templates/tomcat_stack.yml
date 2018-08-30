@@ -5,7 +5,7 @@ services:
     test:
     image: tomcat:8.5.32-jre8
     volumes:    
-      - "/1lusterfs_mnt/tomcat_permission/webapps:/usr/local/tomcat/webapps"
+      - "glusterfs_mnt/tomcat_permission/webapps:/usr/local/tomcat/webapps"
     deploy:
       mode: replicated
       replicas: 1
