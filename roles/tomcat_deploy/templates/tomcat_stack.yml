@@ -9,5 +9,5 @@ services:
     deploy:
       mode: replicated
       replicas: 1
-    ports:
-     - "{{'{{tomcat_name}}'_port}}:8080"            
+    # ports:
+    #  - "{{{{tomcat_name}}_port}}:8080"            
