@@ -19,7 +19,7 @@
     dest: "{{remote_temp}}/mysql_stack.yml"
 
 - name: deploy stack
-  command: docker stack deploy --compose-file=mysql_stack.yml mysql
+  command: docker stack deploy --compose-file=mysql_stack.yml mysql_{{env}}
   args: 
     chdir: "{{remote_temp}}"
 
