@@ -8,6 +8,4 @@ services:
       - "glusterfs_mnt/tomcat_permission/webapps:/usr/local/tomcat/webapps"
     deploy:
       mode: replicated
-      replicas: 1
-    # ports:
-    #  - "{{{{tomcat_name}}_port}}:8080"            
+      replicas: 1     
