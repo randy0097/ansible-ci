@@ -4,13 +4,13 @@
     state: directory 
 
 - name: clean tomcat workspace
-  file: 
-    path: /glusterfs_mnt/tomcat_data
+  file:
+    path: /glusterfs_mnt/{{tomcat_name}}
     state: absent
 
 - name: create tomcat webapps
   file: 
-    path: /glusterfs_mnt/tomcat_data/webapps
+    path: /glusterfs_mnt/{{tomcat_name}}/webapps
     state: directory
 
 - name: copy stack.yml to remote
@@ -19,7 +19,7 @@
     dest: "{{remote_temp}}/tomcat_stack.yml"
 
 - name: deploy stack
-  command: docker stack deploy --compose-file=tomcat_stack.yml tomcat_{{env}}
+  command: docker stack deploy --compose-file=tomcat_stack.yml {{tomcat_name}}_{{env}}
   args: 
     chdir: "{{remote_temp}}"
 

@@ -2,9 +2,12 @@ version: '3.2'
 
 services:
 
-  tomcat:
+    "{{tomcat_name}}":
     image: tomcat:8.5.32-jre8
-    ports:
-     - "{{tomcat_port}}:8080"
     volumes:    
-      - /glusterfs_mnt/tomcat_data/webapps:/usr/local/tomcat/webapps   
+      - /glusterfs_mnt/{{tomcat_name}}/webapps:/usr/local/tomcat/webapps
+    deploy:
+      mode: replicated
+      replicas: 1
+    ports:
+     - "{{{{tomcat_name}}_port}}:8080"               
