@@ -14,7 +14,7 @@
     state: directory
 
 - name: copy stack.yml to remote
-  copy: 
+  template: 
     src: tomcat_stack.yml 
     dest: "{{remote_temp}}/tomcat_stack.yml"
 
