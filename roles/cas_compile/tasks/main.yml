@@ -1,8 +1,0 @@
----
-- name: git checkout
-  git: repo={{backend_git}}  
-       dest={{cas_dir}}
-       version={{cas_version}}
-       force=yes     
-- name: build cas-server
-  command: chdir="{{cas_dir}}" mvn clean install -Dmaven.test.skip  

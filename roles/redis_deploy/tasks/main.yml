@@ -14,7 +14,7 @@
     state: directory
 
 - name: copy stack.yml to remote
-  copy: 
+  template: 
     src: redis_stack.yml 
     dest: "{{remote_temp}}/redis_stack.yml"
 

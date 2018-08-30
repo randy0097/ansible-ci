@@ -9,7 +9,7 @@
     state: directory 
 
 - name: copy stack.yml to remote
-  copy: 
+  template: 
     src: portainer-agent-stack.yml 
     dest: "{{remote_temp}}/portainer-agent-stack.yml"
 

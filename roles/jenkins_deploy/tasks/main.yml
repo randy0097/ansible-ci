@@ -30,7 +30,7 @@
 #   command: chown -R 1000:1000 /glusterfs_mnt/jenkins-workspace
 
 - name: copy stack.yml to remote
-  copy: 
+  template: 
     src: jenkins_stack.yml 
     dest: "{{remote_temp}}/jenkins_stack.yml"
 

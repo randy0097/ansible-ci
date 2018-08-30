@@ -14,7 +14,7 @@
     state: directory
 
 - name: copy stack.yml to remote
-  copy: 
+  template: 
     src: mysql_stack.yml 
     dest: "{{remote_temp}}/mysql_stack.yml"
 

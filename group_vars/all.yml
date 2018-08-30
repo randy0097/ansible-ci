@@ -8,13 +8,34 @@ local_temp: ~/temp
 
 jenkins_git: git@github.com:randy0098/jenkins-workspace.git
 
-env: test
+env: dev
+
+portainer_port: 9000
+portainer_agent_port: 9001
+adminer_port: 9004
+jenkins_port1: 9002
+jenkins_port2: 9003
+
+phpRedisAdmin_port: 9005
+
+mysql_ports:
+  dev: 8100
+  test: 8200
+  pre_prod: 8300
+  prod: 8400
+mysql_port: "{{mysql_ports[env]}}"
+
+redis_ports:
+  dev: 8101
+  test: 8201
+  pre_prod: 8301
+  prod: 8401
+redis_port: "{{redis_ports[env]}}"
 
 tomcat_ports:
   dev: 8103
   test: 8203
   pre_prod: 8303
   prod: 8403
-
 tomcat_port: "{{tomcat_ports[env]}}"
 
