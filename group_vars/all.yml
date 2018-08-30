@@ -32,6 +32,7 @@ redis_ports:
 redis_port: "{{redis_ports[env]}}"
 
 tomcat_name: tomcat_permission
+
 tomcat_permission_ports:
   dev: 8102
   test: 8202
