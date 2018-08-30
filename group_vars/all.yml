@@ -8,5 +8,13 @@ local_temp: ~/temp
 
 jenkins_git: git@github.com:randy0098/jenkins-workspace.git
 
-tomcat_port: 8103
+env: test
+
+tomcat_ports:
+  dev: 8103
+  test: 8203
+  pre_prod: 8303
+  prod: 8403
+
+tomcat_port: "{{tomcat_ports[env]}}"
 
