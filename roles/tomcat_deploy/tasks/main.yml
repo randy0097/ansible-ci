@@ -5,7 +5,7 @@
 
 - name: clean tomcat workspace
   file:
-    path: /glusterfs_mnt/{{tomcat_name}}
+    path: "/glusterfs_mnt/{{tomcat_name}}"
     state: absent
 
 - name: create tomcat webapps
