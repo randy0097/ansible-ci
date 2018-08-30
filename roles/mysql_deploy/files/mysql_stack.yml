@@ -9,10 +9,16 @@ services:
       MYSQL_ROOT_PASSWORD: randy1234
     volumes:    
       - /glusterfs_mnt/mysql_data:/var/lib/mysql
+    deploy:
+      mode: replicated
+      replicas: 1
     ports:
-      - 8100:3306
+      - 8100:3306    
 
   adminer:
     image: adminer
+    deploy:
+      mode: replicated
+      replicas: 1    
     ports:
-      - 9004:8080
+      - 9004:8080        
