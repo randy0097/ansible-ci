@@ -8,3 +8,5 @@ local_temp: ~/temp
 
 jenkins_git: git@github.com:randy0098/jenkins-workspace.git
 
+tomcat_port: 8103
+
