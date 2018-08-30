@@ -12,10 +12,9 @@ env: dev
 
 portainer_port: 9000
 portainer_agent_port: 9001
-adminer_port: 9004
 jenkins_port1: 9002
 jenkins_port2: 9003
-
+adminer_port: 9004
 phpRedisAdmin_port: 9005
 
 mysql_ports:
@@ -33,9 +32,9 @@ redis_ports:
 redis_port: "{{redis_ports[env]}}"
 
 tomcat_ports:
-  dev: 8103
-  test: 8203
-  pre_prod: 8303
-  prod: 8403
+  dev: 8102
+  test: 8202
+  pre_prod: 8302
+  prod: 8402
 tomcat_port: "{{tomcat_ports[env]}}"
 

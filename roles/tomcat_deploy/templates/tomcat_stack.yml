@@ -2,7 +2,7 @@ version: '3.2'
 
 services:
 
-  tomcat:
+  tomcat_{{env}}:
     image: tomcat:8.5.32-jre8
     ports:
      - "{{tomcat_port}}:8080"
