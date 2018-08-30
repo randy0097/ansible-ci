@@ -3,24 +3,24 @@
     path: "{{remote_temp}}"
     state: directory 
 
-- name: clean jenkins-workspace
+- name: clean jenkins_workspace
   file: 
-    path: /glusterfs_mnt/jenkins-workspace
+    path: /glusterfs_mnt/jenkins_workspace
     state: absent
 
-- name: create jenkins-workspace
+- name: create jenkins_workspace
   file: 
-    path: /glusterfs_mnt/jenkins-workspace
+    path: /glusterfs_mnt/jenkins_workspace
     state: directory
 
-# - name: extract jenkins-workspace.tgz
+# - name: extract jenkins_workspace.tgz
 #   unarchive:
-#     src: "{{local_temp}}/jenkins-workspace.tgz"
+#     src: "{{local_temp}}/jenkins_workspace.tgz"
 #     dest: /glusterfs_mnt/
 
 - name: modify directory owner
   file: 
-    path: /glusterfs_mnt/jenkins-workspace
+    path: /glusterfs_mnt/jenkins_workspace
     owner: 1000
     group: 1000
     recurse: yes
@@ -31,11 +31,11 @@
 
 - name: copy stack.yml to remote
   copy: 
-    src: jenkins-stack.yml 
-    dest: "{{remote_temp}}/jenkins-stack.yml"
+    src: jenkins_stack.yml 
+    dest: "{{remote_temp}}/jenkins_stack.yml"
 
 - name: deploy stack
-  command: docker stack deploy --compose-file=jenkins-stack.yml jenkins 
+  command: docker stack deploy --compose-file=jenkins_stack.yml jenkins 
   args: 
     chdir: "{{remote_temp}}"
 
