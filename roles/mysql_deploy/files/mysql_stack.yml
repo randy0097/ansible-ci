@@ -8,7 +8,7 @@ services:
     environment:
       MYSQL_ROOT_PASSWORD: randy1234
     volumes:    
-      - /glusterfs_mnt/jenkins-workspace:/var/lib/mysql
+      - /glusterfs_mnt/mysql_data:/var/lib/mysql
 
   adminer:
     image: adminer
