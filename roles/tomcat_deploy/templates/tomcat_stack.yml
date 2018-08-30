@@ -2,11 +2,11 @@ version: '3.2'
 
 services:
 
-    test:
+    "{{tomcat_name}}":
     image: tomcat:8.5.32-jre8
     volumes:    
       - /glusterfs_mnt/{{tomcat_name}}/webapps:/usr/local/tomcat/webapps
     deploy:
       mode: replicated
       replicas: 1
-       
+          
