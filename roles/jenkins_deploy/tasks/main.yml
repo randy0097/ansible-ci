@@ -3,31 +3,31 @@
     path: "{{remote_temp}}"
     state: directory 
 
-- name: clean jenkins_workspace
+- name: clean jenkins mount data
   file: 
-    path: /glusterfs_mnt/jenkins_workspace
+    path: /glusterfs_mnt/{{jenkins_mount_data}}
     state: absent
 
-- name: create jenkins_workspace
+- name: create jenkins_home
   file: 
-    path: /glusterfs_mnt/jenkins_workspace
+    path: /glusterfs_mnt/{{jenkins_mount_data}}/jenkins_home
     state: directory
 
-# - name: extract jenkins_workspace.tgz
+# - name: extract jenkins_home.tgz
 #   unarchive:
-#     src: "{{local_temp}}/jenkins_workspace.tgz"
-#     dest: /glusterfs_mnt/
+#     src: "{{local_temp}}/jenkins_home.tgz"
+#     dest: /glusterfs_mnt/{{jenkins_mount_data}}/
 
 - name: modify directory owner
   file: 
-    path: /glusterfs_mnt/jenkins_workspace
+    path: /glusterfs_mnt/{{jenkins_mount_data}}/jenkins_home
     owner: 1000
     group: 1000
     recurse: yes
     state: directory
 
 # - name: modify directory owner
-#   command: chown -R 1000:1000 /glusterfs_mnt/jenkins-workspace
+#   command: chown -R 1000:1000 /glusterfs_mnt/{{jenkins_mount_data}}/jenkins_home
 
 - name: copy stack.yml to remote
   template: 

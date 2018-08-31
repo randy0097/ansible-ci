@@ -8,12 +8,12 @@
 #       state: directory
 #   - name: git checkout
 #     git: repo={{jenkins_git}}  
-#         dest="{{local_temp}}/jenkins_workspace"
+#         dest="{{local_temp}}/jenkins_home"
 #         force=yes
 #   - name: compress
 #     archive:
-#       path: "{{local_temp}}/jenkins_workspace"
-#       dest: "{{local_temp}}/jenkins_workspace.tgz"
+#       path: "{{local_temp}}/jenkins_home"
+#       dest: "{{local_temp}}/jenkins_home.tgz"
       
 - name:  deploy jenkins
   hosts: "{{groups['swarm_manager'][0]}}"
