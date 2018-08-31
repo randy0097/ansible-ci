@@ -5,12 +5,12 @@
 
 - name: clean tomcat workspace
   file:
-    path: /glusterfs_mnt/{{tomcat_name}}
+    path: /glusterfs_mnt/{{tomcat_mount_data}}
     state: absent
 
 - name: create tomcat webapps
   file: 
-    path: /glusterfs_mnt/{{tomcat_name}}/webapps
+    path: /glusterfs_mnt/{{tomcat_mount_data}}/webapps
     state: directory
 
 - name: copy stack.yml to remote
