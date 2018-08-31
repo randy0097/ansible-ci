@@ -18,8 +18,9 @@
     src: tomcat_stack.yml 
     dest: "{{remote_temp}}/tomcat_stack.yml"
 
-- debug:
-      var: tomcat_permission_port
+- name: debug
+  debug:
+    var: tomcat_permission_port
 
 # - name: deploy stack
 #   command: docker stack deploy --compose-file=tomcat_stack.yml {{tomcat_name}}_{{env}}
