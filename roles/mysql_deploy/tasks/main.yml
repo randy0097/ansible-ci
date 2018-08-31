@@ -5,12 +5,12 @@
 
 - name: clean mysql workspace
   file: 
-    path: /glusterfs_mnt/mysql_data
+    path: /glusterfs_mnt/{{mysql_mount_data}}
     state: absent
 
 - name: create mysql_data
   file: 
-    path: /glusterfs_mnt/mysql_data
+    path: /glusterfs_mnt/{{mysql_mount_data}}/mysql_data
     state: directory
 
 - name: copy stack.yml to remote
@@ -19,7 +19,7 @@
     dest: "{{remote_temp}}/mysql_stack.yml"
 
 - name: deploy stack
-  command: docker stack deploy --compose-file=mysql_stack.yml mysql_{{env}}
+  command: docker stack deploy --compose-file=mysql_stack.yml {{env}}_mysql
   args: 
     chdir: "{{remote_temp}}"
 
