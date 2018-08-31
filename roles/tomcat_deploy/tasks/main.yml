@@ -20,7 +20,7 @@
 
 - name: debug
   debug:
-    var: tomcat_permission_port
+    var: tomcat_port
 
 - name: deploy stack
   command: docker stack deploy --compose-file=tomcat_stack.yml {{tomcat_name}}_{{env}}
