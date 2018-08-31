@@ -10,4 +10,4 @@ services:
       mode: replicated
       replicas: 1
     ports:
-     - "{{tomcat_cas_port}}:8080"        
+     - "{{tomcat_port}}:8080"        
