@@ -31,20 +31,20 @@ redis_ports:
   prod: 8401
 redis_port: "{{redis_ports[env]}}"
 
+
+tomcat_name: permission
+tomcat_mount_data: tomcat_{{tomcat_name}}_{{env}}
 tomcat_ports:
-  tomcat_permission:
+  permission:
     dev: 8102
     test: 8202
     pre_prod: 8302
     prod: 8402
-  tomcat_cas:
+  cas:
     dev: 8103
     test: 8203
     pre_prod: 8303
     prod: 8403
-
-tomcat_name: tomcat_permission
-
 tomcat_port: "{{tomcat_ports[tomcat_name][env]}}"
 
 
