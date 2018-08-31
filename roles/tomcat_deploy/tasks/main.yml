@@ -22,10 +22,10 @@
   debug:
     var: tomcat_permission_port
 
-# - name: deploy stack
-#   command: docker stack deploy --compose-file=tomcat_stack.yml {{tomcat_name}}_{{env}}
-#   args: 
-#     chdir: "{{remote_temp}}"
+- name: deploy stack
+  command: docker stack deploy --compose-file=tomcat_stack.yml {{tomcat_name}}_{{env}}
+  args: 
+    chdir: "{{remote_temp}}"
 
 
     
