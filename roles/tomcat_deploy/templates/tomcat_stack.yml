@@ -10,4 +10,4 @@ services:
       mode: replicated
       replicas: 1
     ports:
-     - "{{vars[tomcat_name]+'_port'}}:8080"        
+     - "{{vars[tomcat_name]+_port}}:8080"        
