@@ -13,10 +13,10 @@
     path: /glusterfs_mnt/jenkins/jenkins_home
     state: directory
 
-# - name: extract jenkins_home.tgz
-#   unarchive:
-#     src: "{{local_temp}}/jenkins_home.tgz"
-#     dest: /glusterfs_mnt/jenkins/
+- name: extract jenkins_home.tgz
+  unarchive:
+    src: "{{local_temp}}/jenkins_home.tgz"
+    dest: /glusterfs_mnt/jenkins/
 
 - name: modify directory owner
   file: 
