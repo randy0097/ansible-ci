@@ -1,6 +1,6 @@
 - name: create portainer mount directory
   file: 
-    path: /glusterfs_mnt/portainer_data
+    path: /glusterfs_mnt/portainer/portainer_data
     state: directory 
 
 - name: create remote temp dir

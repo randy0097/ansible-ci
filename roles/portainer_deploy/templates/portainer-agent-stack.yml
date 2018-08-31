@@ -25,7 +25,7 @@ services:
     ports:
       - "{{portainer_port}}:9000"
     volumes:
-      - /glusterfs_mnt/portainer_data:/data
+      - /glusterfs_mnt/portainer/portainer_data:/data
     networks:
       - agent_network
     deploy:
