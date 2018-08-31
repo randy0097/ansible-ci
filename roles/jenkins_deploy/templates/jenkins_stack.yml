@@ -8,7 +8,7 @@ services:
       - "{{jenkins_port1}}:8080"
       - "{{jenkins_port2}}:50000"
     volumes:    
-      - /glusterfs_mnt/jenkins-workspace:/var/jenkins_home
+      - /glusterfs_mnt/jenkins_workspace:/var/jenkins_home
     deploy:
       mode: replicated
       replicas: 1
