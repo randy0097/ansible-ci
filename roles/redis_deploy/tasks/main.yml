@@ -3,12 +3,12 @@
     path: "{{remote_temp}}"
     state: directory 
 
-- name: clean redis mount data
+- name: clean redis mount directory
   file: 
     path: /glusterfs_mnt/{{redis_mount_data}}
     state: absent
 
-- name: create redis_data
+- name: create redis_data directory
   file: 
     path: /glusterfs_mnt/{{redis_mount_data}}/redis_data
     state: directory

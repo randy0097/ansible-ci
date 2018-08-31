@@ -3,12 +3,12 @@
     path: "{{remote_temp}}"
     state: directory 
 
-- name: clean mysql mount data
+- name: clean mysql mount data directory
   file: 
     path: /glusterfs_mnt/{{mysql_mount_data}}
     state: absent
 
-- name: create mysql_data
+- name: create mysql_data directory
   file: 
     path: /glusterfs_mnt/{{mysql_mount_data}}/mysql_data
     state: directory
