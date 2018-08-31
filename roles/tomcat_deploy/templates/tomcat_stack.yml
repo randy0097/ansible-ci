@@ -2,7 +2,7 @@ version: '3.2'
 
 services:
 
-    "{{tomcat_name}}":
+    tomcat_permission:
     image: tomcat:8.5.32-jre8
     volumes:    
       - /glusterfs_mnt/{{tomcat_name}}/webapps:/usr/local/tomcat/webapps
