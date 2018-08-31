@@ -9,3 +9,5 @@ services:
     environment:
       REDIS_1_HOST: 10.0.0.102:8101   
       REDIS_1_NAME: dev_redis_redis
+      REDIS_2_HOST: 10.0.0.102:8201   
+      REDIS_2_NAME: test_redis_redis          
