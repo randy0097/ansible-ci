@@ -1,5 +1,14 @@
 ---
 - name:  deploy mysql
   hosts: "{{groups['swarm_manager'][0]}}"
+  vars:
+    env: dev
   roles:
-  - role: mysql_deploy      
+  - role: mysql_deploy
+
+- name:  deploy mysql
+  hosts: "{{groups['swarm_manager'][0]}}"
+  vars:
+    env: test
+  roles:
+  - role: mysql_deploy        

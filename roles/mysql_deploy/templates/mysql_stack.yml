@@ -15,10 +15,10 @@ services:
     ports:
       - "{{mysql_port}}:3306"    
 
-  adminer:
-    image: adminer
-    deploy:
-      mode: replicated
-      replicas: 1    
-    ports:
-      - "{{adminer_port}}:8080"  
+  # adminer:
+  #   image: adminer
+  #   deploy:
+  #     mode: replicated
+  #     replicas: 1    
+  #   ports:
+  #     - "{{adminer_port}}:8080"  
