@@ -31,7 +31,7 @@ redis_ports:
   prod: 8401
 redis_port: "{{redis_ports[env]}}"
 
-tomcat_name: tomcat_permission
+tomcat_name: tomcat_cas
 
 tomcat_permission_ports:
   dev: 8102
