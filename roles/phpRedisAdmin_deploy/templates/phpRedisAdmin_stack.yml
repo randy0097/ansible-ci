@@ -6,6 +6,6 @@ services:
     image: erikdubbelboer/phpredisadmin
     ports:
      - "{{phpRedisAdmin_port}}:80"
-    environment:
-      REDIS_1_HOST: redis   
-      REDIS_1_NAME: redis  
+    # environment:
+    #   REDIS_1_HOST: redis   
+    #   REDIS_1_NAME: redis  
