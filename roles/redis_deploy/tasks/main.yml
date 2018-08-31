@@ -5,12 +5,12 @@
 
 - name: clean redis workspace
   file: 
-    path: /glusterfs_mnt/redis_data
+    path: /glusterfs_mnt/{{redis_mount_data}}
     state: absent
 
 - name: create redis_data
   file: 
-    path: /glusterfs_mnt/redis_data
+    path: /glusterfs_mnt/{{redis_mount_data}}/redis_data
     state: directory
 
 - name: copy stack.yml to remote
@@ -19,7 +19,7 @@
     dest: "{{remote_temp}}/redis_stack.yml"
 
 - name: deploy stack
-  command: docker stack deploy --compose-file=redis_stack.yml redis_{{env}}
+  command: docker stack deploy --compose-file=redis_stack.yml {{env}}_redis
   args: 
     chdir: "{{remote_temp}}"
 

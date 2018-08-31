@@ -5,17 +5,17 @@ services:
   redis:
     image: redis:4.0.11
     volumes:    
-      - /glusterfs_mnt/redis_data:/data
+      - /glusterfs_mnt/{{redis_mount_data}}/redis_data:/data
     deploy:
       mode: replicated
       replicas: 1
     ports:
       - "{{redis_port}}:6379"
 
-  phpRedisAdmin:
-    image: erikdubbelboer/phpredisadmin
-    ports:
-     - "{{phpRedisAdmin_port}}:80"
-    environment:
-      REDIS_1_HOST: redis   
-      REDIS_1_NAME: redis                   
+  # phpRedisAdmin:
+  #   image: erikdubbelboer/phpredisadmin
+  #   ports:
+  #    - "{{phpRedisAdmin_port}}:80"
+  #   environment:
+  #     REDIS_1_HOST: redis   
+  #     REDIS_1_NAME: redis                   
