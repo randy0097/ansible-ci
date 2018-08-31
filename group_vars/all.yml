@@ -47,23 +47,30 @@ tomcat_cas_ports:
   prod: 8403
 tomcat_cas_port: "{{tomcat_cas_ports[env]}}"
 
-tomcat_ports:
-  tomcat_permission_ports:
-    dev: 8102
-    test: 8202
-    pre_prod: 8302
-    prod: 8402
-  tomcat_cas_ports:
-    dev: 8103
-    test: 8203
-    pre_prod: 8303
-    prod: 8403
 
-tomcat_names: 
-  tomcat_permission: tomcat_permission_ports
-  tomcat_cas: tomcat_cas_ports
+tomcat_port_name: "{{tomcat_name}}_ports"
 
-tomcat_port: "{{tomcat_ports[tomcat_names]}}"
+tomcat_port: "{{tomcat_port_name}}[env]"
+
+
+
+# tomcat_ports:
+#   tomcat_permission_ports:
+#     dev: 8102
+#     test: 8202
+#     pre_prod: 8302
+#     prod: 8402
+#   tomcat_cas_ports:
+#     dev: 8103
+#     test: 8203
+#     pre_prod: 8303
+#     prod: 8403
+
+# tomcat_names: 
+#   tomcat_permission: tomcat_permission_ports
+#   tomcat_cas: tomcat_cas_ports
+
+# tomcat_port: "{{tomcat_ports[tomcat_names]}}"
 
 
 
