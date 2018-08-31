@@ -17,8 +17,6 @@ jenkins_port2: 9003
 adminer_port: 9004
 phpRedisAdmin_port: 9005
 
-jenkins_mount_data: "{{env}}_jenkins"
-
 mysql_mount_data: "{{env}}_mysql"
 mysql_ports:
   dev: 8100

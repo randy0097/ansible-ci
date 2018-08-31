@@ -5,29 +5,29 @@
 
 - name: clean jenkins mount data
   file: 
-    path: /glusterfs_mnt/{{jenkins_mount_data}}
+    path: /glusterfs_mnt/jenkins
     state: absent
 
 - name: create jenkins_home
   file: 
-    path: /glusterfs_mnt/{{jenkins_mount_data}}/jenkins_home
+    path: /glusterfs_mnt/jenkins/jenkins_home
     state: directory
 
 # - name: extract jenkins_home.tgz
 #   unarchive:
 #     src: "{{local_temp}}/jenkins_home.tgz"
-#     dest: /glusterfs_mnt/{{jenkins_mount_data}}/
+#     dest: /glusterfs_mnt/jenkins/
 
 - name: modify directory owner
   file: 
-    path: /glusterfs_mnt/{{jenkins_mount_data}}/jenkins_home
+    path: /glusterfs_mnt/jenkins/jenkins_home
     owner: 1000
     group: 1000
     recurse: yes
     state: directory
 
 # - name: modify directory owner
-#   command: chown -R 1000:1000 /glusterfs_mnt/{{jenkins_mount_data}}/jenkins_home
+#   command: chown -R 1000:1000 /glusterfs_mnt/jenkins/jenkins_home
 
 - name: copy stack.yml to remote
   template: 
