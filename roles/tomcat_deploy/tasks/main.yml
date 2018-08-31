@@ -23,7 +23,7 @@
     var: tomcat_port
 
 - name: deploy stack
-  command: docker stack deploy --compose-file=tomcat_stack.yml tomcat_{{tomcat_name}}_{{env}}
+  command: docker stack deploy --compose-file=tomcat_stack.yml {{env}}_tomcat_{{tomcat_name}}
   args: 
     chdir: "{{remote_temp}}"
 
