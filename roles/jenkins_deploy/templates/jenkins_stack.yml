@@ -3,7 +3,7 @@ version: '3.2'
 services:
 
   jenkins:
-    image: jenkins:2.46.2
+    image: randy0098/jenkins:latest
     ports:
       - "{{jenkins_port1}}:8080"
       - "{{jenkins_port2}}:50000"
