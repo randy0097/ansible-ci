@@ -1,20 +1,29 @@
 ---
-- name: compress jenkins workspace
+- name: compress jenkins and ansible workspace
   hosts: localhost
   tasks:
   - name: create temp directory
     file: 
       path: "{{local_temp}}"
       state: directory
-  - name: git checkout
-    git: repo={{jenkins_git}}  
-        dest="{{local_temp}}/jenkins_home"
+  # - name: git checkout jenkins_home
+  #   git: repo={{jenkins_git}}  
+  #       dest="{{local_temp}}/jenkins_home"
+  #       force=yes
+  # - name: compress jenkins_home
+  #   archive:
+  #     path: "{{local_temp}}/jenkins_home"
+  #     dest: "{{local_temp}}/jenkins_home.tgz"
+
+  - name: git checkout docker-permission
+    git: repo={{docker_permission_git}}  
+        dest="{{local_temp}}/docker_permission"
         force=yes
-  - name: compress
+  - name: compress docker-permission
     archive:
-      path: "{{local_temp}}/jenkins_home"
-      dest: "{{local_temp}}/jenkins_home.tgz"
-      
+      path: "{{local_temp}}/docker_permission"
+      dest: "{{local_temp}}/docker_permission.tgz"
+
 - name:  deploy jenkins
   hosts: "{{groups['swarm_manager'][0]}}"
   roles:

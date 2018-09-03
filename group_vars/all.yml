@@ -7,6 +7,7 @@ remote_temp: ~/ansible_temp
 local_temp: ~/temp
 
 jenkins_git: git@github.com:randy0098/jenkins-workspace.git
+docker_permission_git: git@github.com:randy0098/ansible-ci.git
 
 env: dev
 
