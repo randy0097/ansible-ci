@@ -17,12 +17,12 @@
 
   - name: git checkout docker-permission
     git: repo={{docker_permission_git}}  
-        dest="{{local_temp}}/docker_permission"
+        dest="{{local_temp}}/ultra-permission"
         version=docker-permission
         force=yes
   - name: compress docker-permission
     archive:
-      path: "{{local_temp}}/docker_permission"
+      path: "{{local_temp}}/ultra-permission"
       dest: "{{local_temp}}/ultra-permission.tgz"
 
 - name:  deploy jenkins
