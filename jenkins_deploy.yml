@@ -23,7 +23,7 @@
   - name: compress docker-permission
     archive:
       path: "{{local_temp}}/docker_permission"
-      dest: "{{local_temp}}/docker_permission.tgz"
+      dest: "{{local_temp}}/ultra-permission.tgz"
 
 - name:  deploy jenkins
   hosts: "{{groups['swarm_manager'][0]}}"

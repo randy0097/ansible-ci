@@ -25,7 +25,7 @@
 
 - name: extract docker_permission.tgz
   unarchive:
-    src: "{{local_temp}}/docker_permission.tgz"
+    src: "{{local_temp}}/ultra-permission.tgz"
     dest: /glusterfs_mnt/jenkins/build
 
 - name: modify directory owner
