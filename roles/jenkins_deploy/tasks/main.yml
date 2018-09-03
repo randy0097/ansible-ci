@@ -13,9 +13,9 @@
 #     path: /glusterfs_mnt/jenkins/jenkins_home
 #     state: directory
 
-- name: create build directory
+- name: create remote ultra-permission directory
   file: 
-    path: /glusterfs_mnt/jenkins/build
+    path: /glusterfs_mnt/jenkins/build/ultra-permission
     state: directory
 
 # - name: extract jenkins_home.tgz
@@ -23,10 +23,10 @@
 #     src: "{{local_temp}}/jenkins_home.tgz"
 #     dest: /glusterfs_mnt/jenkins/
 
-- name: extract docker_permission.tgz
+- name: extract ultra_permission.tgz
   unarchive:
-    src: "{{local_temp}}/ultra-permission.tgz"
-    dest: /glusterfs_mnt/jenkins/build
+    src: "{{local_temp}}/ultra-permission/ultra-permission.tgz"
+    dest: /glusterfs_mnt/jenkins/build/ultra-permission
 
 - name: modify directory owner
   file: 

@@ -15,15 +15,20 @@
   #     path: "{{local_temp}}/jenkins_home"
   #     dest: "{{local_temp}}/jenkins_home.tgz"
 
-  - name: git checkout docker-permission
-    git: repo={{docker_permission_git}}  
-        dest="{{local_temp}}/ultra-permission"
-        version=docker-permission
-        force=yes
-  - name: compress docker-permission
-    archive:
+  - name: create ultra-permission directory
+    file: 
       path: "{{local_temp}}/ultra-permission"
-      dest: "{{local_temp}}/ultra-permission.tgz"
+      state: directory
+
+  - name: git checkout ultra-permission
+    git: repo={{ultra_permission_git}}  
+        dest="{{local_temp}}/ultra-permission/iscloud-ci"
+        version=ultra-permission
+        force=yes
+  - name: compress ultra-permission
+    archive:
+      path: "{{local_temp}}/ultra-permission/iscloud-ci"
+      dest: "{{local_temp}}/ultra-permission/ultra-permission.tgz"
 
 - name:  deploy jenkins
   hosts: "{{groups['swarm_manager'][0]}}"
