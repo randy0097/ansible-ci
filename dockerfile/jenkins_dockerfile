@@ -1,3 +1,4 @@
 FROM jenkins:2.46.2
+RUN wget http://mirrors.tuna.tsinghua.edu.cn/apache/maven/maven-3/3.5.4/binaries/apache-maven-3.5.4-bin.tar.gz&&tar xzvf apache-maven-3.5.4-bin.tar.gz -C /opt/&&export PATH=/opt/apache-maven-3.5.4/bin:$PATH
 USER root
 RUN curl https://bootstrap.pypa.io/get-pip.py -o get-pip.py&&python get-pip.py -i http://pypi.douban.com/simple --trusted-host pypi.douban.com&&pip install ansible==2.6.2 -i http://pypi.douban.com/simple --trusted-host pypi.douban.com
