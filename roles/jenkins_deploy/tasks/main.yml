@@ -19,20 +19,26 @@
     state: directory
 
 - name: copy id_rsa to remote
-  file: 
+  copy: 
     src: id_rsa 
     dest: /glusterfs_mnt/jenkins/ssh/id_rsa
+    mode: 0600
+    force: yes
 
 - name: copy id_rsa.pub to remote
-  file: 
+  copy: 
     src: id_rsa.pub 
     dest: /glusterfs_mnt/jenkins/ssh/id_rsa.pub    
+    mode: 0644
+    force: yes
 
 - name: copy known_hosts to remote
-  file: 
+  copy: 
     src: known_hosts
     dest: /glusterfs_mnt/jenkins/ssh/known_hosts    
-
+    mode: 0644
+    force: yes
+    
 - name: create remote ultra-permission directory
   file: 
     path: /glusterfs_mnt/jenkins/build/ultra-permission
