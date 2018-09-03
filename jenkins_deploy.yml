@@ -18,6 +18,7 @@
   - name: git checkout docker-permission
     git: repo={{docker_permission_git}}  
         dest="{{local_temp}}/docker_permission"
+        version=docker-permission
         force=yes
   - name: compress docker-permission
     archive:
