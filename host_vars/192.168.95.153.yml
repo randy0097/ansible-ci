@@ -1,9 +1,7 @@
 tomcat_dir: /root/ultrapower/software/ultra-permission
 tomcat_process_keyword: ultra-permission
 deploy_name: ultra-permission
-#application_properties: application.web_test_153
 
-cas_tomcat_dir: /root/ultrapower/software/ultra-cas
-cas_tomcat_process_keyword: ultra-cas
-cas_deploy_name: ultra-cas
-#cas_application_properties: cas_application.web_test_153
+# cas_tomcat_dir: /root/ultrapower/software/ultra-cas
+# cas_tomcat_process_keyword: ultra-cas
+# cas_deploy_name: ultra-cas

@@ -1,5 +1,5 @@
-def frontGitUrl = 'git@192.168.194.114:whdev-frontend/ultra-permission-frontend.git'
-def backGitUrl = 'git@192.168.194.114:whdev-backend/ultra-permission.git'
+def frontGitUrl = 'git@github.com:randy0098/front-test.git'
+def backGitUrl = 'git@github.com:randy0098/backend-test.git'
 def gitUrl = frontGitUrl
 
 def newList = []

@@ -1,5 +1,5 @@
-frontend_git: git@192.168.194.114:whdev-frontend/ultra-permission-frontend.git
-backend_git: git@192.168.194.114:whdev-backend/ultra-permission.git
+frontend_git: git@github.com:randy0098/front-test.git
+backend_git: git@github.com:randy0098/backend-test.git
 frontend_version: "{{ frontend_commitId if frontend_commitId != '' else branchName }}"
 backend_version: "{{ backend_commitId if backend_commitId != '' else branchName }}"
 cas_version: "{{ cas_commitId if cas_commitId != '' else branchName }}"
@@ -32,9 +32,10 @@ appFolder: "{{appNameToFolderName[appName]}}"
 cas_dir: "{{build_dir_env}}/cas"
 cas_module_dir: "{{cas_dir}}/ultra-permission-cas-server"
 cas_target_dir: "{{cas_module_dir}}/target"
-# cas_build_name: "{{module_name}}-{{module_version}}"
-# cas_build_dir: "{{cas_target_dir}}/{{cas_build_name}}"
 cas_war_name: ultra-permission-cas-server.war
+# cas_tomcat_dir: /glusterfs_mnt/dev_tomcat_cas/tomcat
+cas_tomcat_dir: /glusterfs_mnt/{{env}}_tomcat_cas/tomcat
+
 
 envToConfig:
   test_security_153_wh: test_153.json

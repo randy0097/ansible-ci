@@ -7,15 +7,9 @@
     path: "{{remote_temp}}/{{cas_war_name}}"
     state: absent 
 - name: copy war to remote
-  copy: src={{build_dir_env}}/{{cas_war_name}}
-        dest={{remote_temp}}/{{cas_war_name}}  
-- name: get tomcat processId
-  raw: ps aux|grep {{cas_tomcat_process_keyword}}|grep -v grep|awk '{print $2}'
-  register: tomcatProcess
-  ignore_errors: True
-- name: stop tomcat
-  command: kill -9 {{tomcatProcess.stdout}}
-  when: tomcatProcess.stdout != ''
+  copy: 
+    src: "{{build_dir_env}}/{{cas_war_name}}"
+    dest: "{{remote_temp}}/{{cas_war_name}}"
 - name: clean old project folder
   file: 
     path: "{{cas_tomcat_dir}}/webapps/{{cas_deploy_name}}"
@@ -36,8 +30,8 @@
 - name: set spring.profiles.active
   command: sed -i "s/spring.profiles.active=dev/spring.profiles.active={{spring_profiles_active}}/g" {{cas_tomcat_dir}}/webapps/{{cas_deploy_name}}/WEB-INF/classes/application.properties
 
-- name: set tomcat env parameters
-  shell: echo JAVA_OPTS=\"-Dspring.profiles.active={{spring_profiles_active}}\"  > {{cas_tomcat_dir}}/bin/setenv.sh
+# - name: set tomcat env parameters
+#   shell: echo JAVA_OPTS=\"-Dspring.profiles.active={{spring_profiles_active}}\"  > {{cas_tomcat_dir}}/bin/setenv.sh
 
-- name: start tomcat
-  shell: "nohup sh {{cas_tomcat_dir}}/bin/startup.sh -Dspring.profiles.active={{spring_profiles_active}} &"
+# - name: start tomcat
+#   shell: "nohup sh {{cas_tomcat_dir}}/bin/startup.sh -Dspring.profiles.active={{spring_profiles_active}} &"
