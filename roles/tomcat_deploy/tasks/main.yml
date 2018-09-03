@@ -8,9 +8,9 @@
     path: /glusterfs_mnt/{{tomcat_mount_data}}
     state: absent
 
-- name: create tomcat directory
+- name: create tomcat webapps directory
   file: 
-    path: /glusterfs_mnt/{{tomcat_mount_data}}/tomcat
+    path: /glusterfs_mnt/{{tomcat_mount_data}}/tomcat/webapps
     state: directory
 
 - name: copy stack.yml to remote
