@@ -9,6 +9,7 @@ services:
       - "{{jenkins_port2}}:50000"
     volumes:    
       - /glusterfs_mnt/jenkins/jenkins_home:/var/jenkins_home
+      - /glusterfs_mnt/jenkins/build:/root/build    
     deploy:
       mode: replicated
       replicas: 1
