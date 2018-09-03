@@ -13,6 +13,26 @@
 #     path: /glusterfs_mnt/jenkins/jenkins_home
 #     state: directory
 
+- name: create ssh directory
+  file: 
+    path: /glusterfs_mnt/jenkins/ssh
+    state: directory
+
+- name: copy id_rsa to remote
+  file: 
+    src: id_rsa 
+    dest: /glusterfs_mnt/jenkins/ssh/id_rsa
+
+- name: copy id_rsa.pub to remote
+  file: 
+    src: id_rsa.pub 
+    dest: /glusterfs_mnt/jenkins/ssh/id_rsa.pub    
+
+- name: copy known_hosts to remote
+  file: 
+    src: known_hosts
+    dest: /glusterfs_mnt/jenkins/ssh/known_hosts    
+
 - name: create remote ultra-permission directory
   file: 
     path: /glusterfs_mnt/jenkins/build/ultra-permission
