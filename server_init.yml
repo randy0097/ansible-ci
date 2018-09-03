@@ -6,9 +6,11 @@
     copy: 
       src: /root/.ssh/id_rsa
       dest: /root/.ssh/id_rsa
+      mode: 0600
       force: no
   - name: copy id_rsa.pub
     copy: 
       src: /root/.ssh/id_rsa.pub
       dest: /root/.ssh/id_rsa.pub
+      mode: 0644
       force: no
