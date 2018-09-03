@@ -1,10 +1,10 @@
 ---
-- name:  deploy tomcat permission
-  hosts: "{{groups['swarm_manager'][0]}}"
-  vars:
-    tomcat_name: permission
-  roles:
-  - role: tomcat_deploy  
+# - name:  deploy tomcat permission
+#   hosts: "{{groups['swarm_manager'][0]}}"
+#   vars:
+#     tomcat_name: permission
+#   roles:
+#   - role: tomcat_deploy  
 
 - name:  deploy tomcat cas
   hosts: "{{groups['swarm_manager'][0]}}"

@@ -5,7 +5,7 @@ services:
   "{{tomcat_name}}":
     image: tomcat:8.5.32-jre8
     volumes:    
-      - /glusterfs_mnt/{{tomcat_mount_data}}/webapps:/usr/local/tomcat/webapps
+      - /glusterfs_mnt/{{tomcat_mount_data}}/tomcat:/usr/local/tomcat
     deploy:
       mode: replicated
       replicas: 1
