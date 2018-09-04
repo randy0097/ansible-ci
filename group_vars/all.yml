@@ -33,9 +33,8 @@ cas_dir: "{{build_dir_env}}/cas"
 cas_module_dir: "{{cas_dir}}/ultra-permission-cas-server"
 cas_target_dir: "{{cas_module_dir}}/target"
 cas_war_name: ultra-permission-cas-server.war
-# cas_tomcat_dir: /glusterfs_mnt/dev_tomcat_cas/tomcat
 cas_tomcat_dir: /glusterfs_mnt/{{env}}_tomcat_cas/tomcat
-
+cas_deploy_name: ultra-cas
 
 envToConfig:
   test_security_153_wh: test_153.json
