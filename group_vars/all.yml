@@ -45,11 +45,8 @@ envToConfig:
 configFile: "{{envToConfig[env]}}"
 
 envToActive:
-  test_security_153_wh: test
-  pre_prod_cas_107: preprod
-  pre_prod_security_108_109: preprod
-  real_prod_security_91_92: prod
-  real_prod_cas_90: prod
+  dev: dev
+  test: test
   
 spring_profiles_active: "{{envToActive[env]}}"
 
