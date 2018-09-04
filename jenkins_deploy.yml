@@ -21,7 +21,7 @@
       state: directory
 
   - name: git checkout ultra-permission
-    git: repo={{ultra_permission_git}}  
+    git: repo="{{ultra_permission_git}}"
         dest="{{local_temp}}/ultra-permission/iscloud-ci"
         version=docker-permission
         force=yes
@@ -29,6 +29,15 @@
     archive:
       path: "{{local_temp}}/ultra-permission/iscloud-ci"
       dest: "{{local_temp}}/ultra-permission/ultra-permission.tgz"
+
+  - name: git checkout m2
+    git: repo="{{m2_git}}"  
+        dest="{{local_temp}}/m2"
+        force=yes
+  - name: compress m2
+    archive:
+      path: "{{local_temp}}/m2"
+      dest: "{{local_temp}}/m2.tgz"
 
 - name:  deploy jenkins
   hosts: "{{groups['swarm_manager'][0]}}"

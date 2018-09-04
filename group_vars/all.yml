@@ -8,6 +8,7 @@ local_temp: ~/temp
 
 jenkins_git: git@github.com:randy0098/jenkins-workspace.git
 ultra_permission_git: git@github.com:randy0098/ansible-ci.git
+m2_git: git@github.com:randy0098/m2.git
 
 env: dev
 
