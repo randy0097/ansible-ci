@@ -36,5 +36,5 @@
 # - name: start tomcat
 #   shell: "nohup sh {{cas_tomcat_dir}}/bin/startup.sh -Dspring.profiles.active={{spring_profiles_active}} &"
 
-- name: restart permission tomcat
-  command: docker service update --force {{env}}_tomcat_permission_permission
+- name: restart cas tomcat
+  command: docker service update --force {{env}}_tomcat_cas_cas
