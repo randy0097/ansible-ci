@@ -11,6 +11,7 @@ services:
       - /glusterfs_mnt/jenkins/jenkins_home:/var/jenkins_home
       - /glusterfs_mnt/jenkins/build:/root/build 
       - /glusterfs_mnt/jenkins/ssh:/root/.ssh   
+      - /glusterfs_mnt/jenkins/m2:/root/.m2
     deploy:
       mode: replicated
       replicas: 1

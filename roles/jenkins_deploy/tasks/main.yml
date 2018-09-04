@@ -38,7 +38,12 @@
     dest: /glusterfs_mnt/jenkins/ssh/known_hosts    
     mode: 0644
     force: yes
-    
+
+- name: create m2 directory
+  file: 
+    path: /glusterfs_mnt/jenkins/m2
+    state: directory
+
 - name: create remote ultra-permission directory
   file: 
     path: /glusterfs_mnt/jenkins/build/ultra-permission
