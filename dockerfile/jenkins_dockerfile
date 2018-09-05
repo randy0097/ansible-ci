@@ -6,3 +6,4 @@ RUN curl https://bootstrap.pypa.io/get-pip.py -o get-pip.py&&python get-pip.py -
 ENV JAVA_HOME /docker-java-home
 ENV PATH /docker-java-home/bin:$PATH
 RUN apt-get update&&apt-get install -y sshpass
+RUN curl -sL https://deb.nodesource.com/setup_8.x | bash -&&apt-get install -y nodejs
