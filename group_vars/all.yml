@@ -10,7 +10,8 @@ build_dir_env: "{{build_dir}}/{{env}}"
 frontend_dir: "{{build_dir_env}}/permission-web"
 frontend_dist: "{{frontend_dir}}/dist/"
 frontend_app_dir: "{{frontend_dir}}/{{appName}}"
-
+tomcat_dir: /glusterfs_mnt/{{env}}_tomcat_permission/tomcat
+deploy_name: ultra-permission
 
 backend_dir: "{{build_dir_env}}/permission"
 backend_module_dir: "{{backend_dir}}/ultra-permission-server"
@@ -37,7 +38,7 @@ cas_tomcat_dir: /glusterfs_mnt/{{env}}_tomcat_cas/tomcat
 cas_deploy_name: ultra-cas
 
 envToConfig:
-  test_security_153_wh: test_153.json
+  dev: test_153.json
   pre_prod_cas_107: pre_prod_108.json
   pre_prod_security_108_109: pre_prod.json
   real_prod_security_91_92: prod_91_92.json

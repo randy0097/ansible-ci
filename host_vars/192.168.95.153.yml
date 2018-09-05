@@ -1,6 +1,6 @@
-tomcat_dir: /root/ultrapower/software/ultra-permission
-tomcat_process_keyword: ultra-permission
-deploy_name: ultra-permission
+# tomcat_dir: /root/ultrapower/software/ultra-permission
+# tomcat_process_keyword: ultra-permission
+# deploy_name: ultra-permission
 
 # cas_tomcat_dir: /root/ultrapower/software/ultra-cas
 # cas_tomcat_process_keyword: ultra-cas
