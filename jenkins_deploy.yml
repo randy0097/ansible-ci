@@ -21,7 +21,7 @@
       state: directory
 
   - name: git checkout ansible-permission
-    git: repo="{{ansible-permission_git}}"
+    git: repo="{{ansible_permission_git}}"
         dest="{{local_temp}}/ultra-permission/iscloud-ci"
         version=docker-permission
         force=yes
