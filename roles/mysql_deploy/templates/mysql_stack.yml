@@ -4,11 +4,12 @@ services:
 
   mysql:
     image: mysql:8.0.12
-    command: --default-authentication-plugin=mysql_native_password && mysql -u root  -p randy1234< /var/lib/mysql/alldb_backup.sql 
+    command: --default-authentication-plugin=mysql_native_password && mysql -u root  -p randy1234< /root/temp/alldb_backup.sql 
     environment:
       MYSQL_ROOT_PASSWORD: randy1234
     volumes:    
       - /glusterfs_mnt/{{mysql_mount_data}}/mysql_data:/var/lib/mysql
+      - /glusterfs_mnt/{{mysql_mount_data}}/alldb_backup.sql:/root/temp/alldb_backup.sql
     deploy:
       mode: replicated
       replicas: 1
