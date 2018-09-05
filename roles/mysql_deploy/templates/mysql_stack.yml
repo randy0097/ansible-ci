@@ -4,7 +4,7 @@ services:
 
   mysql:
     image: mysql:8.0.12
-    command: echo test-------------------------------------------------------
+    command: mysqld --default-authentication-plugin=mysql_native_password
     environment:
       MYSQL_ROOT_PASSWORD: randy1234
     volumes:    
