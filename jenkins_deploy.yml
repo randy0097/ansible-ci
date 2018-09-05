@@ -20,15 +20,15 @@
       path: "{{local_temp}}/ultra-permission"
       state: directory
 
-  - name: git checkout ultra-permission
-    git: repo="{{ultra_permission_git}}"
+  - name: git checkout ansible-permission
+    git: repo="{{ansible-permission_git}}"
         dest="{{local_temp}}/ultra-permission/iscloud-ci"
         version=docker-permission
         force=yes
-  - name: compress ultra-permission
+  - name: compress ansible-permission
     archive:
       path: "{{local_temp}}/ultra-permission/iscloud-ci"
-      dest: "{{local_temp}}/ultra-permission/ultra-permission.tgz"
+      dest: "{{local_temp}}/ultra-permission/ansible-permission.tgz"
 
   - name: git checkout m2
     git: repo="{{m2_git}}"  

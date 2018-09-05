@@ -59,9 +59,9 @@
 #     src: "{{local_temp}}/jenkins_home.tgz"
 #     dest: /glusterfs_mnt/jenkins/
 
-- name: extract ultra_permission.tgz
+- name: extract ansible-permission.tgz
   unarchive:
-    src: "{{local_temp}}/ultra-permission/ultra-permission.tgz"
+    src: "{{local_temp}}/ultra-permission/ansible-permission.tgz"
     dest: /glusterfs_mnt/jenkins/build/ultra-permission
 
 - name: modify directory owner
