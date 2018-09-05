@@ -9,13 +9,13 @@
 - name: copy war to remote
   copy: src={{build_dir_env}}/{{backend_war_name}}
         dest={{remote_temp}}/{{backend_war_name}}  
-- name: get tomcat processId
-  raw: ps aux|grep {{tomcat_process_keyword}}|grep -v grep|awk '{print $2}'
-  register: tomcatProcess
-  ignore_errors: True
-- name: stop tomcat
-  command: kill -9 {{tomcatProcess.stdout}}
-  when: tomcatProcess.stdout != ''
+# - name: get tomcat processId
+#   raw: ps aux|grep {{tomcat_process_keyword}}|grep -v grep|awk '{print $2}'
+#   register: tomcatProcess
+#   ignore_errors: True
+# - name: stop tomcat
+#   command: kill -9 {{tomcatProcess.stdout}}
+#   when: tomcatProcess.stdout != ''
 - name: clean old project folder
   file: 
     path: "{{tomcat_dir}}/webapps/{{deploy_name}}"
@@ -38,5 +38,8 @@
 - name: set swagger.enable
   command: sed -i "s/swagger.enable=false/swagger.enable={{swagger_active}}/g" {{tomcat_dir}}/webapps/{{deploy_name}}/WEB-INF/classes/application.properties
 
-- name: start tomcat
-  command: "nohup sh {{tomcat_dir}}/bin/startup.sh &"
+# - name: start tomcat
+#   command: "nohup sh {{tomcat_dir}}/bin/startup.sh &"
+
+- name: restart permission tomcat
+  command: docker service update --force {{env}}_tomcat_permission_permission

@@ -52,10 +52,8 @@ envToActive:
 spring_profiles_active: "{{envToActive[env]}}"
 
 envToSwagger:
-  test_security_153_wh: true
-  pre_prod_cas_107: false
-  pre_prod_security_108_109: false
-  real_prod_security_91_92: false
+  dev: true
+  test: true
 
 swagger_active: "{{envToSwagger[env]}}"
 
