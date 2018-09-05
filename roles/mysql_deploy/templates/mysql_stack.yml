@@ -4,7 +4,7 @@ services:
 
   mysql:
     image: mysql:8.0.12
-    command: CMD ["sh", "-c", "echo test1------------------------------ && echo test2**************************"] 
+    command: ["sh", "-c", "echo test1------------------------------ && echo test2**************************"] 
     environment:
       MYSQL_ROOT_PASSWORD: randy1234
     volumes:    
