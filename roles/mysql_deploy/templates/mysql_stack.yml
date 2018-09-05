@@ -4,7 +4,7 @@ services:
 
   mysql:
     image: mysql:8.0.12
-    command: ["sh", "-c", "mysqld --user=root --datadir=/var/lib/mysql --default-authentication-plugin=mysql_native_password"]
+    command: ["sh", "-c", "mysqld --user=mysql --default-authentication-plugin=mysql_native_password"]
     environment:
       MYSQL_ROOT_PASSWORD: randy1234
     volumes:    

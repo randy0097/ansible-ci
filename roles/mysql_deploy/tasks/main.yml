@@ -11,6 +11,7 @@
 - name: create mysql_data directory
   file: 
     path: /glusterfs_mnt/{{mysql_mount_data}}/mysql_data
+    mode: 0777
     state: directory
 
 - name: copy mysql data backup file to remote
