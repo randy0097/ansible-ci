@@ -13,6 +13,13 @@
     path: /glusterfs_mnt/{{mysql_mount_data}}/mysql_data
     state: directory
 
+- name: copy mysql data backup file to remote
+  copy: 
+    src: "{{local_temp}}/alldb_backup.sql"
+    dest: /glusterfs_mnt/{{mysql_mount_data}}/mysql_data/alldb_backup.sql    
+    mode: 0644
+    force: yes
+
 - name: copy stack.yml to remote
   template: 
     src: mysql_stack.yml 
