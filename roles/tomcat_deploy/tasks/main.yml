@@ -13,6 +13,11 @@
     path: /glusterfs_mnt/{{tomcat_mount_data}}/tomcat/webapps
     state: directory
 
+- name: create tomcat bin directory
+  file: 
+    path: /glusterfs_mnt/{{tomcat_mount_data}}/tomcat/bin
+    state: directory
+
 - name: create tomcat setenv.sh file
   file: 
     path: /glusterfs_mnt/{{tomcat_mount_data}}/tomcat/bin/setenv.sh
