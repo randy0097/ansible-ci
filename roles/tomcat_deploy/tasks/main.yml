@@ -31,7 +31,7 @@
 - name: copy server.xml to remote
   template: 
     src: "{{server_xml}}"
-    dest: "/glusterfs_mnt/{{tomcat_mount_data}}/{{server_xml}}"
+    dest: "/glusterfs_mnt/{{tomcat_mount_data}}/temp/{{server_xml}}"
 
 - name: copy stack.yml to remote
   template: 
