@@ -7,6 +7,7 @@ services:
     volumes:    
       - /glusterfs_mnt/{{tomcat_mount_data}}/tomcat/webapps:/usr/local/tomcat/webapps
       - /glusterfs_mnt/{{tomcat_mount_data}}/tomcat/bin/setenv.sh:/usr/local/tomcat/bin/setenv.sh
+      - /glusterfs_mnt/{{tomcat_mount_data}}/temp:/root/temp
     deploy:
       mode: replicated
       replicas: 1
