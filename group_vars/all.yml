@@ -38,7 +38,8 @@ cas_tomcat_dir: /glusterfs_mnt/{{env}}_tomcat_cas/tomcat
 cas_deploy_name: ultra-cas
 
 envToConfig:
-  dev: test_153.json
+  devwh: test_153.json
+  testwh: testwh.json
   pre_prod_cas_107: pre_prod_108.json
   pre_prod_security_108_109: pre_prod.json
   real_prod_security_91_92: prod_91_92.json
@@ -46,14 +47,14 @@ envToConfig:
 configFile: "{{envToConfig[env]}}"
 
 envToActive:
-  dev: dev
-  test: test
+  devwh: devwh
+  testwh: testwh
   
 spring_profiles_active: "{{envToActive[env]}}"
 
 envToSwagger:
-  dev: true
-  test: true
+  devwh: true
+  testwh: true
 
 swagger_active: "{{envToSwagger[env]}}"
 
