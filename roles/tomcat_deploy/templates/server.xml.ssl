@@ -96,7 +96,7 @@
 	<Connector port="8301" protocol="org.apache.coyote.http11.Http11NioProtocol"
 			   maxThreads="150" SSLEnabled="true" >
 		<SSLHostConfig>
-			<Certificate certificateKeystoreFile="/root/temp/{{ssl_key}}"
+			<Certificate certificateKeystoreFile="/root/ssl/{{ssl_key}}"
 				   certificateKeystoreType="PKCS12" certificateKeystorePassword="changeit" type="RSA"/>
 		</SSLHostConfig>
 	</Connector>	
