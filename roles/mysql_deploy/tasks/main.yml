@@ -24,7 +24,7 @@
   template: 
     src: mysql_entrypoint.sh
     dest: /glusterfs_mnt/{{mysql_mount_data}}/mysql_entrypoint.sh
-    mode: 0644
+    mode: 0777
     force: yes
 
 - name: copy stack.yml to remote
