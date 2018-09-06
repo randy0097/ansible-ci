@@ -30,8 +30,8 @@
 - name: set spring.profiles.active
   command: sed -i "s/spring.profiles.active=dev/spring.profiles.active={{spring_profiles_active}}/g" {{cas_tomcat_dir}}/webapps/{{cas_deploy_name}}/WEB-INF/classes/application.properties
 
-# - name: set tomcat env parameters
-#   shell: echo JAVA_OPTS=\"-Dspring.profiles.active={{spring_profiles_active}}\"  > {{cas_tomcat_dir}}/bin/setenv.sh
+- name: set tomcat env parameters
+  shell: echo JAVA_OPTS=\"-Dspring.profiles.active={{spring_profiles_active}}\"  > {{cas_tomcat_dir}}/bin/setenv.sh
 
 # - name: start tomcat
 #   shell: "nohup sh {{cas_tomcat_dir}}/bin/startup.sh -Dspring.profiles.active={{spring_profiles_active}} &"
