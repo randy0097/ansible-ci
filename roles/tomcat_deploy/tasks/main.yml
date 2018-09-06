@@ -37,14 +37,14 @@
   file: 
     path: /glusterfs_mnt/{{tomcat_mount_data}}/ssl
     state: directory
-  when: server_xml == server.xml.ssl   
+  when: server_xml == 'server.xml.ssl'   
 
 - name: copy ssl key file to remote
   copy: 
     src: "{{ssl_key}}"
     dest: "/glusterfs_mnt/{{tomcat_mount_data}}/ssl/{{ssl_key}}"
-  when: server_xml == server.xml.ssl
-  
+  when: server_xml == 'server.xml.ssl'
+
 - name: copy stack.yml to remote
   template: 
     src: tomcat_stack.yml 
