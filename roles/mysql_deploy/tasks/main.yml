@@ -20,12 +20,12 @@
     mode: 0644
     force: yes
 
-- name: copy mysql_entrypoint.sh to remote
-  template: 
-    src: mysql_entrypoint.sh
-    dest: /glusterfs_mnt/{{mysql_mount_data}}/mysql_entrypoint.sh
-    mode: 0777
-    force: yes
+# - name: copy mysql_entrypoint.sh to remote
+#   template: 
+#     src: mysql_entrypoint.sh
+#     dest: /glusterfs_mnt/{{mysql_mount_data}}/mysql_entrypoint.sh
+#     mode: 0777
+#     force: yes
 
 - name: copy stack.yml to remote
   template: 

@@ -10,17 +10,9 @@ services:
     volumes:    
       - /glusterfs_mnt/{{mysql_mount_data}}/mysql_data:/var/lib/mysql
       - /glusterfs_mnt/{{mysql_mount_data}}/alldb_backup.sql:/docker-entrypoint-initdb.d/alldb_backup.sql
-      - /glusterfs_mnt/{{mysql_mount_data}}/mysql_entrypoint.sh:/root/temp/mysql_entrypoint.sh
+      # - /glusterfs_mnt/{{mysql_mount_data}}/mysql_entrypoint.sh:/root/temp/mysql_entrypoint.sh
     deploy:
       mode: replicated
       replicas: 1
     ports:
       - "{{mysql_port}}:3306"    
-
-  # adminer:
-  #   image: adminer
-  #   deploy:
-  #     mode: replicated
-  #     replicas: 1    
-  #   ports:
-  #     - "{{adminer_port}}:8080"  
