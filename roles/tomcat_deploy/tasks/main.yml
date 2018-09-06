@@ -39,7 +39,7 @@
     state: directory
 
 - name: copy ssl key file to remote
-  template: 
+  copy: 
     src: "{{ssl_key}}"
     dest: "/glusterfs_mnt/{{tomcat_mount_data}}/ssl/{{ssl_key}}"
 
