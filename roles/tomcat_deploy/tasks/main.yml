@@ -18,25 +18,30 @@
     path: /glusterfs_mnt/{{tomcat_mount_data}}/tomcat/bin
     state: directory
 
+- name: create tomcat setenv.sh file
+  file: 
+    path: /glusterfs_mnt/{{tomcat_mount_data}}/tomcat/bin/setenv.sh
+    state: touch
+
 - name: create tomcat conf directory
   file: 
     path: /glusterfs_mnt/{{tomcat_mount_data}}/tomcat/conf
     state: directory
+
+- name: copy server.xml to remote
+  template: 
+    src: "{{server_xml}}"
+    dest: "/glusterfs_mnt/{{tomcat_mount_data}}/tomcat/conf/{{server_xml}}"
 
 - name: create ssl directory
   file: 
     path: /glusterfs_mnt/{{tomcat_mount_data}}/ssl
     state: directory
 
-- name: create tomcat setenv.sh file
-  file: 
-    path: /glusterfs_mnt/{{tomcat_mount_data}}/tomcat/bin/setenv.sh
-    state: touch
-
-- name: copy server.xml to remote
+- name: copy ssl key file to remote
   template: 
-    src: "{{server_xml}}"
-    dest: "/glusterfs_mnt/{{tomcat_mount_data}}/tomcat/conf/{{server_xml}}"
+    src: "{{ssl_key}}"
+    dest: "/glusterfs_mnt/{{tomcat_mount_data}}/ssl/{{ssl_key}}"
 
 - name: copy stack.yml to remote
   template: 
