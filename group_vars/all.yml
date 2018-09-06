@@ -10,7 +10,7 @@ jenkins_git: git@github.com:randy0098/jenkins-workspace.git
 ansible_permission_git: git@github.com:randy0098/ansible-ci.git
 m2_git: git@github.com:randy0098/m2.git
 
-env: dev
+env: testwh
 
 portainer_port: 9000
 portainer_agent_port: 9001
@@ -21,16 +21,16 @@ phpRedisAdmin_port: 9005
 
 mysql_mount_data: "{{env}}_mysql"
 mysql_ports:
-  dev: 8100
-  test: 8200
+  devwh: 8100
+  testwh: 8200
   pre_prod: 8300
   prod: 8400
 mysql_port: "{{mysql_ports[env]}}"
 
 redis_mount_data: "{{env}}_redis"
 redis_ports:
-  dev: 8101
-  test: 8201
+  devwh: 8101
+  testwh: 8201
   pre_prod: 8301
   prod: 8401
 redis_port: "{{redis_ports[env]}}"
@@ -40,13 +40,13 @@ tomcat_name: permission
 tomcat_mount_data: "{{env}}_tomcat_{{tomcat_name}}"
 tomcat_ports:
   permission:
-    dev: 8102
-    test: 8202
+    devwh: 8102
+    testwh: 8202
     pre_prod: 8302
     prod: 8402
   cas:
-    dev: 8103
-    test: 8203
+    devwh: 8103
+    testwh: 8203
     pre_prod: 8303
     prod: 8403
 tomcat_port: "{{tomcat_ports[tomcat_name][env]}}"
