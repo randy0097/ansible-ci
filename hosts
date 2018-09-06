@@ -1,7 +1,7 @@
-[dev]
+[devwh]
 10.0.0.102 ansible_ssh_user=root ansible_ssh_pass=randy1234
 
-[test]
+[testwh]
 10.0.0.102 ansible_ssh_user=root ansible_ssh_pass=randy1234
 
 [preprod]
