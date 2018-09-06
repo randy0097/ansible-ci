@@ -3,8 +3,7 @@
   hosts: "{{groups['swarm_manager'][0]}}"
   vars:
     tomcat_name: permission
-    server_xml: server.xml.ssl
-    ssl_key: iscas.pfx
+    server_xml: server.xml
   roles:
   - role: tomcat_deploy  
 
@@ -12,6 +11,7 @@
   hosts: "{{groups['swarm_manager'][0]}}"
   vars:
     tomcat_name: cas
-    server_xml: server.xml
+    server_xml: server.xml.ssl
+    ssl_key: iscas.pfx
   roles:
   - role: tomcat_deploy
