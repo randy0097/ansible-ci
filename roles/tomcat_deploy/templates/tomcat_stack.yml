@@ -19,5 +19,4 @@ services:
 
 networks:
   "{{env}}_tomcat_network":
-    driver: overlay
-    attachable: true      
+    external: true
