@@ -16,6 +16,10 @@ services:
       - "{{tomcat_port}}:8080"
     networks:
       - "{{env}}_tomcat_network"
+    extra_hosts:
+      - "www.iscs.com:{{env}}_tomcat_permission_permission"
+      - "www.iscas.com:{{env}}_tomcat_cas_cas"
+      - "www.testxf.com:10.0.0.12"
 
 networks:
   "{{env}}_tomcat_network":
