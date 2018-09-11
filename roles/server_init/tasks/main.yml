@@ -17,7 +17,12 @@
     src: known_hosts
     dest: /root/.ssh/known_hosts    
     mode: 0644
-    force: no    
+    force: no   
+
+- name: install unzip
+  yum: 
+    name: unzip
+    state: present     
 
 
     
