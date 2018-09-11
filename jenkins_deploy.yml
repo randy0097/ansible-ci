@@ -6,38 +6,38 @@
     file: 
       path: "{{local_temp}}"
       state: directory
-  # - name: git checkout jenkins_home
-  #   git: repo={{jenkins_git}}  
-  #       dest="{{local_temp}}/jenkins_home"
-  #       force=yes
-  # - name: compress jenkins_home
-  #   archive:
-  #     path: "{{local_temp}}/jenkins_home"
-  #     dest: "{{local_temp}}/jenkins_home.tgz"
+  - name: git checkout jenkins_home
+    git: repo={{jenkins_git}}  
+        dest="{{local_temp}}/jenkins_home"
+        force=yes
+  - name: compress jenkins_home
+    archive:
+      path: "{{local_temp}}/jenkins_home"
+      dest: "{{local_temp}}/jenkins_home.tgz"
 
-  # - name: create ultra-permission directory
-  #   file: 
-  #     path: "{{local_temp}}/ultra-permission"
-  #     state: directory
+  - name: create ultra-permission directory
+    file: 
+      path: "{{local_temp}}/ultra-permission"
+      state: directory
 
-  # - name: git checkout ansible-permission
-  #   git: repo="{{ansible_permission_git}}"
-  #       dest="{{local_temp}}/ultra-permission/iscloud-ci"
-  #       version=docker-permission
-  #       force=yes
-  # - name: compress ansible-permission
-  #   archive:
-  #     path: "{{local_temp}}/ultra-permission/iscloud-ci"
-  #     dest: "{{local_temp}}/ultra-permission/ansible-permission.tgz"
+  - name: git checkout ansible-permission
+    git: repo="{{ansible_permission_git}}"
+        dest="{{local_temp}}/ultra-permission/iscloud-ci"
+        version=docker-permission
+        force=yes
+  - name: compress ansible-permission
+    archive:
+      path: "{{local_temp}}/ultra-permission/iscloud-ci"
+      dest: "{{local_temp}}/ultra-permission/ansible-permission.tgz"
 
-  # - name: git checkout m2
-  #   git: repo="{{m2_git}}"  
-  #       dest="{{local_temp}}/m2"
-  #       force=yes
-  # - name: compress m2
-  #   archive:
-  #     path: "{{local_temp}}/m2"
-  #     dest: "{{local_temp}}/m2.tgz"
+  - name: git checkout m2
+    git: repo="{{m2_git}}"  
+        dest="{{local_temp}}/m2"
+        force=yes
+  - name: compress m2
+    archive:
+      path: "{{local_temp}}/m2"
+      dest: "{{local_temp}}/m2.tgz"
 
 - name:  deploy jenkins
   hosts: "{{groups['swarm_manager'][0]}}"

@@ -3,66 +3,66 @@
     path: "{{remote_temp}}"
     state: directory 
 
-# - name: clean jenkins mount data directory
-#   file: 
-#     path: /glusterfs_mnt/jenkins
-#     state: absent
+- name: clean jenkins mount data directory
+  file: 
+    path: /glusterfs_mnt/jenkins
+    state: absent
 
-# - name: create jenkins_home directory
-#   file: 
-#     path: /glusterfs_mnt/jenkins/jenkins_home
-#     state: directory
+- name: create jenkins_home directory
+  file: 
+    path: /glusterfs_mnt/jenkins/jenkins_home
+    state: directory
 
-# - name: create ssh directory
-#   file: 
-#     path: /glusterfs_mnt/jenkins/ssh
-#     state: directory
+- name: create ssh directory
+  file: 
+    path: /glusterfs_mnt/jenkins/ssh
+    state: directory
 
-# - name: copy id_rsa to remote
-#   copy: 
-#     src: id_rsa 
-#     dest: /glusterfs_mnt/jenkins/ssh/id_rsa
-#     mode: 0600
-#     force: yes
+- name: copy id_rsa to remote
+  copy: 
+    src: id_rsa 
+    dest: /glusterfs_mnt/jenkins/ssh/id_rsa
+    mode: 0600
+    force: yes
 
-# - name: copy id_rsa.pub to remote
-#   copy: 
-#     src: id_rsa.pub 
-#     dest: /glusterfs_mnt/jenkins/ssh/id_rsa.pub    
-#     mode: 0644
-#     force: yes
+- name: copy id_rsa.pub to remote
+  copy: 
+    src: id_rsa.pub 
+    dest: /glusterfs_mnt/jenkins/ssh/id_rsa.pub    
+    mode: 0644
+    force: yes
 
-# - name: copy known_hosts to remote
-#   copy: 
-#     src: known_hosts
-#     dest: /glusterfs_mnt/jenkins/ssh/known_hosts    
-#     mode: 0644
-#     force: yes
+- name: copy known_hosts to remote
+  copy: 
+    src: known_hosts
+    dest: /glusterfs_mnt/jenkins/ssh/known_hosts    
+    mode: 0644
+    force: yes
 
-# - name: create m2 directory
-#   file: 
-#     path: /glusterfs_mnt/jenkins/m2
-#     state: directory
+- name: create m2 directory
+  file: 
+    path: /glusterfs_mnt/jenkins/m2
+    state: directory
 
-# - name: extract m2.tgz
-#   unarchive:
-#     src: "{{local_temp}}/m2.tgz"
-#     dest: /glusterfs_mnt/jenkins/
+- name: extract m2.tgz
+  unarchive:
+    src: "{{local_temp}}/m2.tgz"
+    dest: /glusterfs_mnt/jenkins/
 
-# - name: create remote ultra-permission directory
-#   file: 
-#     path: /glusterfs_mnt/jenkins/build/ultra-permission
-#     state: directory
+- name: create remote ultra-permission directory
+  file: 
+    path: /glusterfs_mnt/jenkins/build/ultra-permission
+    state: directory
 
-# - name: extract jenkins_home.tgz
-#   unarchive:
-#     src: "{{local_temp}}/jenkins_home.tgz"
-#     dest: /glusterfs_mnt/jenkins/
+- name: extract jenkins_home.tgz
+  unarchive:
+    src: "{{local_temp}}/jenkins_home.tgz"
+    dest: /glusterfs_mnt/jenkins/
 
-# - name: extract ansible-permission.tgz
-#   unarchive:
-#     src: "{{local_temp}}/ultra-permission/ansible-permission.tgz"
-#     dest: /glusterfs_mnt/jenkins/build/ultra-permission
+- name: extract ansible-permission.tgz
+  unarchive:
+    src: "{{local_temp}}/ultra-permission/ansible-permission.tgz"
+    dest: /glusterfs_mnt/jenkins/build/ultra-permission
 
 # - name: modify directory owner
 #   file: 
@@ -72,8 +72,8 @@
 #     recurse: yes
 #     state: directory
 
-# - name: modify directory owner
-#   command: chown -R 1000:1000 /glusterfs_mnt/jenkins/jenkins_home
+- name: modify directory owner
+  command: chown -R 1000:1000 /glusterfs_mnt/jenkins/jenkins_home
 
 - name: copy stack.yml to remote
   template: 
