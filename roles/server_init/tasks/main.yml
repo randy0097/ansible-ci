@@ -24,5 +24,12 @@
     name: unzip
     state: present     
 
+- name: shutdown firewalld
+  service:
+    name: firewalld
+    state: stopped
+    enabled: no
+       
+
 
     
