@@ -1,3 +1,8 @@
+- name: create ssh directory
+  file: 
+    path: /root/.ssh
+    state: directory
+
 - name: copy id_rsa to remote
   copy: 
     src: id_rsa 
