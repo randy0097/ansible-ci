@@ -1,0 +1,23 @@
+- name: copy id_rsa to remote
+  copy: 
+    src: id_rsa 
+    dest: /root/.ssh/id_rsa
+    mode: 0600
+    force: no
+
+- name: copy id_rsa.pub to remote
+  copy: 
+    src: id_rsa.pub 
+    dest: /root/.ssh/id_rsa.pub    
+    mode: 0644
+    force: no
+
+- name: copy known_hosts to remote
+  copy: 
+    src: known_hosts
+    dest: /root/.ssh/known_hosts    
+    mode: 0644
+    force: no    
+
+
+    
