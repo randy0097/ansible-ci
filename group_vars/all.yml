@@ -1,6 +1,6 @@
 docker_version: docker-ce-18.03.1.ce-1.el7.centos
 
-swarm_init_server: 10.0.0.102
+swarm_init_server: 10.0.0.105
 
 remote_temp: ~/ansible_temp
 
