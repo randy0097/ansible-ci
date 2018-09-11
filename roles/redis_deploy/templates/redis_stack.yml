@@ -6,6 +6,8 @@ services:
     image: redis:4.0.11
     volumes:    
       - /glusterfs_mnt/{{redis_mount_data}}/redis_data:/data
+      - /etc/timezone:/etc/timezone
+      - /etc/localtime:/etc/localtime
     deploy:
       mode: replicated
       replicas: 1
