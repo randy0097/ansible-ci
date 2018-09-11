@@ -34,11 +34,16 @@
     name: ntp
     state: present  
 
-- name: shutdown firewalld
+- name: install ntp
+  yum: 
+    name: ntp
+    state: present  
+
+- name: start ntpd
   service:
-    name: firewalld
-    state: stopped
-    enabled: no
+    name: ntpd
+    state: started
+    enabled: yes  
 
 - name: create localtime file
   copy: 
