@@ -1,11 +1,11 @@
 [devwh]
-10.0.0.102 ansible_ssh_user=root ansible_ssh_pass=randy1234
+10.0.0.105 ansible_ssh_user=root ansible_ssh_pass=randy1234
 
 [testwh]
-10.0.0.102 ansible_ssh_user=root ansible_ssh_pass=randy1234
+10.0.0.105 ansible_ssh_user=root ansible_ssh_pass=randy1234
 
 [preprod]
-10.0.0.102 ansible_ssh_user=root ansible_ssh_pass=randy1234
+10.0.0.105 ansible_ssh_user=root ansible_ssh_pass=randy1234
 
 [prod]
-10.0.0.102 ansible_ssh_user=root ansible_ssh_pass=randy1234
+10.0.0.105 ansible_ssh_user=root ansible_ssh_pass=randy1234
