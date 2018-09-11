@@ -13,4 +13,4 @@ services:
       REDIS_1_NAME: testwh_redis_redis
     volumes:    
       - /etc/timezone:/etc/timezone
-      - /usr/share/zoneinfo/Asia/Shanghai:/etc/localtime                
+      - /etc/localtime:/etc/localtime                

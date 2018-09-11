@@ -30,8 +30,17 @@
     state: stopped
     enabled: no
 
+- name: create localtime file
+  file: 
+    src: /usr/share/zoneinfo/Asia/Shanghai 
+    dest: /etc/localtime    
+    state: link
+    force: yes
+
 - name: create timezone file
   command: echo "Asia/Shanghai" > /etc/timezone 
+
+
    
        
 

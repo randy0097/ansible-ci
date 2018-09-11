@@ -11,4 +11,4 @@ services:
       - "{{adminer_port}}:8080" 
     volumes:    
       - /etc/timezone:/etc/timezone
-      - /usr/share/zoneinfo/Asia/Shanghai:/etc/localtime       
+      - /etc/localtime:/etc/localtime       
