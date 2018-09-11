@@ -8,4 +8,7 @@ services:
       mode: replicated
       replicas: 1    
     ports:
-      - "{{adminer_port}}:8080"  
+      - "{{adminer_port}}:8080" 
+    volumes:    
+      - /etc/timezone:/etc/timezone
+      - /usr/share/zoneinfo/Asia/Shanghai:/etc/localtime       

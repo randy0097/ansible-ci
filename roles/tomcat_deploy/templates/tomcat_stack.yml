@@ -9,6 +9,8 @@ services:
       - /glusterfs_mnt/{{tomcat_mount_data}}/tomcat/bin/setenv.sh:/usr/local/tomcat/bin/setenv.sh
       - /glusterfs_mnt/{{tomcat_mount_data}}/tomcat/conf/{{server_xml}}:/usr/local/tomcat/conf/server.xml
       - /glusterfs_mnt/{{tomcat_mount_data}}/ssl:/root/ssl
+      - /etc/timezone:/etc/timezone
+      - /usr/share/zoneinfo/Asia/Shanghai:/etc/localtime      
     deploy:
       mode: replicated
       replicas: 1

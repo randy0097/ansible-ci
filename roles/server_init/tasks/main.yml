@@ -30,7 +30,7 @@
     state: stopped
     enabled: no
 
-- name: create timezone
+- name: create timezone file
   command: echo "Asia/Shanghai" > /etc/timezone 
    
        

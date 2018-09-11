@@ -12,6 +12,8 @@ services:
       - /glusterfs_mnt/jenkins/build:/root/build 
       - /glusterfs_mnt/jenkins/ssh:/root/.ssh   
       - /glusterfs_mnt/jenkins/m2:/root/.m2
+      - /etc/timezone:/etc/timezone
+      - /usr/share/zoneinfo/Asia/Shanghai:/etc/localtime      
     deploy:
       mode: replicated
       replicas: 1

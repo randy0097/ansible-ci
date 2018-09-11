@@ -11,6 +11,8 @@ services:
       - /glusterfs_mnt/{{mysql_mount_data}}/mysql_data:/var/lib/mysql
       - /glusterfs_mnt/{{mysql_mount_data}}/alldb_backup.sql:/docker-entrypoint-initdb.d/alldb_backup.sql
       # - /glusterfs_mnt/{{mysql_mount_data}}/mysql_entrypoint.sh:/root/temp/mysql_entrypoint.sh
+      - /etc/timezone:/etc/timezone
+      - /usr/share/zoneinfo/Asia/Shanghai:/etc/localtime      
     deploy:
       mode: replicated
       replicas: 1
