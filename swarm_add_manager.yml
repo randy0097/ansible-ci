@@ -11,5 +11,7 @@
 - name:  config swarm
   hosts: "{{groups['swarm_manager'][1:]}}"
   tasks:
+  - name: wait for Swarm init
+    wait_for: timeout=30
   - name: add swarm manager
     shell: "{{hostvars[swarm_init_server]['add_manager_cmd']['stdout']}}"
