@@ -7,7 +7,7 @@ services:
     volumes:    
       - /glusterfs_mnt/{{redis_mount_data}}/redis_data:/data
       - /etc/timezone:/etc/timezone
-      - /etc/localtime:/etc/localtime
+      - /usr/share/zoneinfo/Asia/Shanghai:/etc/localtime
     deploy:
       mode: replicated
       replicas: 1

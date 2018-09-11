@@ -29,6 +29,10 @@
     name: firewalld
     state: stopped
     enabled: no
+
+- name: create timezone
+  command: echo "Asia/Shanghai" > /etc/timezone 
+   
        
 
 
