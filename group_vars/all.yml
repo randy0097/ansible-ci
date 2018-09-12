@@ -38,7 +38,7 @@ cas_tomcat_dir: /glusterfs_mnt/{{env}}_tomcat_cas/tomcat
 cas_deploy_name: ultra-cas
 
 envToConfig:
-  devwh: test_153.json
+  devwh: devwh.json
   testwh: testwh.json
   pre_prod_cas_107: pre_prod_108.json
   pre_prod_security_108_109: pre_prod.json
