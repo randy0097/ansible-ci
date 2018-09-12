@@ -9,8 +9,8 @@ services:
     environment:
       # REDIS_1_HOST: 10.0.0.102:8101   
       # REDIS_1_NAME: devwh_redis_redis
-      REDIS_1_HOST: 10.0.0.105:8201   
-      REDIS_1_NAME: testwh_redis_redis
+      REDIS_1_HOST: 10.0.0.102:8110   
+      REDIS_1_NAME: devwh_redis_redis
     volumes:    
       - /etc/timezone:/etc/timezone
       - /etc/localtime:/etc/localtime                
