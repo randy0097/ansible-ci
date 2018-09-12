@@ -14,10 +14,10 @@ env: testwh
 
 portainer_port: 9000
 portainer_agent_port: 9001
-jenkins_port1: 9002
-jenkins_port2: 9003
-adminer_port: 9004
-phpRedisAdmin_port: 9005
+jenkins_port1: 9010
+jenkins_port2: 9011
+adminer_port: 9020
+phpRedisAdmin_port: 9030
 
 mysql_mount_data: "{{env}}_mysql"
 mysql_ports:
@@ -29,25 +29,25 @@ mysql_port: "{{mysql_ports[env]}}"
 
 redis_mount_data: "{{env}}_redis"
 redis_ports:
-  devwh: 8101
-  testwh: 8201
-  pre_prod: 8301
-  prod: 8401
+  devwh: 8110
+  testwh: 8210
+  pre_prod: 8310
+  prod: 8410
 redis_port: "{{redis_ports[env]}}"
 
 tomcat_name: permission
 tomcat_mount_data: "{{env}}_tomcat_{{tomcat_name}}"
 tomcat_ports:
   permission:
-    devwh: 8102
-    testwh: 8202
-    pre_prod: 8302
-    prod: 8402
+    devwh: 8120
+    testwh: 8220
+    pre_prod: 8320
+    prod: 8420
   cas:
-    devwh: 8103
-    testwh: 8203
-    pre_prod: 8303
-    prod: 8403
+    devwh: 8130
+    testwh: 8230
+    pre_prod: 8330
+    prod: 8430
 tomcat_port: "{{tomcat_ports[tomcat_name][env]}}"
 
 
