@@ -1,5 +1,5 @@
 - name: yum update
-  command: yum update -y
+  shell: yum update -y
 
 - name: remove old docker
   yum: 
