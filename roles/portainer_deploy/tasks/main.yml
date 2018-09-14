@@ -1,7 +1,7 @@
-- name: clean portainer mount directory
-  file:
-    path: /glusterfs_mnt/portainer
-    state: absent
+# - name: clean portainer mount directory
+#   file:
+#     path: /glusterfs_mnt/portainer
+#     state: absent
 
 - name: create portainer_data mount directory
   file: 
