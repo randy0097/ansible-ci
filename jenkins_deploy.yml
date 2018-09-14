@@ -9,6 +9,7 @@
   - name: git checkout jenkins_home
     git: repo={{jenkins_git}}  
         dest="{{local_temp}}/jenkins_home"
+        version={{jenkins_git_version}}
         force=yes
   - name: compress jenkins_home
     archive:
@@ -20,10 +21,10 @@
       path: "{{local_temp}}/ultra-permission"
       state: directory
 
-  - name: git checkout ansible-permission
+  - name: git checkout ansible permission deploy script
     git: repo="{{ansible_permission_git}}"
         dest="{{local_temp}}/ultra-permission/iscloud-ci"
-        version=docker-permission
+        version="{{ansible_permission_git_version}}"
         force=yes
   - name: compress ansible-permission
     archive:

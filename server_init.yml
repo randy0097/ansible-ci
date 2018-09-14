@@ -1,20 +1,4 @@
 ---
-# - name:  server init
-#   hosts: docker_servers
-#   tasks:
-#   - name: copy id_rsa
-#     copy: 
-#       src: /root/.ssh/id_rsa
-#       dest: /root/.ssh/id_rsa
-#       mode: 0600
-#       force: no
-#   - name: copy id_rsa.pub
-#     copy: 
-#       src: /root/.ssh/id_rsa.pub
-#       dest: /root/.ssh/id_rsa.pub
-#       mode: 0644
-#       force: no
-
 - name:  server init
   hosts: docker_servers
   roles:

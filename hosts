@@ -1,12 +1,12 @@
 [docker_servers]
-10.0.0.105 ansible_ssh_user=root ansible_ssh_pass=randy1234
-10.0.0.106 ansible_ssh_user=root ansible_ssh_pass=randy1234
-10.0.0.107 ansible_ssh_user=root ansible_ssh_pass=randy1234
+192.168.95.130 ansible_ssh_user=root ansible_ssh_pass=Ultrapower@2018
+192.168.95.131 ansible_ssh_user=root ansible_ssh_pass=Ultrapower@2018
+192.168.95.132 ansible_ssh_user=root ansible_ssh_pass=Ultrapower@2018
 
 [swarm_manager]
-10.0.0.105 ansible_ssh_user=root ansible_ssh_pass=randy1234
-10.0.0.106 ansible_ssh_user=root ansible_ssh_pass=randy1234
-10.0.0.107 ansible_ssh_user=root ansible_ssh_pass=randy1234
+192.168.95.130 ansible_ssh_user=root ansible_ssh_pass=Ultrapower@2018
+192.168.95.131 ansible_ssh_user=root ansible_ssh_pass=Ultrapower@2018
+192.168.95.132 ansible_ssh_user=root ansible_ssh_pass=Ultrapower@2018
 
 [swarm_worker]
 

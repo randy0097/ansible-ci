@@ -3,10 +3,10 @@
     path: "{{remote_temp}}"
     state: directory 
 
-- name: clean jenkins mount data directory
-  file: 
-    path: /glusterfs_mnt/jenkins
-    state: absent
+# - name: clean jenkins mount data directory
+#   file: 
+#     path: /glusterfs_mnt/jenkins
+#     state: absent
 
 - name: create jenkins_home directory
   file: 

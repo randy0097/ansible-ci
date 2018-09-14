@@ -1,13 +1,15 @@
 docker_version: docker-ce-18.03.1.ce-1.el7.centos
 
-swarm_init_server: 10.0.0.105
+swarm_init_server: 192.168.95.130
 
 remote_temp: ~/ansible_temp
 
 local_temp: ~/temp
 
 jenkins_git: git@github.com:randy0098/jenkins-workspace.git
-ansible_permission_git: git@github.com:randy0098/ansible-ci.git
+jenkins_git_version: ultra-permission-3.0-docker
+ansible_permission_git: git@192.168.194.114:iscloud-ci/iscloud-ci.git
+ansible_permission_git_version: ultra-permission-3.0-docker
 m2_git: git@github.com:randy0098/m2.git
 
 env: devwh
