@@ -1,3 +1,6 @@
+- name: yum update
+  command: yum update -y
+
 - name: remove old docker
   yum: 
     name: docker,docker-client,docker-client-latest,docker-common,docker-latest,docker-latest-logrotate,docker-logrotate,docker-selinux,docker-engine-selinux,docker-engine
