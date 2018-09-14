@@ -44,10 +44,10 @@
     path: /glusterfs_mnt/jenkins/m2
     state: directory
 
-- name: extract m2.tgz
-  unarchive:
-    src: "{{local_temp}}/m2.tgz"
-    dest: /glusterfs_mnt/jenkins/
+# - name: extract m2.tgz
+#   unarchive:
+#     src: "{{local_temp}}/m2.tgz"
+#     dest: /glusterfs_mnt/jenkins/
 
 - name: create remote ultra-permission directory
   file: 
