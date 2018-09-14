@@ -3,10 +3,10 @@
     path: "{{remote_temp}}"
     state: directory 
 
-- name: clean tomcat mount directory
-  file:
-    path: /glusterfs_mnt/{{tomcat_mount_data}}
-    state: absent
+# - name: clean tomcat mount directory
+#   file:
+#     path: /glusterfs_mnt/{{tomcat_mount_data}}
+#     state: absent
 
 - name: create tomcat webapps directory
   file: 
