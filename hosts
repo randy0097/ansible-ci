@@ -4,8 +4,8 @@
 [testwh]
 192.168.95.130 ansible_ssh_user=root ansible_ssh_pass=Ultrapower@2018
 
-[preprod]
+[preprodwh]
 192.168.95.130 ansible_ssh_user=root ansible_ssh_pass=Ultrapower@2018
 
-[prod]
+[prodwh]
 192.168.95.130 ansible_ssh_user=root ansible_ssh_pass=Ultrapower@2018
