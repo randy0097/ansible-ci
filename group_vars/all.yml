@@ -12,7 +12,7 @@ ansible_permission_git: git@github.com:randy0098/ansible-ci.git
 ansible_permission_git_version: ultra-permission-3.0-docker
 m2_git: git@github.com:randy0098/m2.git
 
-env: testwh
+env: preprodwh
 
 portainer_port: 9000
 portainer_agent_port: 9001
@@ -25,16 +25,16 @@ mysql_mount_data: "{{env}}_mysql"
 mysql_ports:
   devwh: 8100
   testwh: 8200
-  pre_prod: 8300
-  prod: 8400
+  preprodwh: 8300
+  prodwh: 8400
 mysql_port: "{{mysql_ports[env]}}"
 
 redis_mount_data: "{{env}}_redis"
 redis_ports:
   devwh: 8110
   testwh: 8210
-  pre_prod: 8310
-  prod: 8410
+  preprodwh: 8310
+  prodwh: 8410
 redis_port: "{{redis_ports[env]}}"
 
 tomcat_name: permission
@@ -43,13 +43,13 @@ tomcat_ports:
   permission:
     devwh: 8120
     testwh: 8220
-    pre_prod: 8320
-    prod: 8420
+    preprodwh: 8320
+    prodwh: 8420
   cas:
     devwh: 8130
     testwh: 8230
-    pre_prod: 8330
-    prod: 8430
+    preprodwh: 8330
+    prodwh: 8430
 tomcat_port: "{{tomcat_ports[tomcat_name][env]}}"
 
 
