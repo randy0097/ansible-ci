@@ -12,7 +12,8 @@ build_dir_env: "{{build_dir}}/{{env}}"
 frontend_dir: "{{build_dir_env}}/permission-web"
 frontend_dist: "{{frontend_dir}}/dist/"
 frontend_app_dir: "{{frontend_dir}}/{{appName}}"
-
+tomcat_dir: /glusterfs_mnt/{{env}}_tomcat_permission/tomcat
+deploy_name: ultra-permission
 
 backend_dir: "{{build_dir_env}}/permission"
 backend_module_dir: "{{backend_dir}}/ultra-permission-server"
@@ -37,29 +38,30 @@ cas_target_dir: "{{cas_module_dir}}/target"
 # cas_build_name: "{{module_name}}-{{module_version}}"
 # cas_build_dir: "{{cas_target_dir}}/{{cas_build_name}}"
 cas_war_name: ultra-permission-cas-server.war
+cas_tomcat_dir: /glusterfs_mnt/{{env}}_tomcat_cas/tomcat
+cas_deploy_name: ultra-cas
 
 envToConfig:
-  test_security_153_wh: test_153.json
-  pre_prod_cas_107: pre_prod_108.json
-  pre_prod_security_108_109: pre_prod.json
-  real_prod_security_91_92: prod_91_92.json
+  devwh: devwh.json
+  testwh: testwh.json
+  preprodwh: preprodwh.json
+  prodwh: prodwh.json
 
 configFile: "{{envToConfig[env]}}"
 
 envToActive:
-  test_security_153_wh: test
-  pre_prod_cas_107: preprod
-  pre_prod_security_108_109: preprod
-  real_prod_security_91_92: prod
-  real_prod_cas_90: prod
+  devwh: devwh
+  testwh: testwh
+  preprodwh: preprodwh
+  prodwh: prodwh
   
 spring_profiles_active: "{{envToActive[env]}}"
 
 envToSwagger:
-  test_security_153_wh: true
-  pre_prod_cas_107: false
-  pre_prod_security_108_109: false
-  real_prod_security_91_92: false
+  devwh: true
+  testwh: true
+  preprodwh: false
+  prodwh: false
 
 swagger_active: "{{envToSwagger[env]}}"
 
