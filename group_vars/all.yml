@@ -12,7 +12,7 @@ ansible_permission_git: git@github.com:randy0098/ansible-ci.git
 ansible_permission_git_version: ultra-permission-3.0-docker
 m2_git: git@github.com:randy0098/m2.git
 
-env: preprodwh
+env: prodwh
 
 portainer_port: 9000
 portainer_agent_port: 9001
