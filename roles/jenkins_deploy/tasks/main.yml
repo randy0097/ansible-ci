@@ -70,11 +70,11 @@
 #     src: "{{local_temp}}/ultra-permission/ansible-permission.tgz"
 #     dest: /glusterfs_mnt/jenkins/build/ultra-permission
 
-  - name: git checkout ansible permission deploy script
-    git: repo="{{ansible_permission_git}}"
-        dest=/glusterfs_mnt/jenkins/build/ultra-permission
-        version="{{ansible_permission_git_version}}"
-        force=yes
+- name: git checkout ansible permission deploy script
+  git: repo="{{ansible_permission_git}}"
+      dest=/glusterfs_mnt/jenkins/build/ultra-permission
+      version="{{ansible_permission_git_version}}"
+      force=yes
 
 # - name: modify directory owner
 #   file: 
