@@ -1,0 +1,10 @@
+---
+- name: build backend
+  hosts: localhost
+  tasks:
+  - name: create backend build workspace by env
+    file: 
+      path: "{{backend_dir}}"
+      state: directory   
+  roles:
+  - backend_compile

@@ -1,0 +1,19 @@
+[test_security_153_wh]
+192.168.95.153 ansible_ssh_user=root ansible_ssh_pass=CentOS_73
+
+[pre_prod_108]
+192.168.194.108 ansible_ssh_user=root ansible_ssh_pass=EOIKsOktOelGFSoQ
+
+[pre_prod_cas_107]
+192.168.194.107 ansible_ssh_user=root ansible_ssh_pass=Gp1N5k4MfzXh2ltm
+
+[pre_prod_security_108_109]
+192.168.194.108 ansible_ssh_user=root ansible_ssh_pass=EOIKsOktOelGFSoQ
+192.168.194.109 ansible_ssh_user=root ansible_ssh_pass=I06JsTYwxEQkYvvF
+
+[real_prod_security_91_92]
+VM-Kafka02
+VM-Kafka03
+
+[real_prod_cas_90]
+VM-Kafka01

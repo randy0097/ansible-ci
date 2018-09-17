@@ -1,0 +1,3 @@
+cas_tomcat_dir: /ultrapower/zxcloud-cas
+cas_tomcat_process_keyword: zxcloud-cas
+cas_deploy_name: iscas
