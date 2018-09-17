@@ -6,9 +6,9 @@ remote_temp: ~/ansible_temp
 
 local_temp: ~/temp
 
-jenkins_git: git@github.com:randy0098/jenkins-workspace.git
+jenkins_git: git@github.com:randy0098/jenkins-home.git
 jenkins_git_version: ultra-permission-3.0-docker
-ansible_permission_git: git@192.168.194.114:iscloud-ci/iscloud-ci.git
+ansible_permission_git: git@github.com:randy0098/ansible-ci.git
 ansible_permission_git_version: ultra-permission-3.0-docker
 m2_git: git@github.com:randy0098/m2.git
 

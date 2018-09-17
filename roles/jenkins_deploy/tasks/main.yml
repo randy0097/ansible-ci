@@ -54,15 +54,27 @@
     path: /glusterfs_mnt/jenkins/build/ultra-permission
     state: directory
 
-- name: extract jenkins_home.tgz
-  unarchive:
-    src: "{{local_temp}}/jenkins_home.tgz"
-    dest: /glusterfs_mnt/jenkins/
+# - name: extract jenkins_home.tgz
+#   unarchive:
+#     src: "{{local_temp}}/jenkins_home.tgz"
+#     dest: /glusterfs_mnt/jenkins/
 
-- name: extract ansible-permission.tgz
-  unarchive:
-    src: "{{local_temp}}/ultra-permission/ansible-permission.tgz"
-    dest: /glusterfs_mnt/jenkins/build/ultra-permission
+- name: git checkout jenkins_home
+  git: repo={{jenkins_git}}  
+      dest=/glusterfs_mnt/jenkins/jenkins_home
+      version={{jenkins_git_version}}
+      force=yes
+
+# - name: extract ansible-permission.tgz
+#   unarchive:
+#     src: "{{local_temp}}/ultra-permission/ansible-permission.tgz"
+#     dest: /glusterfs_mnt/jenkins/build/ultra-permission
+
+  - name: git checkout ansible permission deploy script
+    git: repo="{{ansible_permission_git}}"
+        dest=/glusterfs_mnt/jenkins/build/ultra-permission
+        version="{{ansible_permission_git_version}}"
+        force=yes
 
 # - name: modify directory owner
 #   file: 
