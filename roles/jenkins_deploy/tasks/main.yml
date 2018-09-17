@@ -72,7 +72,7 @@
 
 - name: git checkout ansible permission deploy script
   git: repo="{{ansible_permission_git}}"
-      dest=/glusterfs_mnt/jenkins/build/ultra-permission
+      dest=/glusterfs_mnt/jenkins/build/ultra-permission/iscloud-ci
       version="{{ansible_permission_git_version}}"
       force=yes
 
