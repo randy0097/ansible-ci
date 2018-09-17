@@ -6,6 +6,7 @@ services:
     image: tomcat:8.5.32-jre8
     volumes:    
       - /glusterfs_mnt/{{tomcat_mount_data}}/tomcat/webapps:/usr/local/tomcat/webapps
+      - /glusterfs_mnt/{{tomcat_mount_data}}/tomcat/logs:/usr/local/tomcat/logs
       - /glusterfs_mnt/{{tomcat_mount_data}}/tomcat/bin/setenv.sh:/usr/local/tomcat/bin/setenv.sh
       - /glusterfs_mnt/{{tomcat_mount_data}}/tomcat/conf/{{server_xml}}:/usr/local/tomcat/conf/server.xml
       - /glusterfs_mnt/{{tomcat_mount_data}}/ssl:/root/ssl

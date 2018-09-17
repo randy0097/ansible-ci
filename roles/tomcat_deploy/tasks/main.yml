@@ -28,6 +28,11 @@
     path: /glusterfs_mnt/{{tomcat_mount_data}}/tomcat/conf
     state: directory
 
+- name: create tomcat logs directory
+  file: 
+    path: /glusterfs_mnt/{{tomcat_mount_data}}/tomcat/logs
+    state: directory
+
 - name: copy server.xml to remote
   template: 
     src: "{{server_xml}}"
