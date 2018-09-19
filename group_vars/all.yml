@@ -56,6 +56,7 @@ envToActive:
   prodwh: prodwh
   
 spring_profiles_active: "{{envToActive[env]}}"
+spring_profiles_active_old: "devwh"
 
 envToSwagger:
   devwh: true

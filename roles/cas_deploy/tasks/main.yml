@@ -34,7 +34,7 @@
 #  copy: src={{cas_application_properties}} dest={{tomcat_dir}}/webapps/{{deploy_name}}/WEB-INF/classes/application.properties
 
 - name: set spring.profiles.active
-  command: sed -i "s/spring.profiles.active=dev/spring.profiles.active={{spring_profiles_active}}/g" {{cas_tomcat_dir}}/webapps/{{cas_deploy_name}}/WEB-INF/classes/application.properties
+  command: sed -i "s/spring.profiles.active={{spring_profiles_active_old}}/spring.profiles.active={{spring_profiles_active}}/g" {{cas_tomcat_dir}}/webapps/{{cas_deploy_name}}/WEB-INF/classes/application.properties
 
 - name: set tomcat env parameters
   shell: echo JAVA_OPTS=\"-Dspring.profiles.active={{spring_profiles_active}}\"  > {{cas_tomcat_dir}}/bin/setenv.sh

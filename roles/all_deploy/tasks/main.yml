@@ -33,7 +33,7 @@
 # - name: replace application.properties
 #   copy: src={{application_properties}} dest={{tomcat_dir}}/webapps/{{deploy_name}}/WEB-INF/classes/application.properties 
 - name: set spring.profiles.active
-  command: sed -i "s/spring.profiles.active=dev/spring.profiles.active={{spring_profiles_active}}/g" {{tomcat_dir}}/webapps/{{deploy_name}}/WEB-INF/classes/application.properties
+  command: sed -i "s/spring.profiles.active={{spring_profiles_active_old}}/spring.profiles.active={{spring_profiles_active}}/g" {{tomcat_dir}}/webapps/{{deploy_name}}/WEB-INF/classes/application.properties
 
 - name: set swagger.enable
   command: sed -i "s/swagger.enable=false/swagger.enable={{swagger_active}}/g" {{tomcat_dir}}/webapps/{{deploy_name}}/WEB-INF/classes/application.properties
