@@ -1,0 +1,15 @@
+version: '3.2'
+
+services:
+
+  zabbix_server:
+    image: zabbix/zabbix-server-mysql:centos-3.4.14
+    environment:
+      DB_SERVER_HOST: 10.0.0.105:8100
+      MYSQL_USER: ultra
+      MYSQL_ROOT_PASSWORD: Ultra-123
+    deploy:
+      mode: replicated
+      replicas: 1
+    ports:
+      - "80:80"
