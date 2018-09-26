@@ -1,3 +1,18 @@
+ultra_permission_data_git: git@192.168.194.114:whdev-backend/ultra-permission-data.git
+ultra_permission_client_git: git@192.168.194.114:whdev-backend/ultra-permission-client.git
+ultra_permission_cas_client_git: git@192.168.194.114:whdev-backend/ultra-permission-cas-client.git
+
+dependance_name: ultra_permission_data
+dependance_gits:
+  ultra_permission_data: ultra_permission_data_git
+  ultra_permission_client: ultra_permission_client_git
+  ultra_permission_cas_client: ultra_permission_cas_client_git
+
+dependance_git: "{{dependance_gits[dependance_name]}}"
+
+dependance_dir: "{{build_dir_env}}/{{dependance_name}}"
+dependance_version: "{{ dependance_commitId if dependance_commitId != '' else branchName }}"
+
 frontend_git: git@192.168.194.114:whdev-frontend/ultra-permission-frontend.git
 permission_server_git: git@192.168.194.114:whdev-backend/ultra-permission-server.git
 cas_server_git: git@192.168.194.114:whdev-backend/ultra-permission-cas-server.git

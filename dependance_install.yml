@@ -1,0 +1,10 @@
+---
+- name: install dependance
+  hosts: localhost
+  tasks:
+  - name: create dependance install workspace by env
+    file: 
+      path: "{{dependance_dir}}"
+      state: directory   
+  roles:
+  - dependance_install

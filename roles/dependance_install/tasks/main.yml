@@ -1,0 +1,9 @@
+---
+- name: git checkout
+  git: 
+    repo: "{{dependance_git}}"
+    dest: "{{dependance_dir}}"
+    version: "{{dependance_version}}"
+    force: yes       
+- name: build dependance
+  command: chdir="{{dependance_dir}}" mvn clean install -nsu -Dmaven.test.skip
