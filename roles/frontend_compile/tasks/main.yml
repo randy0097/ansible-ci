@@ -1,9 +1,10 @@
 ---
 - name: git checkout
-  git: repo={{frontend_git}} 
-       dest={{frontend_app_dir}}
-       version={{frontend_version}}
-       force=yes
+  git:
+    repo: "{{frontend_git}}"
+    dest: "{{frontend_app_dir}}"
+    version: "{{frontend_version}}"
+    force: yes         
 - name: npm install
   command: chdir={{frontend_app_dir}} npm install        
 - name: npm build

@@ -6,14 +6,18 @@
   command: chdir={{backend_module_dir}} grep <version>  pom.xml -m 1
   register: module_version_origin
 
-- debug:
+- name: debug module_name_origin
+  debug:
     var: module_name_origin
 
-- debug:
+- name: debug module_name
+  debug:
     var: module_name
 
 - name: copy frontend all apps to backend
-  copy: src={{frontend_dir}}/{{item.key}}/dist/ dest={{backend_build_dir}}
+  copy:  
+    src: "{{frontend_dir}}/{{item.key}}/dist/"
+    dest: "{{backend_build_dir}}"
   with_dict: "{{appNameToFolderName}}"
   
 - name: clean backend war

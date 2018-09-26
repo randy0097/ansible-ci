@@ -1,6 +1,7 @@
 - name: copy frontend app to remote
-  copy: src={{frontend_dir}}/{{appName}}/dist/
-        dest={{remote_temp}}/{{appName}}/dist/
+  copy: 
+    src: "{{frontend_dir}}/{{appName}}/dist/"
+    dest: "{{remote_temp}}/{{appName}}/dist/"
 # - name: get tomcat processId
 #   raw: ps aux|grep {{tomcat_process_keyword}}|grep -v grep|awk '{print $2}'
 #   register: tomcatProcess

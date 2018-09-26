@@ -1,8 +1,9 @@
 ---
 - name: git checkout
-  git: repo={{cas_server_git}}  
-       dest={{cas_dir}}
-       version={{cas_version}}
-       force=yes     
+  git: 
+    repo: "{{cas_server_git}}"
+    dest: "{{cas_dir}}"
+    version: "{{cas_version}}"
+    force: yes            
 - name: build cas-server
-  command: chdir="{{cas_dir}}" mvn clean install -U -Dmaven.test.skip  
+  command: chdir="{{cas_dir}}" mvn clean install -nsu -Dmaven.test.skip  

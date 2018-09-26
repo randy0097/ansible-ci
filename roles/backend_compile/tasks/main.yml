@@ -6,4 +6,4 @@
     version: "{{backend_version}}"
     force: yes
 - name: build permission
-  command: chdir="{{backend_dir}}" mvn clean install -U -Dmaven.test.skip
+  command: chdir="{{backend_dir}}" mvn clean install -nsu -Dmaven.test.skip

@@ -24,5 +24,6 @@
 #     format: zip 
 
 - name: build cas war
-  copy: src="{{cas_target_dir}}/{{cas_war_name}}"
-        dest="{{build_dir_env}}/{{cas_war_name}}"
+  copy: 
+    src: "{{cas_target_dir}}/{{cas_war_name}}"
+    dest: "{{build_dir_env}}/{{cas_war_name}}"
