@@ -1,0 +1,17 @@
+- name: create remote temp dir
+  file: 
+    path: "{{remote_temp}}"
+    state: directory 
+
+- name: copy stack.yml to remote
+  template: 
+    src: zabbix_agent_stack.yml 
+    dest: "{{remote_temp}}/zabbix_agent_stack.yml"
+
+- name: deploy stack
+  command: docker stack deploy --compose-file=zabbix_agent_stack.yml zabbix_agent
+  args: 
+    chdir: "{{remote_temp}}"
+
+
+    
