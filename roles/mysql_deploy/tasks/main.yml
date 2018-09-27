@@ -3,22 +3,22 @@
     path: "{{remote_temp}}"
     state: directory 
 
-- name: clean mysql mount data directory
-  file: 
-    path: /glusterfs_mnt/{{mysql_mount_data}}
-    state: absent
+# - name: clean mysql mount data directory
+#   file: 
+#     path: /glusterfs_mnt/{{mysql_mount_data}}
+#     state: absent
 
 - name: create mysql_data directory
   file: 
     path: /glusterfs_mnt/{{mysql_mount_data}}/mysql_data
     state: directory
 
-- name: copy mysql data backup file to remote
-  copy: 
-    src: "{{local_temp}}/alldb_backup.sql"
-    dest: /glusterfs_mnt/{{mysql_mount_data}}/alldb_backup.sql    
-    mode: 0644
-    force: yes
+# - name: copy mysql data backup file to remote
+#   copy: 
+#     src: "{{local_temp}}/alldb_backup.sql"
+#     dest: /glusterfs_mnt/{{mysql_mount_data}}/alldb_backup.sql    
+#     mode: 0644
+#     force: yes
 
 # - name: copy mysql_entrypoint.sh to remote
 #   template: 

@@ -6,10 +6,10 @@ services:
     image: mysql:8.0.12
     command: --default-authentication-plugin=mysql_native_password
     environment:
-      MYSQL_ROOT_PASSWORD: Ultra-123
+      MYSQL_ROOT_PASSWORD: test_123
     volumes:    
       - /glusterfs_mnt/{{mysql_mount_data}}/mysql_data:/var/lib/mysql
-      - /glusterfs_mnt/{{mysql_mount_data}}/alldb_backup.sql:/docker-entrypoint-initdb.d/alldb_backup.sql
+      # - /glusterfs_mnt/{{mysql_mount_data}}/alldb_backup.sql:/docker-entrypoint-initdb.d/alldb_backup.sql
       # - /glusterfs_mnt/{{mysql_mount_data}}/mysql_entrypoint.sh:/root/temp/mysql_entrypoint.sh
       - /etc/timezone:/etc/timezone
       - /etc/localtime:/etc/localtime      
