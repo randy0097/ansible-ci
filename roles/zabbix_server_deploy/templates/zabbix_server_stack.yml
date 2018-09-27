@@ -5,10 +5,10 @@ services:
   zabbix_server:
     image: zabbix/zabbix-server-mysql:centos-3.4.14
     environment:
-      DBHost: 10.0.0.105
-      DBPort: 8100
-      DBUser: ultra
-      DBPassword: Ultra-123
+      ZBX_DBHost: 10.0.0.105
+      ZBX_DBPort: 8100
+      ZBX_DBUser: ultra
+      ZBX_DBPassword: Ultra-123
     deploy:
       mode: replicated
       replicas: 1
