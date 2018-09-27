@@ -1,0 +1,5 @@
+---
+- name:  deploy zabbix web
+  hosts: "{{groups['swarm_manager'][0]}}"
+  roles:
+  - role: zabbix_web_deploy   
