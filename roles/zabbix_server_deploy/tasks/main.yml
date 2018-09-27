@@ -9,7 +9,7 @@
     dest: "{{remote_temp}}/zabbix_server_stack.yml"
 
 - name: deploy stack
-  command: docker stack deploy --compose-file=zabbix_server_stack.yml {{env}}_zabbix_server
+  command: docker stack deploy --compose-file=zabbix_server_stack.yml zabbix_server
   args: 
     chdir: "{{remote_temp}}"
 

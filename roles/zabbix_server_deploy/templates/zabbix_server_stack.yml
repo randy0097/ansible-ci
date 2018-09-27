@@ -13,4 +13,4 @@ services:
       mode: replicated
       replicas: 1
     ports:
-      - "80:80"
+      - "10051:10051"
