@@ -19,8 +19,8 @@ services:
     pid: "host"
     ports:
       - "10050:10050"
-#     networks:
-#       - zabbix_network    
+    networks:
+      - ingress    
 
 # networks:
 #   zabbix_network:
