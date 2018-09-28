@@ -12,7 +12,9 @@ services:
       ZBX_SERVER_PORT: 10051
       PHP_TZ: Asia/Shanghai
     deploy:
-      mode: replicated
-      replicas: 1
+      mode: global
+    user: root  
+    privileged: true  
+    pid: "host"
     ports:
-      - "80:80"
+      - "10050:10050"
