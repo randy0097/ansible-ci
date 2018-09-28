@@ -2,7 +2,7 @@ version: '3.2'
 
 services:
 
-  zabbix_server:
+  zabbix_web:
     image: zabbix/zabbix-web-apache-mysql:centos-3.4.14
     environment:
       DB_SERVER_HOST: 10.0.0.105
