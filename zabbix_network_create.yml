@@ -1,0 +1,7 @@
+---
+- name: create zabbix network
+  hosts: "{{groups['swarm_manager'][0]}}"
+  tasks:
+  - name: create overlay network
+    command: docker network create -d overlay --attachable zabbix_network
+
