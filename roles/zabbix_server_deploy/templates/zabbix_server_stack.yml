@@ -8,8 +8,6 @@ services:
       DB_SERVER_HOST: 10.0.0.105
       DB_SERVER_PORT: 8900
       MYSQL_ROOT_PASSWORD: test_123
-    volumes:    
-      - /glusterfs_mnt/{{mysql_mount_data}}/:/usr/share/doc/zabbix-server-mysql/
     deploy:
       mode: replicated
       replicas: 1
