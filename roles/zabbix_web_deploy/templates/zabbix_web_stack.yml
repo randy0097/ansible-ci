@@ -16,9 +16,9 @@ services:
       replicas: 1
     ports:
       - "80:80"
-#     networks:
-#       - zabbix_network    
+    networks:
+      - zabbix_network    
 
-# networks:
-#   zabbix_network:
-#     external: true        
+networks:
+  zabbix_network:
+    external: true        

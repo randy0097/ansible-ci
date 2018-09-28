@@ -20,8 +20,8 @@ services:
     ports:
       - "10050:10050"
     networks:
-      - ingress    
+      - zabbix_network    
 
-# networks:
-#   zabbix_network:
-#     external: true        
+networks:
+  zabbix_network:
+    external: true        
