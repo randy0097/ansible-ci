@@ -8,7 +8,7 @@ services:
       DB_SERVER_HOST: 10.0.0.105
       DB_SERVER_PORT: 8900
       MYSQL_ROOT_PASSWORD: test_123
-      ZBX_SERVER_HOST: 10.0.0.107
+      ZBX_SERVER_HOST: 10.0.0.105,10.0.0.106,10.0.0.107
       ZBX_SERVER_PORT: 10051
       PHP_TZ: Asia/Shanghai
       ZBX_DEBUGLEVEL: 3
@@ -24,12 +24,12 @@ services:
     privileged: true  
     pid: "host"
     restart: always
-    # network_mode: host
+    network_mode: host
     ports:
       - "10050:10050"
-    networks:
-      - zabbix_all_zabbix_network    
+#     networks:
+#       - zabbix_all_zabbix_network    
 
-networks:
-  zabbix_all_zabbix_network:
-    external: true        
+# networks:
+#   zabbix_all_zabbix_network:
+#     external: true        
