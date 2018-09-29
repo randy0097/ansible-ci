@@ -8,10 +8,16 @@
     src: zabbix_server_stack.yml 
     dest: "{{remote_temp}}/zabbix_server_stack.yml"
 
-- name: deploy stack
-  command: docker stack deploy --compose-file=zabbix_server_stack.yml zabbix_server
+# - name: deploy stack
+#   command: docker stack deploy --compose-file=zabbix_server_stack.yml zabbix_server
+#   args: 
+#     chdir: "{{remote_temp}}"
+
+- name: deploy docker-compose
+  command: docker-compose -f zabbix_server_stack.yml -p zabbix up -d
   args: 
     chdir: "{{remote_temp}}"
+
 
 
     
