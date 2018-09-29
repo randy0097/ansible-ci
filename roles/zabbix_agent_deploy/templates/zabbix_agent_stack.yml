@@ -24,11 +24,12 @@ services:
     privileged: true  
     pid: "host"
     restart: always
+    net: host
     ports:
       - "10050:10050"
-    networks:
-      - zabbix_all_zabbix_network    
+    # networks:
+    #   - zabbix_all_zabbix_network    
 
-networks:
-  zabbix_all_zabbix_network:
-    external: true        
+# networks:
+#   zabbix_all_zabbix_network:
+#     external: true        
