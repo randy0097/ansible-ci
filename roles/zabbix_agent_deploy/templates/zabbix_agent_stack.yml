@@ -14,16 +14,16 @@ services:
       ZBX_DEBUGLEVEL: 3
     # deploy:
     #   mode: global
-    deploy:
-      restart_policy:
-        condition: any
-        delay: 5s
-        max_attempts: 3
-        window: 120s    
+    # deploy:
+    #   restart_policy:
+    #     condition: any
+    #     delay: 5s
+    #     max_attempts: 3
+    #     window: 120s    
     user: root  
     privileged: true  
     pid: "host"
-    # restart: always
+    restart: always
     ports:
       - "10050:10050"
     networks:
