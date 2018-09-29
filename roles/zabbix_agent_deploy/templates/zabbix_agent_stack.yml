@@ -17,6 +17,7 @@ services:
     user: root  
     privileged: true  
     pid: "host"
+    restart: always
     ports:
       - "10050:10050"
     networks:
