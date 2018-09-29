@@ -1,5 +1,5 @@
 ---
 - name:  deploy zabbix agent
-  hosts: "{{groups['swarm_manager'][0]}}"
+  hosts: docker_servers
   roles:
   - role: zabbix_agent_deploy   
