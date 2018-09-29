@@ -24,7 +24,7 @@ services:
     privileged: true  
     pid: "host"
     restart: always
-    net: host
+    network_mode: host
     ports:
       - "10050:10050"
     # networks:
