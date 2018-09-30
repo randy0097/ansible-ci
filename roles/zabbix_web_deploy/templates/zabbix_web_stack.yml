@@ -1,0 +1,18 @@
+version: '3.2'
+
+services:
+
+  zabbix_web:
+    image: zabbix/zabbix-web-apache-mysql:ubuntu-3.4.14
+    environment:
+      DB_SERVER_HOST: "{{swarm_service_ip}}"
+      DB_SERVER_PORT: "{{mysql_ports[env]}}"
+      MYSQL_ROOT_PASSWORD: "{{mysql_root_password}}"
+      ZBX_SERVER_HOST: "{{swarm_service_ip}}"
+      ZBX_SERVER_PORT: 10051
+      PHP_TZ: Asia/Shanghai
+    deploy:
+      mode: replicated
+      replicas: 1
+    ports:
+      - "{{zabbix_web_port}}:80"     

@@ -1,0 +1,5 @@
+---
+- name:  deploy zabbix agent
+  hosts: docker_servers
+  roles:
+  - role: zabbix_agent_deploy   

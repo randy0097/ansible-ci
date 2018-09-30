@@ -1,0 +1,22 @@
+version: '3.2'
+
+services:
+
+  zabbix_agent:
+    image: zabbix/zabbix-agent:ubuntu-3.4.14
+    environment:
+      DB_SERVER_HOST: "{{swarm_service_ip}}"
+      DB_SERVER_PORT: "{{mysql_ports[env]}}"
+      MYSQL_ROOT_PASSWORD: "{{mysql_root_password}}"
+      ZBX_SERVER_HOST: 0.0.0.0/0
+      ZBX_SERVER_PORT: 10051
+      ZBX_ACTIVE_ALLOW: "false"
+      PHP_TZ: Asia/Shanghai
+      ZBX_DEBUGLEVEL: 3
+    user: root  
+    privileged: true  
+    pid: "host"
+    restart: always
+    network_mode: host
+    ports:
+      - "10050:10050"
