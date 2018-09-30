@@ -1,0 +1,5 @@
+---
+- name:  install docker compose
+  hosts: docker_servers
+  roles:
+  - role: docker_compose_install   
