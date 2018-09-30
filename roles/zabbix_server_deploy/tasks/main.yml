@@ -13,11 +13,6 @@
   args: 
     chdir: "{{remote_temp}}"
 
-# - name: deploy docker-compose
-#   command: docker-compose -f zabbix_server_stack.yml -p zabbix up -d
-#   args: 
-#     chdir: "{{remote_temp}}"
-
 
 
     
