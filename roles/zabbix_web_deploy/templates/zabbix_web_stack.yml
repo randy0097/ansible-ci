@@ -15,4 +15,4 @@ services:
       mode: replicated
       replicas: 1
     ports:
-      - "80:80"     
+      - "{{zabbix_web_port}}:80"     

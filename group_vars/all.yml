@@ -2,7 +2,7 @@ swarm_service_ip: 10.0.0.105
 mysql_restore: false
 mysql_image: mysql:5.7
 mysql_root_password: test_123
-
+zabbix_web_port: 9090
 
 docker_version: docker-ce-18.03.1.ce-1.el7.centos
 
