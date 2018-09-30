@@ -13,12 +13,18 @@
     path: /glusterfs_mnt/{{mysql_mount_data}}/mysql_data
     state: directory
 
-# - name: copy mysql data backup file to remote
-#   copy: 
-#     src: "{{local_temp}}/alldb_backup.sql"
-#     dest: /glusterfs_mnt/{{mysql_mount_data}}/alldb_backup.sql    
-#     mode: 0644
-#     force: yes
+- name: create mysql_init directory
+  file: 
+    path: /glusterfs_mnt/{{mysql_mount_data}}/mysql_init
+    state: directory
+
+- name: copy mysql data backup file to remote
+  copy: 
+    src: "{{local_temp}}/alldb_backup.sql"
+    dest: /glusterfs_mnt/{{mysql_mount_data}}/mysql_init/alldb_backup.sql  
+    mode: 0644
+    force: yes
+  when: mysql_restore == true
 
 # - name: copy mysql_entrypoint.sh to remote
 #   template: 
