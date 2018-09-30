@@ -1,3 +1,9 @@
+swarm_service_ip: 192.168.95.130
+mysql_restore: false
+mysql_image: mysql:5.7
+mysql_root_password: Ultra-123
+zabbix_web_port: 9090
+
 docker_version: docker-ce-18.03.1.ce-1.el7.centos
 
 swarm_init_server: 192.168.95.130
