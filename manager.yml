@@ -1,13 +1,13 @@
 ---
-- name: cas build 
+- name: manager build 
   hosts: localhost
   tasks:
-  - name: create cas build workspace by env
+  - name: create manager build workspace by env
     file: 
-      path: "{{cas_dir}}"
+      path: "{{manager_dir}}"
       state: directory   
   roles:
-  - cas_compile
+  - manager_compile
 
 - name: cas package 
   hosts: localhost

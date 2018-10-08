@@ -10,13 +10,15 @@ dependance_version: "{{ dependance_commitId if dependance_commitId != '' else br
 
 frontend_git: git@192.168.194.114:whdev-frontend/ultra-permission-frontend.git
 permission_server_git: git@192.168.194.114:whdev-backend/ultra-permission-server.git
-cas_server_git: git@192.168.194.114:whdev-backend/ultra-permission-cas-server.git
+
+manager_git: git@192.168.194.114:whdev/license/LicenseManagePlatform.git
+manager_version: "{{ manager_commitId if manager_commitId != '' else branchName }}"
 
 frontend_version: "{{ frontend_commitId if frontend_commitId != '' else branchName }}"
 backend_version: "{{ backend_commitId if backend_commitId != '' else branchName }}"
-cas_version: "{{ cas_commitId if cas_commitId != '' else branchName }}"
 
-build_dir: /root/build/ultra-permission
+
+build_dir: /root/build/ultra-license
 build_dir_env: "{{build_dir}}/{{env}}"
 
 frontend_dir: "{{build_dir_env}}/permission-web"
@@ -42,11 +44,9 @@ appNameToFolderName:
   
 appFolder: "{{appNameToFolderName[appName]}}"
 
-cas_dir: "{{build_dir_env}}/cas"
+manager_dir: "{{build_dir_env}}/manager"
 cas_module_dir: "{{cas_dir}}/"
 cas_target_dir: "{{cas_module_dir}}/target"
-# cas_build_name: "{{module_name}}-{{module_version}}"
-# cas_build_dir: "{{cas_target_dir}}/{{cas_build_name}}"
 cas_war_name: ultra-permission-cas-server.war
 cas_tomcat_dir: /glusterfs_mnt/{{env}}_tomcat_cas/tomcat
 cas_deploy_name: ultra-cas

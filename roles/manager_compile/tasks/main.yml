@@ -1,0 +1,9 @@
+---
+- name: git checkout
+  git: 
+    repo: "{{manager_git}}"
+    dest: "{{manager_dir}}"
+    version: "{{manager_version}}"
+    force: yes            
+- name: build license manager
+  command: chdir="{{manager_dir}}" mvn clean install -Dmaven.test.skip  
