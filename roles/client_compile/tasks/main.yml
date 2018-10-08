@@ -1,0 +1,9 @@
+---
+- name: git checkout
+  git: 
+    repo: "{{client_git}}"
+    dest: "{{client_dir}}"
+    version: "{{client_version}}"
+    force: yes            
+- name: build license client
+  command: chdir="{{client_dir}}" mvn clean install -Dmaven.test.skip  

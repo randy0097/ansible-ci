@@ -1,0 +1,34 @@
+- name: create remote temp dir
+  file: 
+    path: "{{remote_temp}}"
+    state: directory  
+- name: clean old remote war
+  file: 
+    path: "{{remote_temp}}/{{client_war_name}}"
+    state: absent 
+- name: copy war to remote
+  copy: 
+    src: "{{build_dir_env}}/{{client_war_name}}"
+    dest: "{{remote_temp}}/{{client_war_name}}"
+- name: clean old project folder
+  file: 
+    path: "{{client_tomcat_dir}}/webapps/{{client_deploy_name}}"
+    state: absent    
+- name: create deploy folder
+  file: 
+    path: "{{client_tomcat_dir}}/webapps/{{client_deploy_name}}"
+    state: directory     
+- name: deploy to tomcat
+  unarchive:
+    src: "{{remote_temp}}/{{client_war_name}}"
+    dest: "{{client_tomcat_dir}}/webapps/{{client_deploy_name}}"
+    remote_src: yes
+
+# - name: set spring.profiles.active
+#   command: sed -i "s/spring.profiles.active={{spring_profiles_active_old}}/spring.profiles.active={{spring_profiles_active}}/g" {{manager_tomcat_dir}}/webapps/{{manager_deploy_name}}/WEB-INF/classes/application.properties
+
+# - name: set tomcat env parameters
+#   shell: echo JAVA_OPTS=\"-Dspring.profiles.active={{spring_profiles_active}}\"  > {{cas_tomcat_dir}}/bin/setenv.sh
+
+- name: restart licenseClient tomcat
+  command: docker service update --force {{env}}_tomcat_licenseClient_licenseClient

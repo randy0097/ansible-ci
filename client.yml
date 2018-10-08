@@ -1,0 +1,20 @@
+---
+- name: client build 
+  hosts: localhost
+  tasks:
+  - name: create client build workspace by env
+    file: 
+      path: "{{client_dir}}"
+      state: directory   
+  roles:
+  - client_compile
+
+- name: client package 
+  hosts: localhost
+  roles:
+  - client_package
+
+- name: client deploy
+  hosts: "{{env}}"
+  roles:
+  - { role: client_deploy, when: client_operation == 'deploy' }

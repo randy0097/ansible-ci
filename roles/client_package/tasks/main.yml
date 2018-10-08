@@ -1,0 +1,25 @@
+- name: get module name
+  command: chdir={{client_module_dir}} grep <artifactId>  pom.xml -m 2
+  register: module_name_origin
+
+- name: get module version
+  command: chdir={{client_module_dir}} grep <version>  pom.xml -m 1
+  register: module_version_origin
+
+- name: debug module name
+  debug:
+      var: module_name_origin
+
+- name: debug module version
+  debug:
+      var: module_version_origin
+
+- name: clean client war
+  file: 
+    path: "{{build_dir_env}}/{{client_war_name}}"
+    state: absent   
+    
+- name: build client war
+  copy: 
+    src: "{{client_target_dir}}/{{client_artifact_name}}"
+    dest: "{{build_dir_env}}/{{client_war_name}}"

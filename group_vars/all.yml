@@ -1,67 +1,32 @@
-dependance_gits:
-  ultra_permission_data: git@192.168.194.114:whdev-backend/ultra-permission-data.git
-  ultra_permission_client: git@192.168.194.114:whdev-backend/ultra-permission-client.git
-  ultra_permission_cas_client: git@192.168.194.114:whdev-backend/ultra-permission-cas-client.git
-
-dependance_git: "{{dependance_gits[dependance_name]}}"
-
-dependance_dir: "{{build_dir_env}}/{{dependance_name}}"
-dependance_version: "{{ dependance_commitId if dependance_commitId != '' else branchName }}"
-
-frontend_git: git@192.168.194.114:whdev-frontend/ultra-permission-frontend.git
-permission_server_git: git@192.168.194.114:whdev-backend/ultra-permission-server.git
-
 manager_git: git@192.168.194.114:whdev/license/LicenseManagePlatform.git
 manager_version: "{{ manager_commitId if manager_commitId != '' else branchName }}"
-
-frontend_version: "{{ frontend_commitId if frontend_commitId != '' else branchName }}"
-backend_version: "{{ backend_commitId if backend_commitId != '' else branchName }}"
-
+client_git: git@192.168.194.114:whdev/license/license-client.git
+client_version: "{{ client_commitId if client_commitId != '' else branchName }}"
 
 build_dir: /root/build/ultra-license
 build_dir_env: "{{build_dir}}/{{env}}"
 
-frontend_dir: "{{build_dir_env}}/permission-web"
-frontend_dist: "{{frontend_dir}}/dist/"
-frontend_app_dir: "{{frontend_dir}}/{{appName}}"
-tomcat_dir: /glusterfs_mnt/{{env}}_tomcat_permission/tomcat
-deploy_name: ultra-permission
-
-backend_dir: "{{build_dir_env}}/permission"
-backend_module_dir: "{{backend_dir}}/ultra-permission-server"
-backend_target_dir: "{{backend_module_dir}}/target"
-# module_name: "{{module_name_origin.stdout_lines[1]|replace(' ', '')|replace('<artifactId>', '')|replace('</artifactId>', '')}}"
-# module_version: "{{module_version_origin.stdout|replace(' ', '')|replace('<version>', '')|replace('</version>', '')}}"
-# backend_build_name: "{{module_name}}-{{module_version}}"
-backend_build_dir: "{{backend_target_dir}}/{{backend_build_name}}"
-backend_war_name: ultra-permission.war
-
-
 remote_temp: ~/build/{{env}}
-
-appNameToFolderName:
-  web: web
-  
-appFolder: "{{appNameToFolderName[appName]}}"
 
 manager_dir: "{{build_dir_env}}/manager"
 manager_module_dir: "{{manager_dir}}"
 manager_target_dir: "{{manager_module_dir}}/target"
-module_name: "{{module_name_origin.stdout|replace(' ', '')|replace('<artifactId>', '')|replace('</artifactId>', '')}}"
-module_version: "{{module_version_origin.stdout|replace(' ', '')|replace('<version>', '')|replace('</version>', '')}}"
-# manager_war_name: "{{module_name}}-{{module_version}}.war"
-manager_war_name: LicenseManagePlatform-1.0-SNAPSHOT.war
-
+manager_module_name: "{{module_name_origin.stdout|replace(' ', '')|replace('<artifactId>', '')|replace('</artifactId>', '')}}"
+manager_module_version: "{{module_version_origin.stdout|replace(' ', '')|replace('<version>', '')|replace('</version>', '')}}"
+manager_artifact_name: "{{module_name}}-{{module_version}}.war"
+manager_war_name: LicenseManagePlatform.war
 manager_tomcat_dir: /glusterfs_mnt/{{env}}_tomcat_licenseManager/tomcat
 manager_deploy_name: licenseManager
 
-envToConfig:
-  devwh: devwh.json
-  testwh: testwh.json
-  preprodwh: preprodwh.json
-  prodwh: prodwh.json
-
-configFile: "{{envToConfig[env]}}"
+client_dir: "{{build_dir_env}}/client"
+client_module_dir: "{{client_dir}}/LicenseClientValidate"
+client_target_dir: "{{client_module_dir}}/target"
+client_module_name: "{{module_name_origin.stdout_lines[1]|replace(' ', '')|replace('<artifactId>', '')|replace('</artifactId>', '')}}"
+client_module_version: "{{module_version_origin.stdout|replace(' ', '')|replace('<version>', '')|replace('</version>', '')}}"
+client_artifact_name: "{{module_name}}-{{module_version}}.war"
+client_war_name: LicenseClientValidate.war
+client_tomcat_dir: /glusterfs_mnt/{{env}}_tomcat_licenseClient/tomcat
+client_deploy_name: licenseClientValidate
 
 envToActive:
   devwh: devwh
