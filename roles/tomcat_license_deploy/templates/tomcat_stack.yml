@@ -19,9 +19,6 @@ services:
       - "{{tomcat_port}}:8080"
     # networks:
     #   - "{{env}}_tomcat_network"
-    extra_hosts:
-      - "www.iscs.com:{{groups['swarm_manager'][0]}}"
-      - "www.iscas.com:{{groups['swarm_manager'][0]}}"
 
 # networks:
 #   "{{env}}_tomcat_network":
