@@ -1,4 +1,4 @@
-def backGitUrl = 'git@192.168.194.114:whdev-backend/ultra-permission-cas-server.git'
+def backGitUrl = 'git@192.168.194.114:whdev/license/LicenseManagePlatform.git'
 def gitUrl = backGitUrl
 
 def newList = []

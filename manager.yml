@@ -9,12 +9,12 @@
   roles:
   - manager_compile
 
-- name: cas package 
+- name: manager package 
   hosts: localhost
   roles:
-  - cas_package
+  - manager_package
 
-- name: cas deploy
+- name: manager deploy
   hosts: "{{env}}"
   roles:
-  - { role: cas_deploy, when: cas_operation == 'deploy' }
+  - { role: manager_deploy, when: manager_operation == 'deploy' }

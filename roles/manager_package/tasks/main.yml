@@ -1,0 +1,9 @@
+- name: clean manager war
+  file: 
+    path: "{{build_dir_env}}/{{manager_war_name}}"
+    state: absent   
+    
+- name: build manager war
+  copy: 
+    src: "{{manager_target_dir}}/{{manager_war_name}}"
+    dest: "{{build_dir_env}}/{{manager_war_name}}"

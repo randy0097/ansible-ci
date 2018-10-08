@@ -1,4 +1,4 @@
-def hostDir = "/root/build/ultra-permission/iscloud-ci/hosts"
+def hostDir = "/root/build/ultra-license/ansible-ci/hosts"
 def newList = []
 lineList = new File(hostDir).readLines();
 lineList.each {

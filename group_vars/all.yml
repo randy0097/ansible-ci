@@ -45,11 +45,13 @@ appNameToFolderName:
 appFolder: "{{appNameToFolderName[appName]}}"
 
 manager_dir: "{{build_dir_env}}/manager"
-cas_module_dir: "{{cas_dir}}/"
-cas_target_dir: "{{cas_module_dir}}/target"
-cas_war_name: ultra-permission-cas-server.war
-cas_tomcat_dir: /glusterfs_mnt/{{env}}_tomcat_cas/tomcat
-cas_deploy_name: ultra-cas
+manager_war_name: ultra-license-manager.war
+manager_module_dir: "{{manager_dir}}/"
+manager_target_dir: "{{manager_module_dir}}/target"
+
+
+manager_tomcat_dir: /glusterfs_mnt/{{env}}_tomcat_licenseManager/tomcat
+manager_deploy_name: licenseManager
 
 envToConfig:
   devwh: devwh.json
