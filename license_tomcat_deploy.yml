@@ -1,0 +1,8 @@
+---
+- name:  deploy license manager tomcat 
+  hosts: "{{groups['swarm_manager'][0]}}"
+  vars:
+    tomcat_name: licenseManager
+    server_xml: server.xml
+  roles:
+  - role: tomcat_deploy  
