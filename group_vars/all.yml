@@ -49,7 +49,8 @@ manager_module_dir: "{{manager_dir}}"
 manager_target_dir: "{{manager_module_dir}}/target"
 module_name: "{{module_name_origin.stdout|replace(' ', '')|replace('<artifactId>', '')|replace('</artifactId>', '')}}"
 module_version: "{{module_version_origin.stdout|replace(' ', '')|replace('<version>', '')|replace('</version>', '')}}"
-manager_war_name: "{{module_name}}-{{module_version}}.war"
+# manager_war_name: "{{module_name}}-{{module_version}}.war"
+manager_war_name: LicenseManagePlatform-1.0-SNAPSHOT.war
 
 manager_tomcat_dir: /glusterfs_mnt/{{env}}_tomcat_licenseManager/tomcat
 manager_deploy_name: licenseManager

@@ -1,13 +1,7 @@
 - name: create remote temp dir
   file: 
     path: "{{remote_temp}}"
-    state: directory 
-- name: get module name
-  command: chdir={{manager_module_dir}} grep <artifactId>  pom.xml -m 1
-  register: module_name_origin
-- name: get module version
-  command: chdir={{manager_module_dir}} grep <version>  pom.xml -m 1
-  register: module_version_origin    
+    state: directory  
 - name: clean old remote war
   file: 
     path: "{{remote_temp}}/{{manager_war_name}}"
