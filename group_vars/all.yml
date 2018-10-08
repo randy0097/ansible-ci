@@ -13,7 +13,7 @@ manager_module_dir: "{{manager_dir}}"
 manager_target_dir: "{{manager_module_dir}}/target"
 manager_module_name: "{{module_name_origin.stdout|replace(' ', '')|replace('<artifactId>', '')|replace('</artifactId>', '')}}"
 manager_module_version: "{{module_version_origin.stdout|replace(' ', '')|replace('<version>', '')|replace('</version>', '')}}"
-manager_artifact_name: "{{module_name}}-{{module_version}}.war"
+manager_artifact_name: "{{manager_module_name}}-{{manager_module_version}}.war"
 manager_war_name: LicenseManagePlatform.war
 manager_tomcat_dir: /glusterfs_mnt/{{env}}_tomcat_licenseManager/tomcat
 manager_deploy_name: licenseManager
@@ -23,7 +23,7 @@ client_module_dir: "{{client_dir}}/LicenseClientValidate"
 client_target_dir: "{{client_module_dir}}/target"
 client_module_name: "{{module_name_origin.stdout_lines[1]|replace(' ', '')|replace('<artifactId>', '')|replace('</artifactId>', '')}}"
 client_module_version: "{{module_version_origin.stdout|replace(' ', '')|replace('<version>', '')|replace('</version>', '')}}"
-client_artifact_name: "{{module_name}}-{{module_version}}.war"
+client_artifact_name: "{{client_module_name}}-{{client_module_version}}.war"
 client_war_name: LicenseClientValidate.war
 client_tomcat_dir: /glusterfs_mnt/{{env}}_tomcat_licenseClient/tomcat
 client_deploy_name: licenseClientValidate
