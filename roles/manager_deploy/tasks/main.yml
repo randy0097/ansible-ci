@@ -31,4 +31,4 @@
 #   shell: echo JAVA_OPTS=\"-Dspring.profiles.active={{spring_profiles_active}}\"  > {{cas_tomcat_dir}}/bin/setenv.sh
 
 - name: restart licenseManager tomcat
-  command: docker service update --force {{env}}_tomcat_licenseManager_icenseManager
+  command: docker service update --force {{env}}_tomcat_licenseManager_licenseManager
