@@ -63,6 +63,11 @@ tomcat_ports:
     testwh: 8240
     preprodwh: 8340
     prodwh: 8440    
+  licenseClient:
+    devwh: 8150
+    testwh: 8250
+    preprodwh: 8350
+    prodwh: 8450     
 tomcat_port: "{{tomcat_ports[tomcat_name][env]}}"
 
 
