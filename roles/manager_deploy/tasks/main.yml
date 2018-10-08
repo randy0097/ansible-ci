@@ -31,7 +31,7 @@
   command: sed -i "s/<param-value>{{spring_profiles_active_old}}/<param-value>{{spring_profiles_active}}/g" {{manager_tomcat_dir}}/webapps/{{manager_deploy_name}}/WEB-INF/web.xml
 
 # - name: set tomcat env parameters
-#   shell: echo JAVA_OPTS=\"-Dspring.profiles.active={{spring_profiles_active}}\"  > {{cas_tomcat_dir}}/bin/setenv.sh
+#   shell: echo JAVA_OPTS=\"-Dspring.profiles.active={{spring_profiles_active}}\"  > {{manager_tomcat_dir}}/bin/setenv.sh
 
 - name: restart licenseManager tomcat
   command: docker service update --force {{env}}_tomcat_licenseManager_licenseManager
