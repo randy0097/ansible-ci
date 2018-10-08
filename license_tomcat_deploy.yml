@@ -5,4 +5,4 @@
     tomcat_name: licenseManager
     server_xml: server.xml
   roles:
-  - role: tomcat_deploy  
+  - role: tomcat_license_deploy

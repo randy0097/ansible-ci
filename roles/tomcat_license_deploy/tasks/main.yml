@@ -1,0 +1,67 @@
+- name: create remote temp dir
+  file: 
+    path: "{{remote_temp}}"
+    state: directory 
+
+# - name: clean tomcat mount directory
+#   file:
+#     path: /glusterfs_mnt/{{tomcat_mount_data}}
+#     state: absent
+
+- name: create tomcat webapps directory
+  file: 
+    path: /glusterfs_mnt/{{tomcat_mount_data}}/tomcat/webapps
+    state: directory
+
+- name: create tomcat bin directory
+  file: 
+    path: /glusterfs_mnt/{{tomcat_mount_data}}/tomcat/bin
+    state: directory
+
+- name: create tomcat setenv.sh file
+  file: 
+    path: /glusterfs_mnt/{{tomcat_mount_data}}/tomcat/bin/setenv.sh
+    state: touch
+
+- name: create tomcat conf directory
+  file: 
+    path: /glusterfs_mnt/{{tomcat_mount_data}}/tomcat/conf
+    state: directory
+
+- name: create tomcat logs directory
+  file: 
+    path: /glusterfs_mnt/{{tomcat_mount_data}}/tomcat/logs
+    state: directory
+
+- name: copy server.xml to remote
+  template: 
+    src: "{{server_xml}}"
+    dest: "/glusterfs_mnt/{{tomcat_mount_data}}/tomcat/conf/{{server_xml}}"
+
+- name: create ssl directory
+  file: 
+    path: /glusterfs_mnt/{{tomcat_mount_data}}/ssl
+    state: directory
+
+- name: copy ssl key file to remote
+  copy: 
+    src: "{{ssl_key}}"
+    dest: "/glusterfs_mnt/{{tomcat_mount_data}}/ssl/{{ssl_key}}"
+  when: server_xml == 'server.xml.ssl'
+
+- name: copy stack.yml to remote
+  template: 
+    src: tomcat_stack.yml 
+    dest: "{{remote_temp}}/tomcat_stack.yml"
+
+- name: debug
+  debug:
+    var: tomcat_port
+
+- name: deploy stack
+  command: docker stack deploy --compose-file=tomcat_stack.yml {{env}}_tomcat_{{tomcat_name}}
+  args: 
+    chdir: "{{remote_temp}}"
+
+
+    

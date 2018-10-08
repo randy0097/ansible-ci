@@ -57,6 +57,11 @@ tomcat_ports:
     testwh: 8230
     preprodwh: 8330
     prodwh: 8430
+  licenseManager:
+    devwh: 8140
+    testwh: 8240
+    preprodwh: 8340
+    prodwh: 8440    
 tomcat_port: "{{tomcat_ports[tomcat_name][env]}}"
 
 

@@ -1,0 +1,28 @@
+version: '3.2'
+
+services:
+
+  "{{tomcat_name}}":
+    image: tomcat:8.5.32-jre8
+    volumes:    
+      - /glusterfs_mnt/{{tomcat_mount_data}}/tomcat/webapps:/usr/local/tomcat/webapps
+      - /glusterfs_mnt/{{tomcat_mount_data}}/tomcat/logs:/usr/local/tomcat/logs
+      - /glusterfs_mnt/{{tomcat_mount_data}}/tomcat/bin/setenv.sh:/usr/local/tomcat/bin/setenv.sh
+      - /glusterfs_mnt/{{tomcat_mount_data}}/tomcat/conf/{{server_xml}}:/usr/local/tomcat/conf/server.xml
+      - /glusterfs_mnt/{{tomcat_mount_data}}/ssl:/root/ssl
+      - /etc/timezone:/etc/timezone
+      - /etc/localtime:/etc/localtime      
+    deploy:
+      mode: replicated
+      replicas: 1
+    ports:
+      - "{{tomcat_port}}:8080"
+    # networks:
+    #   - "{{env}}_tomcat_network"
+    extra_hosts:
+      - "www.iscs.com:{{groups['swarm_manager'][0]}}"
+      - "www.iscas.com:{{groups['swarm_manager'][0]}}"
+
+# networks:
+#   "{{env}}_tomcat_network":
+#     external: true
