@@ -30,9 +30,9 @@ deploy_name: ultra-permission
 backend_dir: "{{build_dir_env}}/permission"
 backend_module_dir: "{{backend_dir}}/ultra-permission-server"
 backend_target_dir: "{{backend_module_dir}}/target"
-module_name: "{{module_name_origin.stdout_lines[1]|replace(' ', '')|replace('<artifactId>', '')|replace('</artifactId>', '')}}"
-module_version: "{{module_version_origin.stdout|replace(' ', '')|replace('<version>', '')|replace('</version>', '')}}"
-backend_build_name: "{{module_name}}-{{module_version}}"
+# module_name: "{{module_name_origin.stdout_lines[1]|replace(' ', '')|replace('<artifactId>', '')|replace('</artifactId>', '')}}"
+# module_version: "{{module_version_origin.stdout|replace(' ', '')|replace('<version>', '')|replace('</version>', '')}}"
+# backend_build_name: "{{module_name}}-{{module_version}}"
 backend_build_dir: "{{backend_target_dir}}/{{backend_build_name}}"
 backend_war_name: ultra-permission.war
 
@@ -45,10 +45,11 @@ appNameToFolderName:
 appFolder: "{{appNameToFolderName[appName]}}"
 
 manager_dir: "{{build_dir_env}}/manager"
-manager_war_name: ultra-license-manager.war
-manager_module_dir: "{{manager_dir}}/"
+manager_module_dir: "{{manager_dir}}"
 manager_target_dir: "{{manager_module_dir}}/target"
-
+module_name: "{{module_name_origin.stdout_lines|replace(' ', '')|replace('<artifactId>', '')|replace('</artifactId>', '')}}"
+module_version: "{{module_version_origin.stdout|replace(' ', '')|replace('<version>', '')|replace('</version>', '')}}"
+manager_war_name: "{{module_name}}-{{module_version}}"
 
 manager_tomcat_dir: /glusterfs_mnt/{{env}}_tomcat_licenseManager/tomcat
 manager_deploy_name: licenseManager

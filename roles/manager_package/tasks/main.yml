@@ -1,3 +1,19 @@
+- name: get module name
+  command: chdir={{manager_module_dir}} grep <artifactId>  pom.xml -m 1
+  register: module_name_origin
+
+- name: get module version
+  command: chdir={{manager_module_dir}} grep <version>  pom.xml -m 1
+  register: module_version_origin
+
+- name: debug module name
+  debug:
+      var: module_name_origin
+
+- name: debug module version
+  debug:
+      var: module_version_origin
+
 - name: clean manager war
   file: 
     path: "{{build_dir_env}}/{{manager_war_name}}"
