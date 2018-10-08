@@ -22,7 +22,7 @@
 #       state: directory
 
 #   - name: git checkout ansible permission deploy script
-#     git: repo="{{ansible_permission_git}}"
+#     git: repo="{{ansible_git}}"
 #         dest="{{local_temp}}/ultra-permission/iscloud-ci"
 #         version="{{ansible_permission_git_version}}"
 #         force=yes

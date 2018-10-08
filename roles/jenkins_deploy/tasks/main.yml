@@ -54,16 +54,22 @@
     path: /glusterfs_mnt/jenkins/build/ultra-permission
     state: directory
 
+- name: create remote ultra-license directory
+  file: 
+    path: /glusterfs_mnt/jenkins/build/ultra-license
+    state: directory
+
 # - name: extract jenkins_home.tgz
 #   unarchive:
 #     src: "{{local_temp}}/jenkins_home.tgz"
 #     dest: /glusterfs_mnt/jenkins/
 
 - name: git checkout jenkins_home
-  git: repo={{jenkins_git}}  
-      dest=/glusterfs_mnt/jenkins/jenkins_home
-      version={{jenkins_git_version}}
-      force=yes
+  git: 
+    repo: "{{jenkins_git}}"
+    dest: /glusterfs_mnt/jenkins/jenkins_home
+    version: "{{jenkins_git_version}}"
+    force: yes
 
 # - name: extract ansible-permission.tgz
 #   unarchive:
@@ -71,10 +77,18 @@
 #     dest: /glusterfs_mnt/jenkins/build/ultra-permission
 
 - name: git checkout ansible permission deploy script
-  git: repo="{{ansible_permission_git}}"
-      dest=/glusterfs_mnt/jenkins/build/ultra-permission/iscloud-ci
-      version="{{ansible_permission_git_version}}"
-      force=yes
+  git: 
+    repo: "{{ansible_git}}"
+    dest: /glusterfs_mnt/jenkins/build/ultra-permission/iscloud-ci
+    version: "{{ansible_git_permission_version}}"
+    force: yes
+
+- name: git checkout ansible license deploy script
+  git: 
+    repo: "{{ansible_git}}"
+    dest: /glusterfs_mnt/jenkins/build/ultra-license/ansible-ci
+    version: "{{ansible_git_license_version}}"
+    force: yes
 
 # - name: modify directory owner
 #   file: 

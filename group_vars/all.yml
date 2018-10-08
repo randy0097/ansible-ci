@@ -13,9 +13,10 @@ remote_temp: ~/ansible_temp
 local_temp: ~/temp
 
 jenkins_git: git@github.com:randy0098/jenkins-home.git
-jenkins_git_version: ultra-permission-3.0-docker
-ansible_permission_git: git@github.com:randy0098/ansible-ci.git
-ansible_permission_git_version: ultra-permission-3.0-docker
+jenkins_git_version: ultra-permission-3.1-docker
+ansible_git: git@github.com:randy0098/ansible-ci.git
+ansible_git_permission_version: ultra-permission-3.1-docker
+ansible_git_license_version: ultra-license-2.0-docker
 m2_git: git@github.com:randy0098/m2.git
 
 env: prodwh
