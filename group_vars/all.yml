@@ -29,6 +29,7 @@ adminer_port: 9020
 phpRedisAdmin_port: 9030
 readis_port: 9031
 redis_stat_port: 9032
+redis_commander_port: 9033
 
 mysql_mount_data: "{{env}}_mysql"
 mysql_ports:

@@ -1,0 +1,13 @@
+version: '3.2'
+
+services:
+
+  redis_commander:
+    image: rediscommander/redis-commander:latest
+    ports:
+     - "{{redis_stat_port}}:8081"
+    environment:
+      REDIS_HOSTS: "{{swarm_service_ip}}:{{redis_ports['devwh']}}"
+    volumes:    
+      - /etc/timezone:/etc/timezone
+      - /etc/localtime:/etc/localtime                
