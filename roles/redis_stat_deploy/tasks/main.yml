@@ -1,0 +1,17 @@
+- name: create remote temp dir
+  file: 
+    path: "{{remote_temp}}"
+    state: directory 
+
+- name: copy stack.yml to remote
+  template: 
+    src: redis_stat_stack.yml 
+    dest: "{{remote_temp}}/redis_stat_stack.yml"
+
+- name: deploy stack
+  command: docker stack deploy --compose-file=redis_stat_stack.yml redis_stat
+  args: 
+    chdir: "{{remote_temp}}"
+
+
+    
