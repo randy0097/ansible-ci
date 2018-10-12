@@ -1,0 +1,32 @@
+- name: create remote temp dir
+  file: 
+    path: "{{remote_temp}}"
+    state: directory 
+
+- name: create readis directory
+  file: 
+    path: /glusterfs_mnt/readis/config
+    state: directory
+
+- name: copy readis app.php to remote
+  template: 
+    src: app.php
+    dest: /glusterfs_mnt/readis/config/app.php
+
+- name: copy readis servers.php to remote
+  template: 
+    src: servers.php
+    dest: /glusterfs_mnt/readis/config/servers.php
+
+- name: copy stack.yml to remote
+  template: 
+    src: readis_stack.yml 
+    dest: "{{remote_temp}}/readis_stack.yml"
+
+- name: deploy stack
+  command: docker stack deploy --compose-file=readis_stack.yml readis
+  args: 
+    chdir: "{{remote_temp}}"
+
+
+    

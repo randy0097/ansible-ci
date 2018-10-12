@@ -27,6 +27,7 @@ jenkins_port1: 9010
 jenkins_port2: 9011
 adminer_port: 9020
 phpRedisAdmin_port: 9030
+readis_port: 9040
 
 mysql_mount_data: "{{env}}_mysql"
 mysql_ports:

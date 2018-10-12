@@ -1,0 +1,16 @@
+version: '3.2'
+
+services:
+
+  readis:
+    image: hollodotme/readis
+    container_name: your_readis
+    ports:
+     - "{{readis_port}}:80"
+    # environment:
+    #   REDIS_1_HOST: 10.0.0.105:8110   
+    #   REDIS_1_NAME: devwh_redis_redis
+    volumes:    
+      - /glusterfs_mnt/readis/config:/code/config:ro
+      - /etc/timezone:/etc/timezone
+      - /etc/localtime:/etc/localtime                
