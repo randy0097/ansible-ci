@@ -7,10 +7,12 @@ services:
     ports:
      - "{{phpRedisAdmin_port}}:80"
     environment:
-      # REDIS_1_HOST: 10.0.0.102:8101   
-      # REDIS_1_NAME: devwh_redis_redis
-      REDIS_1_HOST: 10.0.0.105:8110   
-      REDIS_1_NAME: devwh_redis_redis
+      REDIS_1_NAME: Redis-devwh
+      REDIS_1_HOST: "{{swarm_service_ip}}:{{redis_ports[devwh]}}"
+      REDIS_2_NAME: Redis-testwh   
+      REDIS_2_HOST: "{{swarm_service_ip}}:{{redis_ports[testwh]}}"
+      REDIS_3_NAME: Redis-preprodwh  
+      REDIS_3_HOST: "{{swarm_service_ip}}:{{redis_ports[preprodwh]}}"
     volumes:    
       - /etc/timezone:/etc/timezone
       - /etc/localtime:/etc/localtime                
