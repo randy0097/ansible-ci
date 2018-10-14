@@ -29,4 +29,4 @@
   archive:
     path: "{{backend_build_dir}}/*"
     dest: "{{build_dir_env}}/{{backend_war_name}}"
-    format: zip  
+    format: gz
