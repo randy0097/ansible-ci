@@ -16,14 +16,14 @@
   file: 
     path: "{{build_dir_env}}/{{cas_war_name}}"
     state: absent   
-    
+
 # - name: build cas war
-#   archive:
-#     path: "{{cas_build_dir}}/*"
+#   copy: 
+#     src: "{{cas_target_dir}}/{{cas_war_name}}"
 #     dest: "{{build_dir_env}}/{{cas_war_name}}"
-#     format: zip 
 
 - name: build cas war
-  copy: 
-    src: "{{cas_target_dir}}/{{cas_war_name}}"
+  archive:
+    path: "{{cas_build_dir}}/*"
     dest: "{{build_dir_env}}/{{cas_war_name}}"
+    format: gz 
