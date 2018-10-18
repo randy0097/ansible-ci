@@ -9,6 +9,8 @@ services:
     environment:
       PHPREDMIN_DATABASE_REDIS_0_HOST: "{{swarm_service_ip}}"
       PHPREDMIN_DATABASE_REDIS_0_PORT: "{{redis_ports['devwh']}}"
+      PHPREDMIN_DATABASE_REDIS_1_HOST: "{{swarm_service_ip}}"
+      PHPREDMIN_DATABASE_REDIS_1_PORT: "{{redis_ports['testwh']}}"      
     volumes:    
       - /etc/timezone:/etc/timezone
       - /etc/localtime:/etc/localtime                
