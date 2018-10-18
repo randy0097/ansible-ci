@@ -2,7 +2,7 @@ version: '3.2'
 
 services:
 
-  readis:
+  icinga2:
     image: jordan/icinga2:latest
     ports:
      - "{{icinga2_port}}:80"
