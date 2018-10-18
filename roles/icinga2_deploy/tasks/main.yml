@@ -3,15 +3,45 @@
     path: "{{remote_temp}}"
     state: directory 
 
-- name: copy stack.yml to remote
-  template: 
-    src: icinga2_stack.yml 
-    dest: "{{remote_temp}}/icinga2_stack.yml"
+- name: create remote icinga2 dir
+  file: 
+    path: "{{remote_temp}}/icinga2"
+    state: directory 
 
-- name: deploy stack
-  command: docker stack deploy --compose-file=icinga2_stack.yml icinga2
+# - name: copy stack.yml to remote
+#   template: 
+#     src: icinga2_stack.yml 
+#     dest: "{{remote_temp}}/icinga2_stack.yml"
+
+# - name: deploy stack
+#   command: docker stack deploy --compose-file=icinga2_stack.yml icinga2
+#   args: 
+#     chdir: "{{remote_temp}}"
+
+- name: clean icinga2 directory
+  file: 
+    path: /glusterfs_mnt/icinga2
+    state: absent
+
+- name: create icinga2 directory
+  file: 
+    path: /glusterfs_mnt/icinga2
+    state: directory
+
+- name: copy secrets_sql.env to remote
+  template: 
+    src: secrets_sql.env
+    dest: "{{remote_temp}}/icinga2/secrets_sql.env"
+
+- name: copy icinga2_docker_compose.yml to remote
+  template: 
+    src: icinga2_docker_compose.yml 
+    dest: "{{remote_temp}}/icinga2/icinga2_docker_compose.yml"
+
+- name: deploy docker-compose
+  command: docker-compose -f icinga2_docker_compose.yml -p icinga2 up -d
   args: 
-    chdir: "{{remote_temp}}"
+    chdir: "{{remote_temp}}/icinga2"
 
 
     
