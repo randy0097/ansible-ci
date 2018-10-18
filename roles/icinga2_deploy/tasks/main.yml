@@ -28,6 +28,61 @@
     path: /glusterfs_mnt/icinga2
     state: directory
 
+- name: create cache directory
+  file: 
+    path: /glusterfs_mnt/icinga2/cache
+    state: directory
+
+- name: create certs directory
+  file: 
+    path: /glusterfs_mnt/icinga2/certs
+    state: directory
+
+- name: create /etc/icinga2 directory
+  file: 
+    path: /glusterfs_mnt/icinga2/etc/icinga2
+    state: directory
+
+- name: create /etc/icingaweb2 directory
+  file: 
+    path: /glusterfs_mnt/icinga2/etc/icingaweb2
+    state: directory
+
+- name: create /lib/icinga directory
+  file: 
+    path: /glusterfs_mnt/icinga2/lib/icinga
+    state: directory
+
+- name: create /lib/php/sessions directory
+  file: 
+    path: /glusterfs_mnt/icinga2/lib/php/sessions
+    state: directory
+
+- name: create /log/apache2 directory
+  file: 
+    path: /glusterfs_mnt/icinga2/log/apache2
+    state: directory
+
+- name: create /log/icinga2 directory
+  file: 
+    path: /glusterfs_mnt/icinga2/log/icinga2
+    state: directory
+
+- name: create /log/icingaweb2 directory
+  file: 
+    path: /glusterfs_mnt/icinga2/log/icingaweb2
+    state: directory        
+
+- name: create /log/mysql directory
+  file: 
+    path: /glusterfs_mnt/icinga2/log/mysql
+    state: directory 
+
+- name: create /spool directory
+  file: 
+    path: /glusterfs_mnt/icinga2/spool
+    state: directory   
+
 - name: copy secrets_sql.env to remote
   template: 
     src: secrets_sql.env
