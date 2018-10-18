@@ -6,8 +6,9 @@ services:
     image: insready/redis-stat
     ports:
      - "{{redis_stat_port}}:63790"
-    environment:
-      server: "{{swarm_service_ip}}:{{redis_ports['devwh']}}"
+    # environment:
+    #   server: "{{swarm_service_ip}}:{{redis_ports['devwh']}}"
+    command: --server "{{swarm_service_ip}}:{{redis_ports['devwh']}}"
     volumes:    
       - /etc/timezone:/etc/timezone
       - /etc/localtime:/etc/localtime                
