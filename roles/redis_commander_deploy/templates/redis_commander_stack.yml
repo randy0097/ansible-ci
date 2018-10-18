@@ -7,7 +7,7 @@ services:
     ports:
      - "{{redis_commander_port}}:8081"
     environment:
-      REDIS_HOSTS: "{{swarm_service_ip}}:{{redis_ports['devwh']}}"
+      REDIS_HOSTS: "remote:{{swarm_service_ip}}:{{redis_ports['devwh']}}"
       # REDIS_PORT: "{{redis_ports['devwh']}}"
     volumes:    
       - /etc/timezone:/etc/timezone
