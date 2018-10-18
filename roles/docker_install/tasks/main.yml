@@ -19,6 +19,12 @@
     name: "{{docker_version}}"
     state: present
 
+- name: set docker image accelerator
+  copy: 
+    src: daemon.json
+    dest: /etc/docker/daemon.json    
+    force: no
+
 - name: start docker
   service: 
     name: docker.service 
