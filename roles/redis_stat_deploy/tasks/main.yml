@@ -8,10 +8,14 @@
     src: redis_stat_stack.yml 
     dest: "{{remote_temp}}/redis_stat_stack.yml"
 
+# - name: deploy stack
+#   command: docker stack deploy --compose-file=redis_stat_stack.yml redis_stat
+#   args: 
+#     chdir: "{{remote_temp}}"
+
 - name: deploy stack
-  command: docker stack deploy --compose-file=redis_stat_stack.yml redis_stat
+  command: docker run --name redis-stat -p "{{redis_stat_port}}:63790" -d insready/redis-stat --server "{{swarm_service_ip}}:{{redis_ports['devwh']}}"
   args: 
     chdir: "{{remote_temp}}"
-
 
     
