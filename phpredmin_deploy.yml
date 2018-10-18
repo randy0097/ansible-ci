@@ -1,0 +1,5 @@
+---
+- name:  deploy phpredmin
+  hosts: "{{groups['swarm_manager'][0]}}"
+  roles:
+  - role: phpredmin_deploy      
