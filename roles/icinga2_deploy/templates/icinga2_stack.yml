@@ -1,0 +1,11 @@
+version: '3.2'
+
+services:
+
+  readis:
+    image: jordan/icinga2:latest
+    ports:
+     - "{{icinga2_port}}:80"
+    volumes:    
+      - /etc/timezone:/etc/timezone
+      - /etc/localtime:/etc/localtime                
