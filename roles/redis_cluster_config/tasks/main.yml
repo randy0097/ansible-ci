@@ -1,14 +1,14 @@
-- name: create remote temp dir
-  file: 
-    path: "{{remote_temp}}"
-    state: directory 
+# - name: create remote temp dir
+#   file: 
+#     path: "{{remote_temp}}"
+#     state: directory 
 
-- name: copy redis-cli to remote
-  copy: 
-    src: redis-cli 
-    dest: "{{remote_temp}}/redis-cli"
-    mode: 0755
-    force: yes
+# - name: copy redis-cli to remote
+#   copy: 
+#     src: redis-cli 
+#     dest: "{{remote_temp}}/redis-cli"
+#     mode: 0755
+#     force: yes
 
 # - name: testString
 #   vars: 
@@ -29,7 +29,7 @@
 - name: ips
   set_fact: 
     ips: "{{ips|default()}}+' '+{{swarm_service_ip}}+':'+[{{item.value}}]" 
-  with_item: "{{ports}}"  
+  with_items: "{{ports}}"  
 
 - name: ips
   debug:
