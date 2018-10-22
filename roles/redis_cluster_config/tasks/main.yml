@@ -12,7 +12,8 @@
 
 - name: testString
   vars: 
-    testString: "{{ [1, 2, 3]|join('|') }}"
+    # testString: "{{ [1, 2, 3]|join('|') }}"
+    testString: "{{redis_ports_cluster[env].values|join('|')}}" 
   debug:
       var: testString
 
