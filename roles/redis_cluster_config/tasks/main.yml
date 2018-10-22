@@ -1,21 +1,14 @@
-# - name: create remote temp dir
-#   file: 
-#     path: "{{remote_temp}}"
-#     state: directory 
+- name: create remote temp dir
+  file: 
+    path: "{{remote_temp}}"
+    state: directory 
 
-# - name: copy redis-cli to remote
-#   copy: 
-#     src: redis-cli 
-#     dest: "{{remote_temp}}/redis-cli"
-#     mode: 0755
-#     force: yes
-
-# - name: testString
-#   vars: 
-#     # testString: "{{ [1, 2, 3]|join('|') }}"
-#     testString: "{{redis_ports_cluster[env].value|join('|')}}" 
-#   debug:
-#       var: testString
+- name: copy redis-cli to remote
+  copy: 
+    src: redis-cli 
+    dest: "{{remote_temp}}/redis-cli"
+    mode: 0755
+    force: yes
 
 - name: redis ports
   set_fact: 
@@ -28,17 +21,17 @@
 
 - name: ips
   set_fact: 
-    ips: "{{ips|default()}} {{swarm_service_ip}}:[{{item}}]" 
+    ips: "{{ips|default()}} {{swarm_service_ip}}:{{item}}" 
   with_items: "{{ports}}"  
 
 - name: ips
   debug:
       var: ips
 
-# - name: deploy stack
-#   command: docker stack deploy --compose-file=redis_stack.yml {{env}}_{{redis_name_cluster}}
-#   args: 
-#     chdir: "{{remote_temp}}"
+- name: config redis cluster
+  shell: redis-cli --cluster create {{ips}} --cluster-replicas 1
+  args: 
+    chdir: "{{remote_temp}}"
 
 
     
