@@ -6,8 +6,6 @@
     vars: 
       redis_name_cluster: "{{item.key}}"
       redis_port_cluster: "{{item.value}}"  
-    debug:
-      msg: "{{item.key}}:({{item.value}})"
     include_role:
       name: redis_deploy_cluster  
     with_dict: "{{redis_ports_cluster['env']}}"  
