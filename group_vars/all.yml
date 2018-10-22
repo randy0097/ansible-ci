@@ -54,10 +54,10 @@ redis_ports_cluster:
   devwh:
     redis1: 8111
     redis2: 8112
-    # redis3: 8113
-    # redis4: 8114
-    # redis5: 8115
-    # redis6: 8116
+    redis3: 8113
+    redis4: 8114
+    redis5: 8115
+    redis6: 8116
   testwh:
     redis1: 8211
     redis2: 8212
