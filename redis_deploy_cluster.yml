@@ -8,4 +8,4 @@
       redis_port_cluster: "{{item.value}}"  
     include_role:
       name: redis_deploy_cluster  
-    with_dict: "{{redis_ports_cluster['env']}}"  
+    with_dict: "{{redis_ports_cluster[env]}}"  
