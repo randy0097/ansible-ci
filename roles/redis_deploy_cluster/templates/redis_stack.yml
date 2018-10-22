@@ -1,0 +1,16 @@
+version: '3.2'
+
+services:
+
+  redis:
+    image: redis:4.0.11
+    volumes:    
+      - /glusterfs_mnt/{{redis_mount_data}}/{{redis_name_cluster}}/redis_data:/data
+      - /glusterfs_mnt/{{redis_mount_data}}/{{redis_name_cluster}}/redis.conf:/usr/local/etc/redis/redis.conf
+      - /etc/timezone:/etc/timezone
+      - /etc/localtime:/etc/localtime
+    deploy:
+      mode: replicated
+      replicas: 1
+    ports:
+      - "{{redis_port}}:6379"

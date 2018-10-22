@@ -1,0 +1,11 @@
+---
+- name:  deploy redis
+  hosts: "{{groups['swarm_manager'][0]}}"
+  vars: 
+    redis_name_cluster: "{{item.key}}"
+    redis_port_cluster: "{{item.value}}"  
+  debug:
+    msg: "{{item.key}}:({{item.value}})"
+  roles:
+  - role: redis_deploy_cluster    
+  with_dict: "{{redis_ports['env']}}"  

@@ -2,4 +2,4 @@
 - name:  deploy redis
   hosts: "{{groups['swarm_manager'][0]}}"
   roles:
-  - role: redis_deploy      
+  - role: redis_deploy_standalone  
