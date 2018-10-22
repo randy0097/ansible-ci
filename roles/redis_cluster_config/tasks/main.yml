@@ -28,7 +28,7 @@
 
 - name: ips
   set_fact: 
-    ips: "{{ips|default()}}+' '+{{swarm_service_ip}}+':'+[{{item}}]" 
+    ips: "{{ips|default()}} {{swarm_service_ip}}:[{{item}}]" 
   with_items: "{{ports}}"  
 
 - name: ips
