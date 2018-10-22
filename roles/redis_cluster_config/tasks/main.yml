@@ -17,14 +17,23 @@
 #   debug:
 #       var: testString
 
-- name: testString
+- name: redis ports
   set_fact: 
-    testString: "{{testString|default([])}}+[{{item.value}}]" 
+    ports: "{{ports|default([])}}+[{{item.value}}]" 
   with_dict: "{{redis_ports_cluster[env]}}"  
 
-- name: testString
+- name: ports
   debug:
-      var: testString|join('|')
+      var: ports
+
+- name: ips
+  set_fact: 
+    ips: "{{ips|default()}}+' '+{{swarm_service_ip}}+':'+[{{item.value}}]" 
+  with_item: "{{ports}}"  
+
+- name: ips
+  debug:
+      var: ips
 
 # - name: deploy stack
 #   command: docker stack deploy --compose-file=redis_stack.yml {{env}}_{{redis_name_cluster}}
