@@ -48,7 +48,7 @@ redis_ports_standalone:
   testwh: 8210
   preprodwh: 8310
   prodwh: 8410
-redis_port_standalone: "{{redis_standalone_ports[env]}}"
+redis_port_standalone: "{{redis_ports_standalone[env]}}"
 
 redis_ports_cluster:
   devwh:

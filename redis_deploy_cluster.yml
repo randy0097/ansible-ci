@@ -8,4 +8,4 @@
     msg: "{{item.key}}:({{item.value}})"
   roles:
   - role: redis_deploy_cluster    
-  with_dict: "{{redis_ports['env']}}"  
+  with_dict: "{{redis_ports_cluster['env']}}"  
