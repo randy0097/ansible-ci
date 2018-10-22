@@ -4,6 +4,7 @@ services:
 
   redis:
     image: redis:4.0.11
+    command: redis-server /usr/local/etc/redis/redis.conf
     volumes:    
       - /glusterfs_mnt/{{redis_mount_data}}/{{redis_name_cluster}}/redis_data:/data
       - /glusterfs_mnt/{{redis_mount_data}}/{{redis_name_cluster}}/redis.conf:/usr/local/etc/redis/redis.conf
