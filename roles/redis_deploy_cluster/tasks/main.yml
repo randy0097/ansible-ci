@@ -28,10 +28,15 @@
     src: redis_stack.yml 
     dest: "{{remote_temp}}/redis_stack.yml"
 
-- name: deploy stack
-  command: docker stack deploy --compose-file=redis_stack.yml {{env}}_{{redis_name_cluster}}
+# - name: deploy stack
+#   command: docker stack deploy --compose-file=redis_stack.yml {{env}}_{{redis_name_cluster}}
+#   args: 
+#     chdir: "{{remote_temp}}"
+
+- name: deploy docker-compose
+  command: docker-compose -f redis_stack.yml -p {{env}}_{{redis_name_cluster}} up -d
   args: 
-    chdir: "{{remote_temp}}"
+    chdir: "{{remote_temp}}"    
 
 
     

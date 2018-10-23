@@ -1,11 +1,5 @@
 ---
-- name:  deploy redis
-  hosts: "{{groups['swarm_manager'][0]}}"
-  tasks:
-  - name: deploy redis
-    vars: 
-      redis_name_cluster: "{{item.key}}"
-      redis_port_cluster: "{{item.value}}"  
-    include_role:
-      name: redis_deploy_cluster  
-    with_dict: "{{redis_ports_cluster[env]}}"  
+- name:  deploy redis cluster
+  hosts: "{{redis_ip_cluster}}"
+  roles:
+  - role: redis_deploy_cluster

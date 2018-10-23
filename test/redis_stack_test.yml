@@ -10,9 +10,10 @@ services:
       - /glusterfs_mnt/{{redis_mount_data}}/{{redis_name_cluster}}/redis.conf:/usr/local/etc/redis/redis.conf
       - /etc/timezone:/etc/timezone
       - /etc/localtime:/etc/localtime
-    restart: always  
-    network_mode: host
+    deploy:
+      mode: replicated
+      replicas: 1
     ports:
       - "{{redis_port_cluster}}:{{redis_port_cluster}}"
       - "{{redis_port_cluster|int+10000}}:{{redis_port_cluster|int+10000}}"
-   
+    network_mode: host
