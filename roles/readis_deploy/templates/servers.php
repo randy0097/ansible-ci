@@ -4,7 +4,7 @@ return [
     [
         'name'          => 'redis-devwh',
         'host'          => '{{swarm_service_ip}}',
-        'port'          => "{{redis_ports['devwh']}}",
+        'port'          => "{{redis_ports_standalone['devwh']}}",
         'auth'          => null,
         'timeout'       => 2.5,
         'retryInterval' => 100,
@@ -13,7 +13,7 @@ return [
     [
         'name'          => 'redis-testwh',
         'host'          => '{{swarm_service_ip}}',
-        'port'          => "{{redis_ports['testwh']}}",
+        'port'          => "{{redis_ports_standalone['testwh']}}",
         'auth'          => null,
         'timeout'       => 2.5,
         'retryInterval' => 100,
@@ -22,7 +22,7 @@ return [
     [
         'name'          => 'redis-preprodwh',
         'host'          => '{{swarm_service_ip}}',
-        'port'          => "{{redis_ports['preprodwh']}}",
+        'port'          => "{{redis_ports_standalone['preprodwh']}}",
         'auth'          => null,
         'timeout'       => 2.5,
         'retryInterval' => 100,
