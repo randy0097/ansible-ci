@@ -2,7 +2,7 @@
 
 return [
     [
-        'name'          => 'redis-devwh',
+        'name'          => 'devwh-redis',
         'host'          => '{{swarm_service_ip}}',
         'port'          => "{{redis_ports_standalone['devwh']}}",
         'auth'          => null,
@@ -11,7 +11,7 @@ return [
         'databaseMap'   => [],
     ],
     [
-        'name'          => 'redis-testwh',
+        'name'          => 'testwh-redis',
         'host'          => '{{swarm_service_ip}}',
         'port'          => "{{redis_ports_standalone['testwh']}}",
         'auth'          => null,
@@ -20,7 +20,7 @@ return [
         'databaseMap'   => [],
     ],
     [
-        'name'          => 'redis-preprodwh',
+        'name'          => 'preprodwh-redis',
         'host'          => '{{swarm_service_ip}}',
         'port'          => "{{redis_ports_standalone['preprodwh']}}",
         'auth'          => null,
@@ -29,7 +29,7 @@ return [
         'databaseMap'   => [],
     ],  
     [
-        'name'          => 'redis-cluster-devwh1',
+        'name'          => 'devwh-redis1',
         'host'          => '192.168.95.130',
         'port'          => "8111",
         'auth'          => null,
@@ -38,7 +38,7 @@ return [
         'databaseMap'   => [],
     ],
     [
-        'name'          => 'redis-cluster-devwh2',
+        'name'          => 'devwh-redis2',
         'host'          => '192.168.95.130',
         'port'          => "8112",
         'auth'          => null,
@@ -47,7 +47,7 @@ return [
         'databaseMap'   => [],
     ],
     [
-        'name'          => 'redis-cluster-devwh3',
+        'name'          => 'devwh-redis3',
         'host'          => '192.168.95.131',
         'port'          => "8113",
         'auth'          => null,
@@ -56,8 +56,8 @@ return [
         'databaseMap'   => [],
     ], 
     [
-        'name'          => 'redis-cluster-devwh4',
-        'host'          => '192.168.95.132',
+        'name'          => 'devwh-redis4',
+        'host'          => '192.168.95.131',
         'port'          => "8114",
         'auth'          => null,
         'timeout'       => 2.5,
@@ -65,8 +65,8 @@ return [
         'databaseMap'   => [],
     ],
     [
-        'name'          => 'redis-cluster-devwh5',
-        'host'          => '192.168.95.133',
+        'name'          => 'devwh-redis5',
+        'host'          => '192.168.95.132',
         'port'          => "8115",
         'auth'          => null,
         'timeout'       => 2.5,
@@ -74,8 +74,8 @@ return [
         'databaseMap'   => [],
     ],
     [
-        'name'          => 'redis-cluster-devwh6',
-        'host'          => '192.168.95.133',
+        'name'          => 'devwh-redis6',
+        'host'          => '192.168.95.132',
         'port'          => "8116",
         'auth'          => null,
         'timeout'       => 2.5,
