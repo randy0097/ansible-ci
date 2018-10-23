@@ -14,6 +14,6 @@ services:
       mode: replicated
       replicas: 1
     ports:
-      - "{{redis_port_cluster}}:6379"
-      - "{{redis_port_cluster|int+10000}}:16379"
+      - "{{redis_port_cluster}}"
+      - "{{redis_port_cluster|int+10000}}"
     network_mode: host
