@@ -39,6 +39,7 @@ mysql_ports:
   testwh: 8200
   preprodwh: 8300
   prodwh: 8400
+  bigdatatest: 8500
   all: 8900
 mysql_port: "{{mysql_ports[env]}}"
 
@@ -48,6 +49,7 @@ redis_ports_standalone:
   testwh: 8210
   preprodwh: 8310
   prodwh: 8410
+  bigdatatest: 8510
 redis_port_standalone: "{{redis_ports_standalone[env]}}"
 
 # redis_ports_cluster:
@@ -107,13 +109,13 @@ tomcat_ports:
     testwh: 8220
     preprodwh: 8320
     prodwh: 8420
-    bigdata: 8520
+    bigdatatest: 8520
   cas:
     devwh: 8130
     testwh: 8230
     preprodwh: 8330
     prodwh: 8430
-    bigdata: 8530
+    bigdatatest: 8530
   licenseManager:
     devwh: 8140
     testwh: 8240
