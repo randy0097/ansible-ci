@@ -14,4 +14,7 @@
 192.168.95.131 ansible_ssh_user=root ansible_ssh_pass=Ultrapower@2018
 
 [guiyang]
-192.168.95.131 ansible_ssh_user=root ansible_ssh_pass=Ultrapower@2018
+83.102.4.63 ansible_ssh_user=root ansible_ssh_pass=111111
+
+[bigdatatest]
+192.168.95.130 ansible_ssh_user=root ansible_ssh_pass=Ultrapower@2018
