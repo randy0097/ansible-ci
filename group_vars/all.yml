@@ -60,7 +60,7 @@ envToConfig:
   prodwh: prodwh.json
   guiyangtest: guiyangtest.json
   guiyang: guiyang.json  
-
+  bigdatatest: bigdatatest.json
 configFile: "{{envToConfig[env]}}"
 
 envToActive:
@@ -70,7 +70,8 @@ envToActive:
   prodwh: prodwh
   guiyangtest: guiyangtest
   guiyang: guiyang
-  
+  bigdatatest: bigdatatest
+
 spring_profiles_active: "{{envToActive[env]}}"
 spring_profiles_active_old: "devwh"
 
@@ -81,6 +82,7 @@ envToSwagger:
   prodwh: false
   guiyangtest: false
   guiyang: false
+  bigdatatest: false
 
 swagger_active: "{{envToSwagger[env]}}"
 
