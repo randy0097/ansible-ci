@@ -107,11 +107,13 @@ tomcat_ports:
     testwh: 8220
     preprodwh: 8320
     prodwh: 8420
+    bigdata: 8520
   cas:
     devwh: 8130
     testwh: 8230
     preprodwh: 8330
     prodwh: 8430
+    bigdata: 8530
   licenseManager:
     devwh: 8140
     testwh: 8240
