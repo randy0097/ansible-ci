@@ -12,6 +12,7 @@ services:
       # - /glusterfs_mnt/{{mysql_mount_data}}/alldb_backup.sql:/docker-entrypoint-initdb.d/alldb_backup.sql
       - /glusterfs_mnt/{{mysql_mount_data}}/mysql_init:/docker-entrypoint-initdb.d
       # - /glusterfs_mnt/{{mysql_mount_data}}/mysql_entrypoint.sh:/root/temp/mysql_entrypoint.sh
+      - /glusterfs_mnt/{{mysql_mount_data}}/my.cnf:/etc/mysql/my.cnf
       - /etc/timezone:/etc/timezone
       - /etc/localtime:/etc/localtime      
     deploy:

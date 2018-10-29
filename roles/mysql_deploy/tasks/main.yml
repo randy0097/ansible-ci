@@ -33,6 +33,13 @@
 #     mode: 0777
 #     force: yes
 
+- name: copy my.cnf to remote
+  template: 
+    src: my.cnf
+    dest: /glusterfs_mnt/{{mysql_mount_data}}/my.cnf
+    mode: 0644
+    force: yes
+
 - name: copy stack.yml to remote
   template: 
     src: mysql_stack.yml 
