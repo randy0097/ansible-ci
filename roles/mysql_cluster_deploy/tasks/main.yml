@@ -32,7 +32,7 @@
     dest: /glusterfs_mnt/{{mysql_mount_data}}/my.cnf
     mode: 0644
     force: yes
-  when: mysql_type == master
+  when: mysql_type == 'master'
 
 - name: copy my.cnf.slave to remote
   template: 
