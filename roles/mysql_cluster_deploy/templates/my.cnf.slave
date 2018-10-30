@@ -33,9 +33,9 @@ wait_timeout=120
 interactive_timeout=120
 
 # cluster
-log_bin=OFF
+log_bin=ON
 server_id=2
-log_slave_updates=OFF
+log_slave_updates=ON
 
 # Custom config should go here
 !includedir /etc/mysql/conf.d/
