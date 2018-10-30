@@ -40,6 +40,8 @@ mysql_ports:
   preprodwh: 8300
   prodwh: 8400
   bigdatatest: 8500
+  mysql1: 8810
+  mysql2: 8820
   all: 8900
 mysql_port: "{{mysql_ports[env]}}"
 
