@@ -27,9 +27,15 @@ secure-file-priv= NULL
 # Disabling symbolic-links is recommended to prevent assorted security risks
 symbolic-links=0
 
+#optimization
 max_connections=1000
 wait_timeout=120
 interactive_timeout=120
+
+# cluster
+log_bin=OFF
+server_id=2
+log_slave_updates=OFF
 
 # Custom config should go here
 !includedir /etc/mysql/conf.d/
