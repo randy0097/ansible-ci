@@ -33,6 +33,7 @@ wait_timeout=120
 interactive_timeout=120
 
 # cluster
+skip_slave_start
 log_bin=ON
 server_id=2
 log_slave_updates=ON
