@@ -1,0 +1,5 @@
+---
+- name:  deploy mysql cluster
+  hosts: "{{groups['swarm_manager'][0]}}"
+  roles:
+  - role: mysql_cluster_deploy      

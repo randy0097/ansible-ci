@@ -1,0 +1,53 @@
+- name: create remote temp dir
+  file: 
+    path: "{{remote_temp}}"
+    state: directory 
+
+# - name: clean mysql mount data directory
+#   file: 
+#     path: /glusterfs_mnt/{{mysql_mount_data}}
+#     state: absent
+
+- name: create mysql_data directory
+  file: 
+    path: /glusterfs_mnt/{{mysql_mount_data}}/mysql_data
+    state: directory
+
+- name: create mysql_init directory
+  file: 
+    path: /glusterfs_mnt/{{mysql_mount_data}}/mysql_init
+    state: directory
+
+- name: copy mysql data backup file to remote
+  copy: 
+    src: "{{local_temp}}/alldb_backup.sql"
+    dest: /glusterfs_mnt/{{mysql_mount_data}}/mysql_init/alldb_backup.sql  
+    mode: 0644
+    force: yes
+  when: mysql_restore == true
+
+- name: copy my.cnf.master to remote
+  template: 
+    src: my.cnf.master
+    dest: /glusterfs_mnt/{{mysql_mount_data}}/my.cnf
+    mode: 0644
+    force: yes
+  when: mysql_type == master
+
+- name: copy my.cnf.slave to remote
+  template: 
+    src: my.cnf.slave
+    dest: /glusterfs_mnt/{{mysql_mount_data}}/my.cnf
+    mode: 0644
+    force: yes
+  when: mysql_type == slave
+  
+- name: copy stack.yml to remote
+  template: 
+    src: mysql_stack.yml 
+    dest: "{{remote_temp}}/mysql_stack.yml"
+
+- name: deploy stack
+  command: docker stack deploy --compose-file=mysql_stack.yml {{env}}_mysql
+  args: 
+    chdir: "{{remote_temp}}"
