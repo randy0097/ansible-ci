@@ -19,4 +19,4 @@ services:
       mode: replicated
       replicas: 1
     ports:
-      - "{{mysql_port}}:3306"    
+      - "{{mysql_port}}:{{mysql_port}}"    
