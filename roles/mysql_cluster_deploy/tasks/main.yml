@@ -42,12 +42,22 @@
     force: yes
   when: mysql_type == "slave"
   
-- name: copy stack.yml to remote
-  template: 
-    src: mysql_stack.yml 
-    dest: "{{remote_temp}}/mysql_stack.yml"
+# - name: copy stack.yml to remote
+#   template: 
+#     src: mysql_stack.yml 
+#     dest: "{{remote_temp}}/mysql_stack.yml"
 
-- name: deploy stack
-  command: docker stack deploy --compose-file=mysql_stack.yml {{env}}_mysql
+# - name: deploy stack
+#   command: docker stack deploy --compose-file=mysql_stack.yml {{env}}_mysql
+#   args: 
+#     chdir: "{{remote_temp}}"
+
+- name: copy compose.yml to remote
+  template: 
+    src: mysql_compose.yml 
+    dest: "{{remote_temp}}/mysql_compose.yml"
+
+- name: deploy docker-compose
+  command: docker-compose -f mysql_compose.yml -p {{env}}_mysql up -d
   args: 
-    chdir: "{{remote_temp}}"
+    chdir: "{{remote_temp}}"     
