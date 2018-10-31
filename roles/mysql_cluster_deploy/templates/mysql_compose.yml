@@ -17,5 +17,5 @@ services:
       - /etc/localtime:/etc/localtime      
     restart: always  
     network_mode: host
-    ports:
-      - "{{mysql_port}}:{{mysql_port}}"    
+    # ports:
+    #   - "{{mysql_port}}:{{mysql_port}}"    

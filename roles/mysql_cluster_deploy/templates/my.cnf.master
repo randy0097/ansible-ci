@@ -28,6 +28,7 @@ secure-file-priv= NULL
 symbolic-links=0
 
 # optimization
+port={{mysql_port}}
 max_connections=1000
 wait_timeout=120
 interactive_timeout=120
