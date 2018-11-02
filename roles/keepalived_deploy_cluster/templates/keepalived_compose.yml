@@ -3,14 +3,4 @@ version: '3.2'
 services:
   keepalived:
     image: osixia/keepalived:1.2.24
-    # volumes:
-    # - "{{docker_mnt}}/{{nginx_mount_data}}/{{nginx_name_cluster}}/conf/nginx.conf:/etc/nginx/nginx.conf:ro"
-    # - "{{docker_mnt}}/{{nginx_mount_data}}/{{nginx_name_cluster}}/conf/default.conf:/etc/nginx/conf.d/default.conf"
-    # - "{{docker_mnt}}/{{nginx_mount_data}}/{{nginx_name_cluster}}/html/index.html:/usr/share/nginx/html/index.html"
-    # - ./mysite.template:/etc/nginx/conf.d/mysite.template
-    # ports:
-    # - "{{nginx_port_cluster}}:80"
-    # environment:
-    # - NGINX_HOST=foobar.com
-    # - NGINX_PORT=80
     network_mode: host

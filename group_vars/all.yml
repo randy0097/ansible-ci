@@ -142,13 +142,24 @@ nginx_mount_data: "{{env}}_nginx"
 #       ip: 192.168.95.130
 #       port: 8161
 #     nginx2: 
-#       ip: 192.168.95.130
+#       ip: 192.168.95.131
 #       port: 8162
 
 # nginx_ip_cluster
 # nginx_port_cluster
 
 keepalived_mount_data: "{{env}}_keepalived"
+# keepalived_cluster:
+#   devwh:
+#     keepalived1: 
+#       ip: 192.168.95.130
+#       port: 8171
+#     keepalived2: 
+#       ip: 192.168.95.131
+#       port: 8172
+
+# keepalived_ip_cluster
+# keepalived_port_cluster
 
 
 
