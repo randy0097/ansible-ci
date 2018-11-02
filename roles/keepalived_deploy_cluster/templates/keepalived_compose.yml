@@ -3,4 +3,6 @@ version: '3.2'
 services:
   keepalived:
     image: osixia/keepalived:1.2.24
+    cap_add:
+    - NET_ADMIN
     network_mode: host

@@ -50,6 +50,9 @@
 #     dest: "{{docker_mnt}}/{{nginx_mount_data}}/{{nginx_name_cluster}}/html/index.html"  
 #   when: nginx_type == "slave"  
 
+- name: modprobe ip_vs
+  shell: modprobe ip_vs
+
 - name: copy compose.yml to remote
   template: 
     src: keepalived_compose.yml 
