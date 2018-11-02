@@ -1,6 +1,6 @@
 vrrp_instance VI_1 {
   state MASTER
-  interface eth0
+  interface ens160
   virtual_router_id 21
   priority 100
   advert_int 1
@@ -9,6 +9,6 @@ vrrp_instance VI_1 {
     auth_pass 123456
   }
   virtual_ipaddress {
-    192.168.95.139
+    192.168.95.130
   }
 }
