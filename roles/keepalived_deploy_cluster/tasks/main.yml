@@ -1,0 +1,62 @@
+- name: create remote temp dir
+  file: 
+    path: "{{remote_temp}}"
+    state: directory 
+
+- name: create docker mount directory
+  file: 
+    path: "{{docker_mnt}}"
+    state: directory
+
+- name: clean keepalived mount directory
+  file: 
+    path: "{{docker_mnt}}/{{keepalived_mount_data}}"
+    state: absent
+
+- name: create keepalived_name_cluster directory
+  file: 
+    path: "{{docker_mnt}}/{{keepalived_mount_data}}/{{keepalived_name_cluster}}"
+    state: directory
+
+# - name: create nginx conf directory
+#   file: 
+#     path: "{{docker_mnt}}/{{nginx_mount_data}}/{{nginx_name_cluster}}/conf"
+#     state: directory
+
+# - name: copy nginx.conf to remote
+#   template: 
+#     src: nginx.conf
+#     dest: "{{docker_mnt}}/{{nginx_mount_data}}/{{nginx_name_cluster}}/conf/nginx.conf"
+
+# - name: copy default.conf to remote
+#   template: 
+#     src: default.conf
+#     dest: "{{docker_mnt}}/{{nginx_mount_data}}/{{nginx_name_cluster}}/conf/default.conf"
+
+# - name: create nginx html directory
+#   file: 
+#     path: "{{docker_mnt}}/{{nginx_mount_data}}/{{nginx_name_cluster}}/html"
+#     state: directory
+
+# - name: copy index.html.master to remote
+#   template: 
+#     src: index.html.master
+#     dest: "{{docker_mnt}}/{{nginx_mount_data}}/{{nginx_name_cluster}}/html/index.html"  
+#   when: nginx_type == "master"
+
+# - name: copy index.html.slave to remote
+#   template: 
+#     src: index.html.slave
+#     dest: "{{docker_mnt}}/{{nginx_mount_data}}/{{nginx_name_cluster}}/html/index.html"  
+#   when: nginx_type == "slave"  
+
+- name: copy compose.yml to remote
+  template: 
+    src: keepalived_compose.yml 
+    dest: "{{remote_temp}}/keepalived_compose.yml"
+
+- name: deploy docker-compose
+  command: docker-compose -f keepalived_compose.yml -p {{env}}_{{keepalived_name_cluster}} up -d
+  args: 
+    chdir: "{{remote_temp}}"   
+    
