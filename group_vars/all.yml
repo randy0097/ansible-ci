@@ -132,3 +132,17 @@ tomcat_port: "{{tomcat_ports[tomcat_name][env]}}"
 
 
 
+# nginx_cluster:
+#   devwh:
+#     nginx1: 
+#       ip: 192.168.95.130
+#       port: 8161
+#     nginx2: 
+#       ip: 192.168.95.130
+#       port: 8162
+
+# nginx_ip_cluster
+# nginx_port_cluster
+
+
+
