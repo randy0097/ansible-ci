@@ -2,6 +2,7 @@ vrrp_instance VI_1 {
   state MASTER
   interface ens160
   virtual_router_id 21
+  mcast_src_ip 192.168.95.130
   priority 100
   advert_int 1
   authentication {
@@ -9,6 +10,6 @@ vrrp_instance VI_1 {
     auth_pass 123456
   }
   virtual_ipaddress {
-    192.168.95.130
+    192.168.95.139
   }
 }

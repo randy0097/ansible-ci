@@ -44,7 +44,7 @@
     dest: "{{remote_temp}}/keepalived_compose.yml"
 
 - name: deploy docker-compose
-  command: docker-compose -f keepalived_compose.yml -p {{env}}_{{keepalived_name_cluster}} up -d
+  command: docker-compose -f keepalived_compose.yml -p {{env}}_{{keepalived_name_cluster}} up -d --loglevel debug
   args: 
     chdir: "{{remote_temp}}"   
     

@@ -1,8 +1,9 @@
 vrrp_instance VI_1 {
-  state MASTER
-  interface eth0
+  state BACKUP
+  interface ens160
   virtual_router_id 21
-  priority 100
+  mcast_src_ip 192.168.95.131
+  priority 90
   advert_int 1
   authentication {
     auth_type PASS
