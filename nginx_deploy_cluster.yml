@@ -2,4 +2,4 @@
 - name:  deploy nginx
   hosts: "{{groups['swarm_manager'][0]}}"
   roles:
-  - role: nginx_deploy      
+  - role: nginx_deploy_cluster     
