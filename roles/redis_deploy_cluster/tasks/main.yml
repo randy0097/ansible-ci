@@ -23,18 +23,13 @@
     src: redis.conf
     dest: /glusterfs_mnt/{{redis_mount_data}}/{{redis_name_cluster}}/redis.conf
 
-- name: copy stack.yml to remote
+- name: copy compose.yml to remote
   template: 
-    src: redis_stack.yml 
-    dest: "{{remote_temp}}/redis_stack.yml"
-
-# - name: deploy stack
-#   command: docker stack deploy --compose-file=redis_stack.yml {{env}}_{{redis_name_cluster}}
-#   args: 
-#     chdir: "{{remote_temp}}"
+    src: redis_compose.yml 
+    dest: "{{remote_temp}}/redis_compose.yml"
 
 - name: deploy docker-compose
-  command: docker-compose -f redis_stack.yml -p {{env}}_{{redis_name_cluster}} up -d
+  command: docker-compose -f redis_compose.yml -p {{env}}_{{redis_name_cluster}} up -d
   args: 
     chdir: "{{remote_temp}}"    
 
