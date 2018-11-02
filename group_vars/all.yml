@@ -1,3 +1,7 @@
+glusterfs_mnt: /glusterfs_mnt
+docker_mnt: /docker_mnt
+mnt: "{{glusterfs_mnt}}"
+
 swarm_service_ip: 192.168.95.130
 mysql_restore: false
 mysql_image: mysql:8.0.12
