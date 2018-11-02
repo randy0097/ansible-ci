@@ -3,7 +3,8 @@ version: '3.2'
 services:
   nginx:
     image: nginx:1.14.0
-    # volumes:
+    volumes:
+    - /glusterfs_mnt/{{redis_mount_data}}/{{nginx_name_cluster}}/redis.conf:/etc/nginx/nginx.conf:ro
     # - ./mysite.template:/etc/nginx/conf.d/mysite.template
     ports:
     - "{{nginx_port_cluster}}:80"

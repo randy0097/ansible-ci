@@ -131,7 +131,7 @@ tomcat_ports:
 tomcat_port: "{{tomcat_ports[tomcat_name][env]}}"
 
 
-
+nginx_mount_data: "{{env}}_nginx"
 # nginx_cluster:
 #   devwh:
 #     nginx1: 
