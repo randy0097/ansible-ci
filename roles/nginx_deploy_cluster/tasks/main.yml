@@ -11,7 +11,7 @@
 - name: copy nginx.conf to remote
   template: 
     src: nginx.conf
-    dest: /glusterfs_mnt/{{redis_mount_data}}/{{nginx_name_cluster}}/redis.conf
+    dest: /glusterfs_mnt/{{nginx_mount_data}}/{{nginx_name_cluster}}/redis.conf
 
 - name: copy stack.yml to remote
   template: 
