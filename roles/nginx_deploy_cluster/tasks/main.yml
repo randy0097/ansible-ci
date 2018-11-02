@@ -28,6 +28,23 @@
     src: default.conf
     dest: /glusterfs_mnt/{{nginx_mount_data}}/{{nginx_name_cluster}}/conf/default.conf
 
+- name: create nginx html directory
+  file: 
+    path: /glusterfs_mnt/{{nginx_mount_data}}/{{nginx_name_cluster}}/html
+    state: directory
+
+- name: copy index.html.master to remote
+  template: 
+    src: index.html.master
+    dest: /glusterfs_mnt/{{nginx_mount_data}}/{{nginx_name_cluster}}/html/index.html  
+  when: nginx_type == "master"
+
+- name: copy index.html.slave to remote
+  template: 
+    src: index.html.slave
+    dest: /glusterfs_mnt/{{nginx_mount_data}}/{{nginx_name_cluster}}/html/index.html  
+  when: nginx_type == "slave"  
+
 # - name: copy stack.yml to remote
 #   template: 
 #     src: nginx-stack.yml 
