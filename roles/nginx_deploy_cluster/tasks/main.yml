@@ -8,20 +8,38 @@
     path: /glusterfs_mnt/{{nginx_mount_data}}/{{nginx_name_cluster}}
     state: directory
 
+- name: create nginx conf directory
+  file: 
+    path: /glusterfs_mnt/{{nginx_mount_data}}/{{nginx_name_cluster}}/conf
+    state: directory
+
 - name: copy nginx.conf to remote
   template: 
     src: nginx.conf
-    dest: /glusterfs_mnt/{{nginx_mount_data}}/{{nginx_name_cluster}}/redis.conf
+    dest: /glusterfs_mnt/{{nginx_mount_data}}/{{nginx_name_cluster}}/conf/redis.conf
 
-- name: copy stack.yml to remote
+- name: copy default.conf to remote
   template: 
-    src: nginx-stack.yml 
-    dest: "{{remote_temp}}/nginx-stack.yml"
+    src: default.conf
+    dest: /glusterfs_mnt/{{nginx_mount_data}}/{{nginx_name_cluster}}/conf/default.conf
 
-- name: deploy stack
-  command: docker stack deploy --compose-file=nginx-stack.yml {{env}}_nginx 
+# - name: copy stack.yml to remote
+#   template: 
+#     src: nginx-stack.yml 
+#     dest: "{{remote_temp}}/nginx-stack.yml"
+
+# - name: deploy stack
+#   command: docker stack deploy --compose-file=nginx-stack.yml {{env}}_nginx 
+#   args: 
+#     chdir: "{{remote_temp}}"
+
+- name: copy compose.yml to remote
+  template: 
+    src: nginx_compose.yml 
+    dest: "{{remote_temp}}/nginx_compose.yml"
+
+- name: deploy docker-compose
+  command: docker-compose -f nginx_compose.yml -p {{env}}_{{nginx_name_cluster}} up -d
   args: 
-    chdir: "{{remote_temp}}"
-
-
+    chdir: "{{remote_temp}}"   
     

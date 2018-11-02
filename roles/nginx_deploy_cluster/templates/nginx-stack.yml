@@ -4,7 +4,8 @@ services:
   nginx:
     image: nginx:1.14.0
     volumes:
-    - /glusterfs_mnt/{{nginx_mount_data}}/{{nginx_name_cluster}}/redis.conf:/etc/nginx/nginx.conf:ro
+    - /glusterfs_mnt/{{nginx_mount_data}}/{{nginx_name_cluster}}/conf/redis.conf:/etc/nginx/nginx.conf:ro
+    - /glusterfs_mnt/{{nginx_mount_data}}/{{nginx_name_cluster}}/conf/default.conf:/etc/nginx/conf.d/default.conf
     # - ./mysite.template:/etc/nginx/conf.d/mysite.template
     ports:
     - "{{nginx_port_cluster}}:80"
