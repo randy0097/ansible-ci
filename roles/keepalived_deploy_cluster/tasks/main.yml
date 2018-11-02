@@ -18,37 +18,22 @@
     path: "{{docker_mnt}}/{{keepalived_mount_data}}/{{keepalived_name_cluster}}"
     state: directory
 
-# - name: create nginx conf directory
-#   file: 
-#     path: "{{docker_mnt}}/{{nginx_mount_data}}/{{nginx_name_cluster}}/conf"
-#     state: directory
+- name: create keepalived conf directory
+  file: 
+    path: "{{docker_mnt}}/{{keepalived_mount_data}}/{{keepalived_name_cluster}}/conf"
+    state: directory
 
-# - name: copy nginx.conf to remote
-#   template: 
-#     src: nginx.conf
-#     dest: "{{docker_mnt}}/{{nginx_mount_data}}/{{nginx_name_cluster}}/conf/nginx.conf"
+- name: copy keepalived.conf.master to remote
+  template: 
+    src: keepalived.conf.master
+    dest: "{{docker_mnt}}/{{keepalived_mount_data}}/{{keepalived_name_cluster}}/conf/keepalived.conf"  
+  when: keepalived_type == "master"
 
-# - name: copy default.conf to remote
-#   template: 
-#     src: default.conf
-#     dest: "{{docker_mnt}}/{{nginx_mount_data}}/{{nginx_name_cluster}}/conf/default.conf"
-
-# - name: create nginx html directory
-#   file: 
-#     path: "{{docker_mnt}}/{{nginx_mount_data}}/{{nginx_name_cluster}}/html"
-#     state: directory
-
-# - name: copy index.html.master to remote
-#   template: 
-#     src: index.html.master
-#     dest: "{{docker_mnt}}/{{nginx_mount_data}}/{{nginx_name_cluster}}/html/index.html"  
-#   when: nginx_type == "master"
-
-# - name: copy index.html.slave to remote
-#   template: 
-#     src: index.html.slave
-#     dest: "{{docker_mnt}}/{{nginx_mount_data}}/{{nginx_name_cluster}}/html/index.html"  
-#   when: nginx_type == "slave"  
+- name: copy keepalived.conf.slave to remote
+  template: 
+    src: keepalived.conf.slave
+    dest: "{{docker_mnt}}/{{keepalived_mount_data}}/{{keepalived_name_cluster}}/conf/keepalived.conf"  
+  when: keepalived_type == "slave" 
 
 - name: modprobe ip_vs
   shell: modprobe ip_vs
