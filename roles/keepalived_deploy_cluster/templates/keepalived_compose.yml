@@ -8,3 +8,5 @@ services:
     cap_add:
     - NET_ADMIN
     network_mode: host
+    environment:
+    - loglevel=debug   
