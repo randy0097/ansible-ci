@@ -161,5 +161,15 @@ keepalived_mount_data: "{{env}}_keepalived"
 # keepalived_ip_cluster
 # keepalived_port_cluster
 
+kafka_mount_data: "{{env}}_kafka"
+kafka_ports_standalone:
+  devwh: 8180
+kafka_port_standalone: "{{kafka_ports_standalone[env]}}"
+
+zookeeper_mount_data: "{{env}}_kafka"
+kafka_ports_standalone:
+  devwh: 8180
+kafka_port_standalone: "{{kafka_ports_standalone[env]}}"
+
 
 
