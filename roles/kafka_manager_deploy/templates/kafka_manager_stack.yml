@@ -5,5 +5,5 @@ services:
     ports:
       - "{{kafka_manager_port}}:9000"
     environment:
-      ZK_HOSTS: "{{swarm_service_ip}}:8180"
+      ZK_HOSTS: "{{swarm_service_ip}}:8190"
       APPLICATION_SECRET: letmein
