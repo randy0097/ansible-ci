@@ -166,10 +166,8 @@ kafka_ports_standalone:
   devwh: 8180
 kafka_port_standalone: "{{kafka_ports_standalone[env]}}"
 
-zookeeper_mount_data: "{{env}}_kafka"
-kafka_ports_standalone:
-  devwh: 8180
-kafka_port_standalone: "{{kafka_ports_standalone[env]}}"
-
-
+zookeeper_mount_data: "{{env}}_zookeeper"
+zookeeper_ports_standalone:
+  devwh: 8190
+zookeeper_port_standalone: "{{zookeeper_ports_standalone[env]}}"
 
