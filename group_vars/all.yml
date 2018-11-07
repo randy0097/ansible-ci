@@ -23,7 +23,7 @@ ansible_git_permission_version: ultra-permission-3.1-docker
 ansible_git_license_version: ultra-license-2.0-docker
 m2_git: git@github.com:randy0098/m2.git
 
-env: prodwh
+env: devwh
 
 portainer_port: 9000
 portainer_agent_port: 9001

@@ -9,7 +9,7 @@
     dest: "{{remote_temp}}/kafka_manager_stack.yml"
 
 - name: deploy stack
-  command: docker stack deploy --compose-file=kafka_manager_stack.yml {{env}}_kafka_manager
+  command: docker stack deploy --compose-file=kafka_manager_stack.yml kafka_manager
   args: 
     chdir: "{{remote_temp}}"
 
