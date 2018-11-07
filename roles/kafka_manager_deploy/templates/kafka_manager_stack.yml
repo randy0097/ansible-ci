@@ -1,0 +1,9 @@
+version: '3.2'
+services:
+  kafka_manager:
+    image: sheepkiller/kafka-manager
+    ports:
+      - "{{kafka_manager_port}}:9000"
+    environment:
+      ZK_HOSTS: "{{swarm_service_ip}}:8180"
+      APPLICATION_SECRET: letmein

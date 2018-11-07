@@ -1,0 +1,5 @@
+---
+- name:  deploy kafka manager
+  hosts: "{{groups['swarm_manager'][0]}}"
+  roles:
+  - role: kafka_manager_deploy

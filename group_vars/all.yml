@@ -35,7 +35,8 @@ readis_port: 9031
 redis_stat_port: 9032
 redis_commander_port: 9033
 phpredmin_port: 9034
-icinga2_port: 9040
+kafka_manager_port: 9040
+icinga2_port: 9090
 
 mysql_mount_data: "{{env}}_mysql"
 mysql_ports:

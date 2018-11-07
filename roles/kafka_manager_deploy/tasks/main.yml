@@ -1,0 +1,17 @@
+- name: create remote temp dir
+  file: 
+    path: "{{remote_temp}}"
+    state: directory 
+
+- name: copy stack.yml to remote
+  template: 
+    src: kafka_manager_stack.yml 
+    dest: "{{remote_temp}}/kafka_manager_stack.yml"
+
+- name: deploy stack
+  command: docker stack deploy --compose-file=kafka_manager_stack.yml {{env}}_kafka_manager
+  args: 
+    chdir: "{{remote_temp}}"
+
+
+    
