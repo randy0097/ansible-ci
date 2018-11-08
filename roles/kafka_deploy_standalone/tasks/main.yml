@@ -3,18 +3,33 @@
     path: "{{remote_temp}}"
     state: directory 
 
+- name: clean kafka mount directory
+  file: 
+    path: /glusterfs_mnt/{{kafka_mount_data}}
+    state: absent
+
+- name: create kafka conf directory
+  file: 
+    path: /glusterfs_mnt/{{kafka_mount_data}}/conf
+    state: directory
+
+- name: copy server.properties to remote
+  template: 
+    src: server.properties
+    dest: /glusterfs_mnt/{{kafka_mount_data}}/conf/server.properties
+
 - name: copy stack.yml to remote
   template: 
     src: kafka_stack.yml 
     dest: "{{remote_temp}}/kafka_stack.yml"
 
-- name: debug
-  debug:
-    var: kafka_port_standalone
+# - name: debug
+#   debug:
+#     var: kafka_port_standalone
 
-- name: debug
-  debug:
-    var: zookeeper_port_standalone
+# - name: debug
+#   debug:
+#     var: zookeeper_port_standalone
 
 - name: deploy stack
   command: docker stack deploy --compose-file=kafka_stack.yml {{env}}_kafka
