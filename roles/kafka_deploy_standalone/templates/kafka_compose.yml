@@ -12,11 +12,11 @@ services:
         protocol: tcp
         mode: host
     environment:
-      HOSTNAME_COMMAND: "docker info | grep ^Name: | cut -d' ' -f 2"
+      # HOSTNAME_COMMAND: "docker info | grep ^Name: | cut -d' ' -f 2"
       KAFKA_ZOOKEEPER_CONNECT: zookeeper:2181
       KAFKA_LISTENER_SECURITY_PROTOCOL_MAP: INSIDE:PLAINTEXT,OUTSIDE:PLAINTEXT
-      KAFKA_ADVERTISED_LISTENERS: INSIDE://:9092,OUTSIDE://_{HOSTNAME_COMMAND}:{{kafka_port_standalone}}
-      # KAFKA_ADVERTISED_LISTENERS: INSIDE://:9092,OUTSIDE://{{swarm_service_ip}}:{{kafka_port_standalone}}
+      # KAFKA_ADVERTISED_LISTENERS: INSIDE://:9092,OUTSIDE://_{HOSTNAME_COMMAND}:{{kafka_port_standalone}}
+      KAFKA_ADVERTISED_LISTENERS: INSIDE://:9092,OUTSIDE://{{kafka_ip_standalone}}:{{kafka_port_standalone}}
       KAFKA_LISTENERS: INSIDE://:9092,OUTSIDE://:{{kafka_port_standalone}}
       KAFKA_INTER_BROKER_LISTENER_NAME: INSIDE
     volumes:
