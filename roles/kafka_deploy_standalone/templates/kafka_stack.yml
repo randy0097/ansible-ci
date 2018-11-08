@@ -17,7 +17,7 @@ services:
       KAFKA_LISTENER_SECURITY_PROTOCOL_MAP: INSIDE:PLAINTEXT,OUTSIDE:PLAINTEXT
       # KAFKA_ADVERTISED_LISTENERS: INSIDE://:9092,OUTSIDE://_{HOSTNAME_COMMAND}:{{kafka_port_standalone}}
       KAFKA_ADVERTISED_LISTENERS: INSIDE://:9092,OUTSIDE://{{swarm_service_ip}}:{{kafka_port_standalone}}
-      KAFKA_LISTENERS: INSIDE://:9092,OUTSIDE://:{{kafka_port_standalone}}
+      KAFKA_LISTENERS: INSIDE://:9092,OUTSIDE://{{swarm_service_ip}}:{{kafka_port_standalone}}
       KAFKA_INTER_BROKER_LISTENER_NAME: INSIDE
     volumes:
       - /var/run/docker.sock:/var/run/docker.sock
