@@ -14,13 +14,13 @@ services:
     environment:
     #   # HOSTNAME_COMMAND: "docker info | grep ^Name: | cut -d' ' -f 2"
       KAFKA_ZOOKEEPER_CONNECT: zookeeper:2181
-    #   KAFKA_LISTENER_SECURITY_PROTOCOL_MAP: INSIDE:PLAINTEXT,OUTSIDE:PLAINTEXT
-    #   # KAFKA_ADVERTISED_LISTENERS: INSIDE://:9092,OUTSIDE://_{HOSTNAME_COMMAND}:{{kafka_port_standalone}}
-    #   KAFKA_ADVERTISED_LISTENERS: INSIDE://:9092,OUTSIDE://{{swarm_service_ip}}:{{kafka_port_standalone}}
-    #   KAFKA_LISTENERS: INSIDE://:9092,OUTSIDE://{{swarm_service_ip}}:{{kafka_port_standalone}}
-    #   KAFKA_INTER_BROKER_LISTENER_NAME: INSIDE
+      KAFKA_LISTENER_SECURITY_PROTOCOL_MAP: INSIDE:PLAINTEXT,OUTSIDE:PLAINTEXT
+      # KAFKA_ADVERTISED_LISTENERS: INSIDE://:9092,OUTSIDE://_{HOSTNAME_COMMAND}:{{kafka_port_standalone}}
+      KAFKA_ADVERTISED_LISTENERS: INSIDE://:9092,OUTSIDE://{{swarm_service_ip}}:{{kafka_port_standalone}}
+      KAFKA_LISTENERS: INSIDE://:9092,OUTSIDE://{{swarm_service_ip}}:{{kafka_port_standalone}}
+      KAFKA_INTER_BROKER_LISTENER_NAME: INSIDE
     volumes:
       - /var/run/docker.sock:/var/run/docker.sock
-      - /glusterfs_mnt/{{kafka_mount_data}}/conf/server.properties:/opt/kafka/config/server.properties
+      # - /glusterfs_mnt/{{kafka_mount_data}}/conf/server.properties:/opt/kafka/config/server.properties
       - /etc/timezone:/etc/timezone
       - /etc/localtime:/etc/localtime      
